@@ -1,0 +1,1 @@
+module.exports = process.env.JWTKEY || "BC476DE91C5F7CDCC2235FF3AEC6664FA6B3B6C3";
