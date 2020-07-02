@@ -3,7 +3,6 @@ const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const key = require('../utilities/key');
 const bcrypt = require('bcrypt');
-const User = require('./models/user');
 const nodemailer = require('nodemailer');
 const baseurl = require('../utilities/baseurl');
 

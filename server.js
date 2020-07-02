@@ -24,6 +24,10 @@ app.use((req, res, next) => {
 	next();
 });
 
+// Serving Static Admin and Public folder 
+app.use(express.static('admin'));
+app.use(express.static('public'));
+
 app.use('/user', userRouter);
 
 // Handling undefined routes

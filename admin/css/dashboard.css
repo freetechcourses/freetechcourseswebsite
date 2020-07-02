@@ -1,0 +1,82 @@
+/* Global styles */
+@font-face {
+  font-family: OpenSans;
+  src: url('../assets/fonts/OpenSans-Regular.ttf');
+}
+
+body {
+  font-family: OpenSans, sans-serif;
+  background: #eee;
+}
+/* End Of Global styles */
+
+/* Navbar */
+.navbar-brand {
+  font-family: monospace;
+  font-size: 22px;
+}
+
+.sidebar {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),
+    url('../assets/img/sidebar.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 5px 7px 25px #999;
+}
+
+.button-border {
+  border-bottom: 1px groove #eee;
+}
+
+.sidebar-link {
+  transition: all 0.4s;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.sidebar-link:hover {
+  background-color: #444;
+}
+
+.current {
+  background-color: #14d3c9;
+  box-shadow: 2px 5px 10px #111;
+  transition: all 0.3s;
+}
+
+.current:hover {
+  background-color: #1baabd;
+  box-shadow: 2px 5px 20px #111;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0;
+    margin: 0;
+  }
+  .sidebar {
+    position: static;
+    height: auto;
+    width: 100vw;
+  }
+  .top-navbar {
+    position: static;
+  }
+}
+/* End Of Navbar */
+
+/* Settings */
+.change-password,
+#error-message {
+  display: none;
+}
+/* End Of Settings */
+
+/* Footer */
+.footer {
+  bottom: 0;
+}
+/* End Of Footer */
