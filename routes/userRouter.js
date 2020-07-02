@@ -87,4 +87,18 @@ router.post('/changepassword', async (req,res,next) => {
 	} catch(err){ next(err); }
 });
 
+
+router.get('/verifytoken', (req,res,next)=>{
+	try{
+		let { token } = req.headers;
+		jwt.verify(token, key);
+		res.status(200).json({ ok:1 });
+	} catch(err){
+		let e = new Error('Invalid token');
+		e.status = 401;
+		next(e);
+		return;
+	}
+});
+
 module.exports = router;
