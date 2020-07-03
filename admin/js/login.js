@@ -13,8 +13,10 @@ document.getElementById('login-button').addEventListener('click', async () => {
       }),
     });
 
-    response.ok
-      ? sessionStorage.setItem('token', response.token)
+    const data = await response.json();
+
+    data.ok
+      ? sessionStorage.setItem('token', data.token)
       : (document.querySelector('.error-message-alert').style.display =
           'block');
   } catch (err) {
