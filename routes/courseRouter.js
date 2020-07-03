@@ -33,7 +33,7 @@ const Course = require("../models/data");
 
 router.get("/", (req, res, next) => {
   Course.find()
-    .select("name description courseImage link date categories technologies")
+    .select("name _id description courseImage link date categories technologies")
     .exec()
     .then((docs) => {
       const response = {
@@ -41,9 +41,9 @@ router.get("/", (req, res, next) => {
         courses: docs.map((doc) => {
           return {
             name: doc.name,
+            _id: doc._id,
             description: doc.description,
-            courseImage: doc.courseImage,
-            link: doc.hyperlink,
+            //link: doc.hyperlink,
             date: doc.date,
             categories: doc.categories,
             technologies: doc.technologies,
@@ -69,12 +69,12 @@ router.get("/", (req, res, next) => {
 router.post("/", (req, res, next) => {
   console.log(req.file);
   const course = new Course({
+    _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
     description: req.body.description,
-    courseImage: req.file.path,
-    link: doc.hyperlink,
-    categories: doc.categories,
-    technologies: doc.technologies,
+    //link: req.body.hyperlink,
+    categories: req.body.categories,
+    technologies: req.body.technologies,
   });
   course
     .save()
@@ -84,9 +84,10 @@ router.post("/", (req, res, next) => {
         message: "Course created successfully",
         createdCourse: {
           name: result.name,
+          _id: result._id,
           description: result.description,
           courseImage: result.courseImage,
-          link: result.hyperlink,
+          //link: result.hyperlink,
           categories: result.categories,
           technologies: result.technologies,
         },
@@ -100,22 +101,16 @@ router.post("/", (req, res, next) => {
     });
 });
 
-router.get("/:name", (req, res, next) => {
-  const id = req.params.productId;
-  Product.findById(id)
-    .select("name description courseImage link date categories technologies")
+router.get("/:courseId", (req, res, next) => {
+  const id = req.params.courseId;
+  Course.findById(id)
+    .select("name _id description courseImage link date categories technologies")
     .exec()
     .then((doc) => {
       console.log("From database", doc);
       if (doc) {
         res.status(200).json({
-          name: doc.name,
-          description: doc.description,
-          courseImage: doc.courseImage,
-          link: doc.hyperlink,
-          date: doc.date,
-          categories: doc.categories,
-          technologies: doc.technologies
+          course: doc
         });
       } else {
         res
@@ -129,21 +124,17 @@ router.get("/:name", (req, res, next) => {
     });
 });
 
-router.patch("/:productId", (req, res, next) => {
-  const id = req.params.productId;
+router.patch("/:courseId", (req, res, next) => {
+  const id = req.params.courseId;
   const updateOps = {};
   for (const ops of req.body) {
     updateOps[ops.propName] = ops.value;
   }
-  Product.update({ _id: id }, { $set: updateOps })
+  Course.update({ _id: id }, { $set: updateOps })
     .exec()
     .then((result) => {
       res.status(200).json({
-        message: "Product updated",
-        request: {
-          type: "GET",
-          url: "http://localhost:3000/products/" + id,
-        },
+        message: "Course updated",
       });
     })
     .catch((err) => {
@@ -154,18 +145,13 @@ router.patch("/:productId", (req, res, next) => {
     });
 });
 
-router.delete("/:productId", (req, res, next) => {
-  const id = req.params.productId;
-  Product.remove({ _id: id })
+router.delete("/:courseId", (req, res, next) => {
+  const id = req.params.courseId;
+  Course.remove({ _id: id })
     .exec()
     .then((result) => {
       res.status(200).json({
-        message: "Product deleted",
-        request: {
-          type: "POST",
-          url: "http://localhost:3000/products",
-          body: { name: "String", price: "Number" },
-        },
+        message: "Course deleted",
       });
     })
     .catch((err) => {
