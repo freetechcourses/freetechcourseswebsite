@@ -33,7 +33,7 @@ const Course = require("../models/data");
 
 router.get("/", (req, res, next) => {
   Course.find()
-    .select("name _id description courseImage link date categories technologies")
+    .select("name _id description courseImage hyperlink date categories technologies")
     .exec()
     .then((docs) => {
       const response = {
@@ -43,7 +43,7 @@ router.get("/", (req, res, next) => {
             name: doc.name,
             _id: doc._id,
             description: doc.description,
-            //link: doc.hyperlink,
+            hyperlink: doc.hyperlink,
             date: doc.date,
             categories: doc.categories,
             technologies: doc.technologies,
@@ -72,7 +72,7 @@ router.post("/", (req, res, next) => {
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
     description: req.body.description,
-    //link: req.body.hyperlink,
+    hyperlink: req.body.hyperlink,
     categories: req.body.categories,
     technologies: req.body.technologies,
   });
@@ -86,8 +86,8 @@ router.post("/", (req, res, next) => {
           name: result.name,
           _id: result._id,
           description: result.description,
-          courseImage: result.courseImage,
-          //link: result.hyperlink,
+          //courseImage: result.courseImage,
+          hyperlink: result.hyperlink,
           categories: result.categories,
           technologies: result.technologies,
         },
@@ -104,7 +104,7 @@ router.post("/", (req, res, next) => {
 router.get("/:courseId", (req, res, next) => {
   const id = req.params.courseId;
   Course.findById(id)
-    .select("name _id description courseImage link date categories technologies")
+    .select("name _id description courseImage hyperlink date categories technologies")
     .exec()
     .then((doc) => {
       console.log("From database", doc);

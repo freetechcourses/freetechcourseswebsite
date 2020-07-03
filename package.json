@@ -18,5 +18,8 @@
     "mongoose": "^5.9.20",
     "morgan": "^1.10.0",
     "nodemailer": "^6.4.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }

@@ -10,10 +10,10 @@ const dataSchema = new mongoose.Schema({
 	courseImage: {
 		type: String,
 	},
-	/*hyperlink: {
+	hyperlink: {
 		type: String,
 		required: true
-	},*/
+	},
 	date: {
 		type: Date,
 		default: Date.now()
