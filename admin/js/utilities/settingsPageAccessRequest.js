@@ -10,7 +10,10 @@ document.getElementById('settings-button').addEventListener('click', () => {
 
   fetch(`${url}/user/login`, {
     method: 'POST',
-    body: formData,
+    body: JSON.stringify({
+      username,
+      password,
+    }),
   })
     .then((res) => {
       return res.json();

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CDN -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome CDN -->
+    <script
+      src="https://kit.fontawesome.com/92dcb555c1.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="./css/login.css" />
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div class="container-fluid bg">
+      <div class="row">
+        <div class="col-md-6 col-sm-8 col-xs-12" style="margin: auto;">
+          <div class="centered">
+            <form class="form-container">
+              <h2>Welcome to the Login Page for Admin Panel</h2>
+              <h4>Login to continue</h4>
+              <div class="input-container">
+                <i class="fas fa-envelope icon"></i>
+                <input
+                  type="email"
+                  id="email"
+                  aria-describedby="emailHelp"
+                  placeholder="Email"
+                />
+              </div>
+
+              <div class="input-container">
+                <i class="fas fa-lock icon"></i>
+                <input type="password" id="password" placeholder="Password" />
+              </div>
+
+              <div
+                class="alert alert-danger alert-dismissible fade show error-message-alert"
+                role="alert"
+              >
+                <p class="error-message text-danger">Invalid Credentials</p>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="alert"
+                  aria-label="Close"
+                >
+                  <span>&times;</span>
+                </button>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-success btn-block"
+                id="login-button"
+              >
+                Login
+              </button>
+              <div id="forgot-password"><a href="#">Forgot password?</a></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Boostrap, Popper jQuery JS CDNs -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="./js/utilities/baseUrl.js"></script>
+    <script src="./js/login.js"></script>
+  </body>
+</html>

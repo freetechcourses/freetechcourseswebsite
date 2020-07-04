@@ -2,7 +2,7 @@ const User = require('../models/user');
 const bcrypt = require('bcrypt');
 
 const context = process.argv[2] || "local";
-require('./dbconfig/connect')(context);
+require('../dbconfig/connect')(context);
 
 (async () => {
 	let passhash = await bcrypt.hash('admin', 10);

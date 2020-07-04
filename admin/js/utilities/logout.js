@@ -1,4 +1,4 @@
 // Logging out
 document.getElementById('logout').addEventListener('click', () => {
-  localStorage.removeItem('token');
+  sessionStorage.removeItem('token');
 });

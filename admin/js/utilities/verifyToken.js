@@ -2,7 +2,7 @@
 fetch(`${url}/user/verifytoken`, {
   method: 'GET',
   headers: {
-    token: `${localStorage.getItem('token')}`,
+    token: `${sessionStorage.getItem('token')}`,
   },
 })
   .then((res) => {
