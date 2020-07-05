@@ -16,6 +16,10 @@ app.use(bodyparser.json());
 app.use(express.static('admin'));
 app.use(express.static('public'));
 
+app.get('/', (req, res) => {
+	res.redirect('/login.html');
+})
+
 // Allow Cross-Origin-Requests
 app.use((req, res, next) => {
 	res.set('Access-Control-Allow-Origin', '*');

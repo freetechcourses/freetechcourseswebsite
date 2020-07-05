@@ -1,35 +1,31 @@
 // Settings form
-document.getElementById('settings-button').addEventListener('click', () => {
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
+document
+  .getElementById('settings-button')
+  .addEventListener('click', async () => {
+    try {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
 
-  const formData = new FormData();
+      const response = await fetch(`${url}/user/login`, {
+        method: 'POST',
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
 
-  formData.append('username', username);
-  formData.append('password', password);
+      const data = await response.json();
 
-  fetch(`${url}/user/login`, {
-    method: 'POST',
-    body: JSON.stringify({
-      username,
-      password,
-    }),
-  })
-    .then((res) => {
-      return res.json();
-    })
-    .then((res) => {
-      if (res.ok) {
+      console.log(data);
+      if (data.ok) {
         window.location.href = '/settings.html';
         document.querySelector('#error-message').style.display = 'none';
       } else {
         document.querySelector('#error-message').style.display = 'block';
       }
-    })
-    .catch((err) => {
-      console.log(err);
+    } catch (err) {
       window.location.href = '/settings.html';
-    });
+    }
 
-  document.querySelector('#settings-form').reset();
-});
+    document.querySelector('#settings-form').reset();
+  });

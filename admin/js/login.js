@@ -1,6 +1,7 @@
 // Login Request
-document.getElementById('login-button').addEventListener('click', async () => {
+document.getElementById('login-button').addEventListener('click', async (e) => {
   try {
+    e.preventDefault();
     const email = document.querySelector('#email').value;
     const password = document.querySelector('#password').value;
 
@@ -15,10 +16,12 @@ document.getElementById('login-button').addEventListener('click', async () => {
 
     const data = await response.json();
 
-    data.ok
-      ? sessionStorage.setItem('token', data.token)
-      : (document.querySelector('.error-message-alert').style.display =
-          'block');
+    if (data.ok) {
+      sessionStorage.setItem('token', data.token);
+      window.location.href = '/dashboard.html';
+    } else {
+      document.querySelector('.error-message-alert').style.display = 'block';
+    }
   } catch (err) {
     document.querySelector('.error-message').innerHTML =
       'Some error occured. Refresh browser and try again';
