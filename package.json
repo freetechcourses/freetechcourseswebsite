@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js online",
-    "local": "node server.js local",
-    "docker": "node server.js docker"
+    "start": "nodemon server.js online",
+    "local": "nodemon server.js local",
+    "docker": "nodemon server.js docker"
   },
   "author": "",
   "license": "ISC",
