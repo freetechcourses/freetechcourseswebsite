@@ -118,13 +118,11 @@
                         </button>
                         <div class="dropdown-menu">
                           <a
-                            href="#"
+                            href="dashboard.html"
                             class="dropdown-item"
-                            data-toggle="modal"
-                            data-target="#settings-modal"
                           >
-                            <i class="fas fa-cog fa-lg mr-2 text-secondary"></i>
-                            Settings
+                            <i class="fas fa-home fa-lg mr-2 text-primary"></i>
+                            Dashboard
                           </a>
                           <a
                             href="#"
@@ -181,75 +179,6 @@
       </div>
     </div>
     <!-- End Of Logout Modal -->
-
-    <!-- Settings Modal -->
-    <div class="modal fade" id="settings-modal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">
-              Before you go to settings...
-            </h4>
-            <button type="button" class="close" data-dismiss="modal">
-              &times;
-            </button>
-          </div>
-          <div class="modal-body">
-            <p class="text-center">
-              Please enter your credentials again to access Settings
-            </p>
-            <p class="text-center">
-              <small class="text-muted">
-                (This is required to keep the admin panel secure)
-              </small>
-            </p>
-            <form class="p-4" id="settings-form" enctype="multipart/form-data">
-              <div class="form-group row">
-                <label for="username" class="col-12 col-form-label">
-                  Username
-                </label>
-                <input
-                  type="text"
-                  id="username"
-                  class="col-12 form-control"
-                  placeholder="Enter Username"
-                  required
-                />
-              </div>
-              <div class="form-group row">
-                <label for="password" class="col-12 col-form-label">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  class="col-12 form-control"
-                  placeholder="Enter Password"
-                  required
-                />
-              </div>
-              <div class="row">
-                <p class="col-12 text-center">
-                  <small id="error-message">Invalid Credentials</small>
-                </p>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer justify-content-center">
-            <a
-              type="button"
-              href="#"
-              id="settings-button"
-              class="btn btn-secondary"
-            >
-              <i class="fas fa-cog fa-lg mr-2"></i>
-              Go to Settings
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Of Settings Modal -->
 
     <!-- Settings Section -->
     <div class="container-fluid">
@@ -321,6 +250,9 @@
                   >
                     Change Password
                   </button>
+                  <div id="forgot-password">
+                    <a href="#">Forgot password?</a>
+                  </div>
                 </div>
               </form>
             </div>

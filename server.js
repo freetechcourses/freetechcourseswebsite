@@ -2,28 +2,23 @@ const express = require('express');
 const bodyparser = require('body-parser');
 const log = require('morgan');
 const app = express();
-const mongoose = require("mongoose");
-
 
 const userRouter = require('./routes/userRouter');
 const courseRouter = require('./routes/courseRouter');
-
-mongoose.connect(
-	"mongodb+srv://freetechcouses:" +
-	process.env.MONGO_ATLAS_PW +
-	"@cluster0.hcs8o.mongodb.net/<dbname>?retryWrites=true&w=majority",
-	{
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-	}
-);
-mongoose.Promise = global.Promise;
 
 const context = process.argv[2] || "local";
 require('./dbconfig/connect')(context);
 
 app.use(log('dev'));
 app.use(bodyparser.json());
+
+// Serving Static Admin and Public folder 
+app.use(express.static('admin'));
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+	res.redirect('/login.html');
+})
 
 // Allow Cross-Origin-Requests
 app.use((req, res, next) => {
@@ -38,9 +33,6 @@ app.use((req, res, next) => {
 	next();
 });
 
-// Serving Static Admin and Public folder 
-app.use(express.static('admin'));
-app.use(express.static('public'));
 
 app.use('/user', userRouter);
 app.use('/data', courseRouter)

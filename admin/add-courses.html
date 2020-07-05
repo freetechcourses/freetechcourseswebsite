@@ -175,133 +175,181 @@
             <i class="fas fa-cog fa-lg mr-2"></i>
             Go to Settings
           </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End Of Settings Modal -->
-
-  <!--Main Content-->
-  <main>
-    <div class="container-fluid row-parent">
-      <div class="row">
-        <div class="container-fluid col-lg-8 col-md-6 col-xs-12">
-          <h1>Add Courses</h1>
-          <form action="#" onsubmit="openModal()" id="myForm">
-            <div class="form-group">
-              <label for="name">Title</label>
-              <input type="text" class="form-control form-control-lg" id="name" aria-describedby="name">
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">Description</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-
-            <div class="form-group">
-              <div class="form-row align-items-center">
-                <div class="col-auto my-1">
-                  <label class="mr-sm-2" for="Skill" style="padding-right: 89px;">Select Skill:</label>
-                  <select class="sel" id="Skill">
-                    <option value="0">None</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
+          <!-- Settings Modal -->
+          <div class="modal fade" id="settings-modal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">
+                    Before you go to settings...
+                  </h4>
+                  <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p class="text-center">
+                    Please enter your credentials again to access Settings
+                  </p>
+                  <p class="text-center">
+                    <small class="text-muted">
+                      (This is required to keep the admin panel secure)
+                    </small>
+                  </p>
+                  <form class="p-4" id="settings-form" enctype="multipart/form-data">
+                    <div class="form-group row">
+                      <label for="email" class="col-12 col-form-label">
+                        Email
+                      </label>
+                      <input type="text" id="email" class="col-12 form-control" placeholder="Enter Email" required />
+                    </div>
+                    <div class="form-group row">
+                      <label for="password" class="col-12 col-form-label">
+                        Password
+                      </label>
+                      <input type="password" id="password" class="col-12 form-control" placeholder="Enter Password"
+                        required />
+                    </div>
+                    <div class="row">
+                      <p class="col-12 text-center">
+                        <small id="error-message" class="text-danger">Invalid Credentials</small>
+                      </p>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer justify-content-center">
+                  <a type="button" href="#" id="settings-button" class="btn btn-secondary">
+                    <i class="fas fa-cog fa-lg mr-2"></i>
+                    Go to Settings
+                  </a>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Of Settings Modal -->
 
-              <div class="form-group">
-                <div class="form-row align-items-center">
-                  <div class="col-auto my-1">
-                    <label class="mr-sm-2" for="tools">Select Tools involved:</label>
-                    <select class="sel" id="tools" multiple>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
+        <!--Main Content-->
+        <main>
+          <div class="container-fluid row-parent">
+            <div class="row">
+              <div class="container-fluid col-lg-8 col-md-6 col-xs-12">
+                <h1>Add Courses</h1>
+                <form action="#" onsubmit="openModal()" id="myForm">
+                  <div class="form-group">
+                    <label for="name">Title</label>
+                    <input type="text" class="form-control form-control-lg" id="name" aria-describedby="name">
                   </div>
-                </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Description</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
 
-                <div class="form-group">
-                  <label for="courseLink">Add link for Course:</label>
-                  <input class="form-control" type="url" id="courseLink" name="courseLink">
-                </div>
-                <div class="form-group">
-                  <label for="imgLink">Add link for Image:</label>
-                  <input class="form-control" type="url" id="imgLink" name="imgLink">
-                </div>
-                <div class="wrap">
-                  <button class="button" type="submit">Add Course!</button>
-                </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </main>
-  <!--End of Main Content-->
+                  <div class="form-group">
+                    <div class="form-row align-items-center">
+                      <div class="col-auto my-1">
+                        <label class="mr-sm-2" for="Skill" style="padding-right: 89px;">Select Skill:</label>
+                        <select class="sel" id="Skill">
+                          <option value="0">None</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+                    </div>
 
-  <!--Success Modal-->
-  <div id="successModal" class="modal fade">
-    <div class="modal-dialog modal-confirm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div class="icon-box">
-            <i class="material-icons">&#xE876;</i>
+                    <div class="form-group">
+                      <div class="form-row align-items-center">
+                        <div class="col-auto my-1">
+                          <label class="mr-sm-2" for="tools">Select Tools involved:</label>
+                          <select class="sel" id="tools" multiple>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="courseLink">Add link for Course:</label>
+                        <input class="form-control" type="url" id="courseLink" name="courseLink">
+                      </div>
+                      <div class="form-group">
+                        <label for="imgLink">Add link for Image:</label>
+                        <input class="form-control" type="url" id="imgLink" name="imgLink">
+                      </div>
+                      <div class="wrap">
+                        <button class="button" type="submit">Add Course!</button>
+                      </div>
+                </form>
+              </div>
+            </div>
           </div>
-          <h4 class="modal-title text-center col-12">Success!</h4>
-        </div>
-        <div class="modal-body">
-          <p class="text-center">Course added successfully.</p>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-block" data-dismiss="modal">OK</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--End of Success Modal-->
+        </main>
+        <!--End of Main Content-->
 
-  <!-- Footer -->
-  <div class="container-fluid">
-    <div class="row border-top pt-3 footer">
-      <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
-        <div class="row">
-          <div class="col-lg-6 text-center">
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <a href="#" class="text-dark">FreeTechCourses</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-lg-6 text-center">
-            <p>
-              Footer tag, will decide what to write here
-            </p>
+        <!--Success Modal-->
+        <div id="successModal" class="modal fade">
+          <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="icon-box">
+                  <i class="material-icons">&#xE876;</i>
+                </div>
+                <h4 class="modal-title text-center col-12">Success!</h4>
+              </div>
+              <div class="modal-body">
+                <p class="text-center">Course added successfully.</p>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-block" data-dismiss="modal">OK</button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <!-- End Of Footer -->
+        <!--End of Success Modal-->
 
-  <!-- Bootstrap, Popper and jQuery JS CDNs -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+        <!-- Footer -->
+        <div class="container-fluid">
+          <div class="row border-top pt-3 footer">
+            <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+              <div class="row">
+                <div class="col-lg-6 text-center">
+                  <ul class="list-inline">
+                    <li class="list-inline-item">
+                      <a href="#" class="text-dark">FreeTechCourses</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-6 text-center">
+                  <p>
+                    Footer tag, will decide what to write here
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Of Footer -->
 
-  <!-- Custom Scripts -->
-  <script src="./js/utilities/baseUrl.js"></script>
-  <script src="./js/utilities/verifyToken.js"></script>
-  <script src="./js/utilities/settingsPageAccessRequest.js"></script>
-  <script src="./js/utilities/logout.js"></script>
-  <script src="./js/addCourses.js"></script>
+        <!-- Bootstrap, Popper and jQuery JS CDNs -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+          integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+          crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+          integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+          crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+          integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+          crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+
+        <!-- Custom Scripts -->
+        <script src="./js/utilities/baseUrl.js"></script>
+        <script src="./js/utilities/verifyToken.js"></script>
+        <script src="./js/utilities/settingsPageAccessRequest.js"></script>
+        <script src="./js/utilities/logout.js"></script>
+        <script src="./js/addCourses.js"></script>
 </body>
 
 </html>

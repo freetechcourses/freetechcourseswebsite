@@ -201,11 +201,51 @@
 
               <div class="wrap">
                 <button class="button" type="submit">Delete Course</button>
-              </div>
-          </form>
-        </div>
-      </div>
-    </div>
+                <!-- Settings Modal -->
+                <div class="modal fade" id="settings-modal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">
+                          Before you go to settings...
+                        </h4>
+                        <button type="button" class="close" data-dismiss="modal">
+                          &times;
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p class="text-center">
+                          Please enter your credentials again to access Settings
+                        </p>
+                        <p class="text-center">
+                          <small class="text-muted">
+                            (This is required to keep the admin panel secure)
+                          </small>
+                        </p>
+                        <form class="p-4" id="settings-form" enctype="multipart/form-data">
+                          <div class="form-group row">
+                            <label for="email" class="col-12 col-form-label">
+                              Email
+                            </label>
+                            <input type="text" id="email" class="col-12 form-control" placeholder="Enter Email"
+                              required />
+                          </div>
+                          <div class="form-group row">
+                            <label for="password" class="col-12 col-form-label">
+                              Password
+                            </label>
+                            <input type="password" id="password" class="col-12 form-control"
+                              placeholder="Enter Password" required />
+                          </div>
+                          <div class="row">
+                            <p class="col-12 text-center">
+                              <small id="error-message" class="text-danger">Invalid Credentials</small>
+                            </p>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
   </main>
   <!--End of Main Content-->
 
