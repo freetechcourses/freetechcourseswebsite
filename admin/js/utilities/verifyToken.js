@@ -1,5 +1,5 @@
 // Check if user is logged in or not
-fetch(`${url}/user/verifytoken`, {
+wfetch(`${url}/user/verifytoken`, {
   method: 'GET',
   headers: {
     token: `${sessionStorage.getItem('token')}`,
