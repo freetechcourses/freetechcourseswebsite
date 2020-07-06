@@ -7,9 +7,9 @@ const list = {
 
 module.exports = async context => {
 	try{
-		
 		await mongoose.connect(list[context], { useNewUrlParser:true, useUnifiedTopology:true });
 		console.log("Connected to Database");
+		return;
 	} catch(err){
 		console.log("DATABASE CONNECTION ERROR");
 		process.exit(0);
