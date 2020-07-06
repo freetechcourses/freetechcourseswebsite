@@ -8,7 +8,7 @@ require('../dbconfig/connect')(context);
 	let passhash = await bcrypt.hash('admin', 10);
 	await User.replaceOne(
 		{ email: 'admin@admin.com' },
-		{ email: 'admin@admin.com', passhash },
+		{ email: 'rohitrm0801@gmail.com', passhash },
 		{ upsert: true }
 	);
 	console.log('done');

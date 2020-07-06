@@ -15,8 +15,8 @@
 
 .form-container {
   background-color: white;
-  padding: 40px 50px;
-  margin-top: 10vh;
+  padding: 50px 30px;
+  margin-top: 15vh;
   border-radius: 3px;
 }
 
@@ -60,11 +60,6 @@ input {
 
 input:-webkit-autofill {
   transition: background-color 5000s ease-in-out 0s;
-}
-
-#forgot-password {
-  padding-top: 10px;
-  text-align: right;
 }
 .btn {
   padding: 10px;
