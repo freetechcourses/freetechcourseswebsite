@@ -5,13 +5,13 @@ const key = require('../utilities/key');
 const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const baseurl = require('../utilities/baseurl');
+const b64toa = require('../utilities/btoa');
 
 const transporter = nodemailer.createTransport({
-	host: 'smtp.ethereal.email',
-	port: 587,
+	service: 'Gmail',
 	auth: {
-		user: 'ole9@ethereal.email',
-		pass: '139gy879C2cKgpJy8d'
+		user: 'freeonlinetechcourses@gmail.com',
+		pass: '3of8jhali3nf'
 	}
 });
 
@@ -50,9 +50,13 @@ router.post('/forgotpassword', async (req, res, next) => {
 			from: 'no-reply-server@freetechcourses.com',
 			to: email,
 			subject: 'Password reset request',
-			text: `Recently a password reset request was made for the account linked to this email.\nClick on the link provided below to reset your password:\n\n${baseurl}/resetpassword?resetToken=${resetToken} \n\nThis link is valid only for 60 minutes.\nPlease ignore this email if you were not the one inititating the password reset request.`
+			text: `Recently a password reset request was made for the account linked to this email.\nClick on the link provided below to reset your password:\n\n${baseurl}/user/resetpassword?resetToken=${resetToken} \n\nThis link is valid only for 60 minutes.\nPlease ignore this email if you were not the one inititating the password reset request.`
 		});
-	} catch (err) { next(err); }
+		console.log(sentMail);
+	} catch (err) { 
+		console.log(err);
+		// next(err); 
+	}
 });
 
 
@@ -67,7 +71,7 @@ router.get('/resetpassword', async (req, res, next) => {
 			return;
 		}
 		await jwt.verify(resetToken, key);
-		// put a res.redirect here
+		// add res.redirect here
 	} catch (err) { next(err); }
 });
 
