@@ -1,18 +1,17 @@
 // Check if user is logged in or not
-fetch(`${url}/user/verifytoken`, {
-  method: 'GET',
-  headers: {
-    token: `${sessionStorage.getItem('token')}`,
-  },
-})
-  .then((res) => {
-    return res.json();
-  })
-  .then((res) => {
-    if (!res.ok) {
-      window.location.href = '/login.html';
-    }
-  })
-  .catch((err) => {
+window.onload = async () => {
+  try {
+    const response = await fetch(`${url}/user/verifytoken`, {
+      method: 'GET',
+      headers: {
+        token: `${sessionStorage.getItem('token')}`,
+      },
+    });
+
+    const data = await response.json();
+
+    !data.ok ? (window.location.href = '/login.html') : null;
+  } catch (err) {
     console.log(err);
-  });
+  }
+};
