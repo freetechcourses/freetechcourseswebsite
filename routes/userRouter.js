@@ -72,8 +72,10 @@ router.get('/resetpassword', async (req, res, next) => {
 		}
 		await jwt.verify(resetToken, key);
 		// add res.redirect here
+		res.redirect(`/reset-password.html/?${resetToken}`);
 	} catch (err) {
 		// add res.redirect for bad link page
+		// res.redirect('/forgot-password.html')
 	}
 });
 
