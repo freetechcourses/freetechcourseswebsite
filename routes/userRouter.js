@@ -39,7 +39,7 @@ router.post('/forgotpassword', async (req, res, next) => {
 		let { email } = req.body;
 		let resetToken = jwt.sign({ email }, key, { expiresIn: 60 * 60 });
 		let output = await User.updateOne({ email }, { resetToken });
-		if (output.nModified !== 1) {
+		if (output.nModified !== 1 || output.n !== 1) {
 			let err = new Error('Email not found');
 			err.status = 404;
 			next(err);
