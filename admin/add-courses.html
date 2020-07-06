@@ -8,6 +8,8 @@
       src="https://kit.fontawesome.com/74c1adc36b.js"
       crossorigin="anonymous"
     ></script>
+
+    <!--Material icons-->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -155,19 +157,24 @@
     <!-- End Of Navbar -->
 
     <!-- Logout Modal -->
-    <div class="modal fade" id="logout-modal">
-      <div class="modal-dialog">
+    <div id="logout-modal" class="modal fade">
+      <div class="modal-dialog modal-confirm2">
         <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Want to Leave?</h4>
-            <button type="button" class="close" data-dismiss="modal">
+          <div class="modal-header flex-column">
+            <div class="icon-box2">
+              <img src="./assets/img/question.png" alt="question-mark" />
+            </div>
+            <h4 class="modal-title w-100">Are you sure you want to Log out?</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+            >
               &times;
             </button>
           </div>
-          <div class="modal-body">
-            Press Logout to leave
-          </div>
-          <div class="modal-footer">
+          <div class="modal-footer justify-content-center">
             <button type="button" class="btn btn-success" data-dismiss="modal">
               Stay here
             </button>
