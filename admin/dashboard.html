@@ -142,19 +142,30 @@
     <!-- End Of Navbar -->
 
     <!-- Logout Modal -->
-    <div class="modal fade" id="logout-modal">
-      <div class="modal-dialog">
+    <div id="logout-modal" class="modal fade">
+      <div class="modal-dialog modal-confirm2">
         <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Want to Leave?</h4>
-            <button type="button" class="close" data-dismiss="modal">
-              &times;
-            </button>
+          <button
+            type="button"
+            class="close close-btn"
+            data-dismiss="modal"
+            aria-hidden="true"
+          >
+            &times;
+          </button>
+          <div class="col-12 text-center">
+            <img
+              src="./assets/img/question.png"
+              alt="question-mark"
+              id="question"
+            />
           </div>
-          <div class="modal-body">
-            Press Logout to leave
+          <div class="modal-header flex-column">
+            <h4 class="modal-title w-100 col-12 text-center">
+              Are you sure you want to Log out?
+            </h4>
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer justify-content-center">
             <button type="button" class="btn btn-success" data-dismiss="modal">
               Stay here
             </button>
@@ -176,13 +187,16 @@
     <div class="modal fade" id="settings-modal">
       <div class="modal-dialog">
         <div class="modal-content">
+          <button type="button" class="close close-btn" data-dismiss="modal">
+            &times;
+          </button>
+          <div class="col-12 text-center key-img">
+            <img src="./assets/img/key.png" alt="key-icon" id="key" />
+          </div>
           <div class="modal-header">
-            <h4 class="modal-title">
+            <h4 class="modal-title col-12 text-center">
               Before you go to settings...
             </h4>
-            <button type="button" class="close" data-dismiss="modal">
-              &times;
-            </button>
           </div>
           <div class="modal-body">
             <p class="text-center">
@@ -220,7 +234,9 @@
               </div>
               <div class="row">
                 <p class="col-12 text-center">
-                  <small id="error-message" class="text-danger">Invalid Credentials</small>
+                  <small id="error-message" class="text-danger"
+                    >Invalid Credentials</small
+                  >
                 </p>
               </div>
             </form>

@@ -1,7 +1,7 @@
 /* Global styles */
 @font-face {
   font-family: OpenSans;
-  src: url('../assets/fonts/OpenSans-Regular.ttf');
+  src: url("../assets/fonts/OpenSans-Regular.ttf");
 }
 
 body {
@@ -20,7 +20,7 @@ body {
 .sidebar {
   height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),
-    url('../assets/img/sidebar.jpg');
+    url("../assets/img/sidebar.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -98,7 +98,7 @@ body {
 
 h1,
 label {
-  font-family: 'Archivo Narrow', sans-serif;
+  font-family: "Archivo Narrow", sans-serif;
 }
 
 /*inputs*/
@@ -113,7 +113,7 @@ input:hover {
 textarea:hover {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
 }
-input[type='url'] {
+input[type="url"] {
   width: 100%;
   border: rgb(207, 207, 207) solid 1.5px;
   padding: 5px;
@@ -328,6 +328,24 @@ input:-webkit-autofill {
   background: #ee3535;
 }
 /*End of delete modal*/
+
+/*Settings,login modal*/
+#question,
+#key {
+  width: 100px;
+  height: 100px;
+}
+
+.key-img {
+  padding-top: 18px;
+}
+
+.close-btn {
+  text-align: right;
+  margin-right: 8px;
+  margin-top: 5px;
+}
+/*End of Settings,login modal*/
 
 /* Footer */
 .footer {
