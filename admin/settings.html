@@ -189,73 +189,79 @@
     <!-- End Of Logout Modal -->
 
     <!-- Settings Section -->
-    <div class="modal fade" id="settings-modal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <button type="button" class="close close-btn" data-dismiss="modal">
-            &times;
-          </button>
-          <div class="col-12 text-center key-img">
-            <img src="./assets/img/key.png" alt="key-icon" id="key" />
-          </div>
-          <div class="modal-header">
-            <h4 class="modal-title col-12 text-center">
-              Before you go to settings...
-            </h4>
-          </div>
-          <div class="modal-body">
-            <p class="text-center">
-              Please enter your credentials again to access Settings
-            </p>
-            <p class="text-center">
-              <small class="text-muted">
-                (This is required to keep the admin panel secure)
-              </small>
-            </p>
-            <form class="p-4" id="settings-form" enctype="multipart/form-data">
-              <div class="form-group row">
-                <label for="email" class="col-12 col-form-label">
-                  Email
-                </label>
-                <input
-                  type="text"
-                  id="email"
-                  class="col-12 form-control"
-                  placeholder="Enter Email"
-                  required
-                />
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+          <div class="row pt-5 mt-3 ml-3">
+            <!-- Change Password Heading -->
+            <div class="col-lg-6 p-md-2">
+              <h3>Change Password</h3>
+              <div
+                class="alert alert-success alert-dismissible fade show change-password"
+                role="alert"
+              >
+                Password changed!
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="alert"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
-              <div class="form-group row">
-                <label for="password" class="col-12 col-form-label">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  class="col-12 form-control"
-                  placeholder="Enter Password"
-                  required
-                />
-              </div>
-              <div class="row">
-                <p class="col-12 text-center">
-                  <small id="error-message" class="text-danger"
-                    >Invalid Credentials</small
+            </div>
+            <!-- End Of Change Password Heading -->
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-9 col-md-8 ml-md-auto">
+          <div class="row pt-md-2 mt-1 ml-3">
+            <!-- Change Password -->
+            <div class="col-lg-6">
+              <form class="mr-3">
+                <div class="form-group row">
+                  <label for="new-password" class="col-sm-5 col-form-label">
+                    New Password
+                  </label>
+                  <input
+                    type="password"
+                    id="new-password"
+                    class="col-sm-7 form-control"
+                    placeholder="Enter new Password"
+                    required
+                  />
+                </div>
+                <div class="form-group row">
+                  <label for="confirm-password" class="col-sm-5 col-form-label">
+                    Confirm Password
+                  </label>
+                  <input
+                    type="password"
+                    id="confirm-password"
+                    class="col-sm-7 form-control"
+                    placeholder="Confirm Password"
+                    required
+                  />
+                </div>
+                <div class="form-group row">
+                  <p class="col-12 text-center">
+                    <small id="error-message">Passwords do not match</small>
+                  </p>
+                </div>
+                <div class="form-group row justify-content-center">
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                    id="change-password"
                   >
-                </p>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer justify-content-center">
-            <a
-              type="button"
-              href="#"
-              id="settings-button"
-              class="btn btn-secondary"
-            >
-              <i class="fas fa-cog fa-lg mr-2"></i>
-              Go to Settings
-            </a>
+                    Change Password
+                  </button>
+                </div>
+              </form>
+            </div>
+            <!-- End Of Change Password -->
           </div>
         </div>
       </div>
