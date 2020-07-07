@@ -16,7 +16,7 @@
 .form-container {
   background-color: white;
   padding: 50px 30px;
-  margin-top: 15vh;
+  margin-top: 10vh;
   border-radius: 3px;
 }
 
@@ -80,6 +80,20 @@ a:hover {
   text-decoration: none;
   color: rgb(255, 115, 50);
 }
+
+/* Forgot password */
+.email-sent-success-alert,
+.email-sent-error-alert {
+  display: none;
+}
+/* End Of Forgot password */
+
+/* Reset password */
+.password-not-equal-alert,
+.password-reset-alert {
+  display: none;
+}
+/* End Of Reset password */
 
 /* Error message */
 .error-message-alert {

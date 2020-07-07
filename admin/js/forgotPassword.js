@@ -14,8 +14,18 @@ document
 
       const data = await response.json();
 
-      console.log(data);
+      if (data.ok) {
+        document.querySelector('.email-sent-success-alert').style.display =
+          'block';
+        document.querySelector(
+          '.success-message'
+        ).innerHTML = `Email was successfully sent to ${email}`;
+      } else {
+        document.querySelector('.email-sent-error-message').style.display =
+          'block';
+      }
     } catch (err) {
       console.log(err);
+      window.location.href = '/login.html';
     }
   });
