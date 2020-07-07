@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const baseurl = require('../utilities/baseurl');
 const b64toa = require('../utilities/btoa');
+const auth = require('../utilities/auth');
 
 const transporter = nodemailer.createTransport({
 	service: 'Gmail',
@@ -107,5 +108,26 @@ router.get('/verifytoken', (req, res, next) => {
 		return;
 	}
 });
+
+
+// further operations are authenticated with token in the header
+router.use(auth);
+
+
+router.post('/changepasswordinlogin', async (req, res, next) => {
+	try{
+		let { newpass } = req.body;
+		let { email } = req;
+		let passhash = await bcrypt.hash(newpass, 10);
+		let output = await User.updateOne({ email }, { passhash });
+		if (output.n !== 1) {
+			let err = new Error();
+			next(err);
+			return;
+		}
+		res.status(200).json({ ok: 1 });
+	} catch(err){ next(err); }
+});
+
 
 module.exports = router;

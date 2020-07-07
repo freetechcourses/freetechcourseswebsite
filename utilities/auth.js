@@ -12,7 +12,8 @@ module.exports = async (req,res,next) => {
 			next(err);
 			return;
 		}
-		await jwt.verify(token, key);
+		let out = await jwt.verify(token, key);
+		req.email = out.email;
 		next();
 	} catch(err){
 		let err = new Error('Invalid token');
