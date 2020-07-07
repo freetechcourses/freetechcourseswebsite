@@ -2,11 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: large;
 }
 .bg {
-  background: url('../assets/img/gradienta-ix_kUDzCczo-unsplash.jpg');
+  background: url("../assets/img/gradienta-ix_kUDzCczo-unsplash.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -85,6 +85,10 @@ a:hover {
 .email-sent-success-alert,
 .email-sent-error-alert {
   display: none;
+}
+#forgot-password {
+  text-align: right;
+  padding-top: 10px;
 }
 /* End Of Forgot password */
 
