@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 
 
 app.use('/user', userRouter);
-app.use('/data', courseRouter)
+app.use('/course', courseRouter)
 
 // Handling undefined routes
 app.use((req, res, next) => {
