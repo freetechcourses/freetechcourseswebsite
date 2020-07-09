@@ -284,50 +284,52 @@
                 <input
                   type="text"
                   class="form-control form-control-lg"
-                  id="name"
-                  aria-describedby="name"
+                  id="title"
                 />
               </div>
               <div class="form-group">
-                <label for="exampleFormControlTextarea1">Description</label>
+                <label for="description">Description</label>
                 <textarea
                   class="form-control"
-                  id="exampleFormControlTextarea1"
+                  id="description"
                   rows="3"
                 ></textarea>
               </div>
 
+              <div class="form-group row align-items-center">
+                <label for="date" class="col-sm-4 mr-sm-2">Date:</label>
+                <input
+                  type="date"
+                  name="date"
+                  id="date"
+                  class="form-control col-sm-4"
+                />
+              </div>
+
               <div class="form-group">
                 <div class="form-row align-items-center">
-                  <div class="col-auto my-1">
-                    <label
-                      class="mr-sm-2"
-                      for="Skill"
-                      style="padding-right: 89px;"
-                      >Select Skill:</label
-                    >
-                    <select class="sel" id="Skill">
-                      <option value="0">None</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                  </div>
+                  <label class="mr-sm-2 col-sm-4" for="category"
+                    >Select Category:</label
+                  >
+                  <select class="sel" id="category">
+                    <option value="0">None</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
                 </div>
               </div>
 
               <div class="form-group">
                 <div class="form-row align-items-center">
-                  <div class="col-auto my-1">
-                    <label class="mr-sm-2" for="tools"
-                      >Select Tools involved:</label
-                    >
-                    <select class="sel" id="tools" multiple>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                  </div>
+                  <label class="mr-sm-2 col-sm-4" for="technology"
+                    >Select Technologies involved:</label
+                  >
+                  <select class="sel col-sm-8" id="technology" multiple>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
                 </div>
               </div>
 
@@ -350,7 +352,9 @@
                 />
               </div>
               <div class="wrap">
-                <button class="button" type="submit">Add Course!</button>
+                <button class="button" type="submit" id="add-course-button">
+                  Add Course!
+                </button>
               </div>
             </form>
           </div>

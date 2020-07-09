@@ -16,7 +16,7 @@ module.exports = async (req,res,next) => {
 		req.email = out.email;
 		next();
 	} catch(err){
-		let err = new Error('Invalid token');
+		err = new Error('Invalid token');
 		err.status = 401;
 		next(err);
 	}

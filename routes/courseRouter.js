@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const Course = require('../models/data');
 const cut = require('../utilities/cut');
+const auth = require('../utilities/auth');
 
-router.get('/latest', async (req, req, next) => {
+router.get('/latest', async (req, res, next) => {
 	try{
 		let data = await Course.find({}, { __v: 0 }, { sort: {'date':-1}, limit: 6 });
 		res.status(200).json({ ok:1, data });
