@@ -19,6 +19,9 @@ router.get('/single/:id', async (req, res, next) => {
 	} catch(err){ next(err); }
 });
 
+
+// router.get('/search')
+
 router.use(auth);
 
 router.post('/add', async (req, res, next) => {
@@ -26,7 +29,7 @@ router.post('/add', async (req, res, next) => {
 		let newdata = new Course( req.body );
 		await newdata.save();
 		res.status(200).json({ ok:1 });
-	} catch(err){ next(err); }
+	} catch(err){ err.status = 400; next(err); }
 });
 
 
