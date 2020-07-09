@@ -1,37 +1,32 @@
-// Change Password
-document.getElementById('change-password').addEventListener('click', () => {
-  const password = document.querySelector('#new-password').value;
-  const confirmPassword = document.querySelector('#confirm-password').value;
+// // Settings request
+// document
+//   .getElementById("change-password")
+//   .addEventListener("click", async () => {
+//     try {
+//       const password = document.querySelector("#new-password").value;
+//       const confirmPassword = document.querySelector("#confirm-password").value;
 
-  // Check if passwords entered are same or not
-  if (password === confirmPassword) {
-    document.querySelector('#error-message').style.display = 'none';
-    const formData = new FormData();
+//       if (password === confirmPassword) {
+//         const response = await fetch(`${url}/user/changepasswordinlogin`, {
+//           method: "POST",
+//           headers: {
+//             token: sessionStorage.getItem("token"),
+//             "Content-Type": "application/json",
+//           },
+//           body: { newpass: password }
+//         });
 
-    formData.append('password', password);
+//         const data = response.json();
 
-    fetch(`${url}/user/updatepass`, {
-      method: 'PUT',
-      body: formData,
-      headers: {
-        token: `${localStorage.getItem('token')}`,
-      },
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((res) => {
-        if (res.ok) {
-          document.querySelector('.change-password').style.display = 'block';
-        } else {
-          document.getElementById('error-message').innerHTML = res.error;
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  } else {
-    document.querySelector('#error-message').style.display = 'block';
-    document.querySelector('.change-password').style.display = 'none';
-  }
-});
+//         if (data.ok) {
+//           alert('Password changed successfully!');
+//         } else {
+//           alert('Some server error, reload browser');
+//         }
+//       } else {
+//         document.querySelector("#error-message").style.display = "block";
+//       }
+//     } catch (err) {
+//       console.log(err);
+//     }
+//   });
