@@ -1,3 +1,4 @@
+// Settings request
 document
   .getElementById("change-password")
   .addEventListener("click", async () => {
@@ -9,23 +10,24 @@ document
         const response = await fetch(`${url}/user/changepasswordinlogin`, {
           method: "POST",
           headers: {
-            token: sessionStorage.getItem("token"),
+            token: `${sessionStorage.getItem("token")}`,
             "Content-Type": "application/json",
           },
-          body: { newpass: password },
+          body: JSON.stringify({ newpass: password }),
         });
-        const data = response.json();
 
+        const data = await response.json();
+
+        console.log(data);
         if (data.ok) {
-          document.querySelector(".change-password").style.display = "block";
+          alert("Password changed successfully!");
         } else {
-          document.getElementById("#error-message").innerHTML = res.error;
+          alert("Some server error, reload browser");
         }
       } else {
         document.querySelector("#error-message").style.display = "block";
-        document.querySelector(".change-password").style.display = "none";
       }
-    } catch (error) {
+    } catch (err) {
       console.log(err);
     }
   });
