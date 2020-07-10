@@ -1,37 +1,31 @@
-// Change Password
-document.getElementById('change-password').addEventListener('click', () => {
-  const password = document.querySelector('#new-password').value;
-  const confirmPassword = document.querySelector('#confirm-password').value;
+document
+  .getElementById("change-password")
+  .addEventListener("click", async () => {
+    try {
+      const password = document.querySelector("#new-password").value;
+      const confirmPassword = document.querySelector("#confirm-password").value;
 
-  // Check if passwords entered are same or not
-  if (password === confirmPassword) {
-    document.querySelector('#error-message').style.display = 'none';
-    const formData = new FormData();
+      if (password === confirmPassword) {
+        const response = await fetch(`${url}/user/changepasswordinlogin`, {
+          method: "POST",
+          headers: {
+            token: sessionStorage.getItem("token"),
+            "Content-Type": "application/json",
+          },
+          body: { newpass: password },
+        });
+        const data = response.json();
 
-    formData.append('password', password);
-
-    fetch(`${url}/user/updatepass`, {
-      method: 'PUT',
-      body: formData,
-      headers: {
-        token: `${localStorage.getItem('token')}`,
-      },
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((res) => {
-        if (res.ok) {
-          document.querySelector('.change-password').style.display = 'block';
+        if (data.ok) {
+          document.querySelector(".change-password").style.display = "block";
         } else {
-          document.getElementById('error-message').innerHTML = res.error;
+          document.getElementById("#error-message").innerHTML = res.error;
         }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  } else {
-    document.querySelector('#error-message').style.display = 'block';
-    document.querySelector('.change-password').style.display = 'none';
-  }
-});
+      } else {
+        document.querySelector("#error-message").style.display = "block";
+        document.querySelector(".change-password").style.display = "none";
+      }
+    } catch (error) {
+      console.log(err);
+    }
+  });
