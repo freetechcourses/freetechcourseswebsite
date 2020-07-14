@@ -8,6 +8,7 @@ const courseRouter = require('./routes/courseRouter');
 
 const context = process.argv[2] || "local";
 require('./dbconfig/connect')(context);
+require('dotenv').config();
 
 app.use(log('dev'));
 app.use(bodyparser.json());
