@@ -20,12 +20,13 @@ document
 
         console.log(data);
         if (data.ok) {
-          alert("Password changed successfully!");
+          document.querySelector(".change-password").style.display = "block";
         } else {
-          alert("Some server error, reload browser");
+          document.getElementById("error-message").innerHTML = data.error;
         }
       } else {
         document.querySelector("#error-message").style.display = "block";
+        document.querySelector(".change-password").style.display = "none";
       }
     } catch (err) {
       console.log(err);
