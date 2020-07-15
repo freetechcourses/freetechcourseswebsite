@@ -3,7 +3,7 @@ document.getElementById("login-button").addEventListener("click", async (e) => {
   try {
     e.preventDefault();
     const email = document.querySelector("#email").value;
-    const password = document.querySelector("#password").value;
+    const password = document.querySelector("#password-field").value;
 
     const response = await fetch(`${url}/user/login`, {
       method: "POST",
