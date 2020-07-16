@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $('.sel').chosen({ width: '300px' }).trigger('chosen:updated');
+  $('.sel').chosen({ width: '300px' });
 });
 
 $('#myForm').on('submit', function (e) {
@@ -13,8 +13,21 @@ window.onload = async () => {
     await fetch(`${url}/course/keywords`, { method: 'GET' })
   ).json();
 
+  const keywords = await response.allKeywords;
+
   console.log(response.allKeywords);
-  const keywordsSelector = document.querySelector('#keywords');
+
+  let keywordsSelector = document.querySelector('#keywords');
+  for (let i = 0; i < keywords.length; i++) {
+    let option = document.createElement('option');
+    option.value = keywords[i];
+    option.innerHTML = keywords[i];
+    keywordsSelector.appendChild(option);
+    // keywordsSelector.add(new Option(keywords[i]));
+    keywordsSelector.style = null;
+  }
+
+  console.log(keywordsSelector);
 };
 
 // Request to add a new course to backend
