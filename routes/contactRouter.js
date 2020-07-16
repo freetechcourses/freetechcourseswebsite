@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Contact = require('../models/contact');
+const auth = require('../utilities/auth');
 
 router.post('/newcontact', async (req, res, next) => {
     try {
@@ -9,5 +10,7 @@ router.post('/newcontact', async (req, res, next) => {
         res.status(200).json({ ok: 1 });
     } catch (err) { err.status = 400; next(err); }
 });
+
+router.use(auth);
 
 module.exports = router;
