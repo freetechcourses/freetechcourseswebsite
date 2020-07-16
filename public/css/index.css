@@ -1,0 +1,6 @@
+/* Alert for contact form */
+.sent-message-successful-alert,
+.sent-message-error-alert {
+  display: none;
+}
+/* End Of Alert for contact form */
