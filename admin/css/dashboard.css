@@ -352,3 +352,10 @@ input:-webkit-autofill {
   bottom: 0;
 }
 /* End Of Footer */
+
+#dashboard-logo {
+  width: 8.75em;
+  height: 8.75em;
+  text-align: center;
+  padding-right: 10px;
+}
