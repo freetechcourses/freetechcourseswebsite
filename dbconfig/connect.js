@@ -13,6 +13,7 @@ module.exports = async context => {
 		return;
 	} catch(err){
 		console.log("DATABASE CONNECTION ERROR");
+		console.log(err);
 		process.exit(0);
 	}
 }
