@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $('.sel').chosen({ width: '300px' });
+  $('.sel').chosen({ width: '300px' }).trigger("chosen:updated");
 });
 
 $('#myForm').on('submit', function (e) {
@@ -10,7 +10,14 @@ $('#myForm').on('submit', function (e) {
 // Request to add a new course to backend
 document
   .getElementById('add-course-button')
-  .addEventListener('click', async () => {
+  .addEventListener('click', async (e) => {
     try {
+
+      e.preventDefault();
+      const select = document.querySelector('#technology').value;
+
+      console.log(typeof select);
     } catch (err) {}
   });
+
+

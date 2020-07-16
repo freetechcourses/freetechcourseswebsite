@@ -4,11 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Favicon -->
-    <link
-      rel="icon"
-      type="image/png"
-      href="./assets/img/favicon.png"
-    />
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
 
     <!-- Fontawesome icons -->
     <script
@@ -316,15 +312,25 @@
               <div class="form-group">
                 <div class="form-row align-items-center">
                   <label class="mr-sm-2 col-sm-4" for="category"
-                    >Select Category:</label
+                    >Select Keyword:</label
                   >
-                  <select class="sel" id="category">
+                  <select class="sel" id="category" multiple>
                     <option value="0">None</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                   </select>
                 </div>
+              </div>
+
+              <div class="form-group row align-items-center">
+                <label for="new-keyword" class="col-sm-4 mr-sm-2">New Keyword:</label>
+                <input
+                  type="text"
+                  name="new-keyword"
+                  id="new-keyword"
+                  class="form-control col-sm-4"
+                />
               </div>
 
               <div class="form-group">
