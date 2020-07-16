@@ -4,3 +4,10 @@
   display: none;
 }
 /* End Of Alert for contact form */
+
+/* Footer */
+.footer {
+  width: 100%;
+  bottom: 0;
+}
+/* End Of Footer */
