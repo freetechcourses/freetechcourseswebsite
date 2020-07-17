@@ -29,16 +29,23 @@ window.onload = async () => {
 
     console.log(courseResponse);
 
-    document.getElementById('view-more').addEventListener('click', async () => {
-      try {
-        for (let i = 1; i <= courseResponse.total / 6; i++) {
-          const response = await (
-            await fetch(`${url}/course/latest?page=${i}`, { method: 'GET' })
-          ).json();
+    async function* viewMore() {
+      for (let i = 1; i <= courseResponse.total / 6; i++) {
+        const response = await (
+          await fetch(`${url}/course/latest?page=${i}`, { method: 'GET' })
+        ).json();
 
-          console.log(response);
-        }
-      } catch (err) {}
+        yield response.data;
+      }
+    }
+
+    let viewMoreCourses = viewMore();
+
+    document.getElementById('view-more').addEventListener('click', async () => {
+      console.log(await viewMoreCourses.next());
+      !(await viewMoreCourses.value)
+        ? (document.querySelector('#view-more').style.display = 'none')
+        : null;
     });
   } catch (err) {}
 };
