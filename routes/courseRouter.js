@@ -6,9 +6,11 @@ const auth = require('../utilities/auth');
 
 router.get('/latest', async (req, res, next) => {
 	try{
-		let page = req.query.page || 0
+		let page = req.query.page || 0;
+		page = parseInt(page);
 		let data = await Course.find({}, { __v: 0 }, { sort: {'date':-1}, skip: (page * 6), limit: 6 });
-		res.status(200).json({ ok:1, data });
+		let [{ total }] = await Course.aggregate([{ $group: { _id: null, "total": { $sum:1 }}}]);
+		res.status(200).json({ ok:1, data, total });
 	} catch(err){ next(err); }
 });
 
@@ -38,7 +40,7 @@ router.post('/search', async (req, res, next) => {
 	try{
 		let { keywords } = req.body;
 		let data = await Course.aggregate([
-			{ $match: { keywords: { $all: keywords }}},
+			{ $match: { keywords: { $in: keywords }}},
 			{ $unwind: "$languages" },
 			{ $group: {
 				_id: "$languages",
@@ -46,7 +48,13 @@ router.post('/search', async (req, res, next) => {
 				"count": { $sum: 1 }
 			}}
 		]);
-		res.status(200).json({ ok:1, data });
+		let combined = [];
+		data.forEach(part => {
+			part.courses.forEach(c => {
+				if(combined.find(e => e._id === c._id) === undefined) combined.push(c);
+			});
+		});
+		res.status(200).json({ ok:1, data, combined });
 	} catch(err){ next(err); }
 });
 
