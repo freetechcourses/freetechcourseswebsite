@@ -11,8 +11,6 @@ window.onload = async () => {
   const keywords = await keywordResponse.allKeywords;
   const languages = await languageResponse.allLanguages;
 
-  console.log(languages);
-
   $(document).ready(function () {
     $('.sel').chosen({ width: '300px' });
   });
@@ -45,11 +43,50 @@ document
     try {
       e.preventDefault();
 
-      const title = document.querySelector('#title').value;
+      const name = document.querySelector('#name').value;
       const description = document.querySelector('#description').value;
       const date = document.querySelector('#date').value;
-      const keywords = document.querySelector('#keywords');
 
-      console.log(keywords.selectedOptions);
+      const oldKeywords = document.querySelector('#keywords');
+      const keywordValues = [...oldKeywords.selectedOptions].map(
+        (option) => option.value
+      );
+      const newKeywords = document.querySelector('#new-keywords').value;
+      const newKeywordValues = newKeywords
+        .split(',')
+        .map((keyword) => keyword.trim());
+      const keywords = keywordValues.concat(newKeywordValues);
+
+      const oldLanguages = document.querySelector('#languages');
+      const languageValues = [...oldLanguages.selectedOptions].map(
+        (option) => option.value
+      );
+      const newLanguages = document.querySelector('#new-languages').value;
+      const newLanguageValues = newLanguages
+        .split(',')
+        .map((language) => language.trim());
+      const languages = languageValues.concat(newLanguageValues);
+
+      const hyperLink = document.querySelector('#course-link').value;
+      const courseImage = document.querySelector('#img-link').value;
+
+      const response = await fetch(`${url}/course/add`, {
+        method: 'POST',
+        body: JSON.stringify({
+          name,
+          description,
+          date,
+          keywords,
+          languages,
+          hyperLink,
+          courseImage,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+          token: `${sessionStorage.getItem('token')}`,
+        },
+      }).json();
+
+      console.log(response);
     } catch (err) {}
   });
