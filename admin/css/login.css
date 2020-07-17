@@ -1,21 +1,37 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
   font-size: large;
 }
 
-#particles-js {
+body {
+  margin: 0;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: #36096d;
   background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 74%);
 }
 
-.form-container {
-  background-color: white;
-  padding: 50px 30px;
-  margin-top: 10vh;
-  border-radius: 3px;
+#particles-js {
+  height: 100vh;
+}
+
+#login-form {
+  margin: auto;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(4px);
+  padding: 2rem;
+  border: #ccc 1px solid;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  border-radius: 5px;
+  box-shadow: 1px 2px 15px #999;
 }
 
 h2,
@@ -28,6 +44,7 @@ h4 {
 }
 
 .input-container {
+  background: rgba(255, 255, 255, 1);
   display: -ms-flexbox; /* IE10 */
   display: flex;
   width: 100%;
@@ -80,7 +97,7 @@ a {
 }
 a:hover {
   text-decoration: none;
-  color: #5bc0de;
+  color: #17158a;
 }
 
 /* Forgot password */
@@ -107,4 +124,28 @@ a:hover {
 }
 .error-message {
   margin: 0;
+}
+
+@media (max-width: 1024px) {
+  #login-form {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  #login-form {
+    width: 60%;
+  }
+}
+
+@media (max-width: 576px) {
+  #login-form {
+    width: 70%;
+  }
+}
+
+@media (max-width: 468px) {
+  #login-form {
+    width: 90%;
+  }
 }

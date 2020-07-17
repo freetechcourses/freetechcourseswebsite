@@ -11,3 +11,22 @@
   bottom: 0;
 }
 /* End Of Footer */
+
+#contact-img {
+  width: 100%;
+  height: 100%;
+}
+
+#submit-message {
+  background-color: #005fee;
+  color: white;
+  transition: ease-in-out 0.3s;
+}
+#submit-message:hover {
+  background-color: orange;
+  box-shadow: 0 2px 2px rgb(0, 0, 0, 0.3);
+}
+
+input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s;
+}
