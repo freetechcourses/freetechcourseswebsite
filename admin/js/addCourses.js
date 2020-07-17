@@ -45,7 +45,7 @@ document
 
       const name = document.querySelector('#name').value;
       const description = document.querySelector('#description').value;
-      const date = document.querySelector('#date').value;
+      const date = new Date(document.querySelector('#date').value).getTime();
 
       const oldKeywords = document.querySelector('#keywords');
       const keywordValues = [...oldKeywords.selectedOptions].map(
@@ -67,26 +67,30 @@ document
         .map((language) => language.trim());
       const languages = languageValues.concat(newLanguageValues);
 
-      const hyperLink = document.querySelector('#course-link').value;
+      const hyperlink = document.querySelector('#course-link').value;
       const courseImage = document.querySelector('#img-link').value;
 
-      const response = await fetch(`${url}/course/add`, {
-        method: 'POST',
-        body: JSON.stringify({
-          name,
-          description,
-          date,
-          keywords,
-          languages,
-          hyperLink,
-          courseImage,
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-          token: `${sessionStorage.getItem('token')}`,
-        },
-      }).json();
+      const response = await (
+        await fetch(`${url}/course/add`, {
+          method: 'POST',
+          body: JSON.stringify({
+            name,
+            description,
+            date,
+            keywords,
+            languages,
+            hyperlink,
+            courseImage,
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+            token: `${sessionStorage.getItem('token')}`,
+          },
+        })
+      ).json();
 
       console.log(response);
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   });
