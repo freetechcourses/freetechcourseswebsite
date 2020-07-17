@@ -39,8 +39,12 @@ window.onload = async () => {
                                 </p>
                                 <p class="card-text">
                                   <strong>Course link:</strong><br />
-                                  <a href=${courseResponse.data[i].hyperlink}>${courseResponse.data[i].hyperlink}</a>
+                                  <a href=${courseResponse.data[i].hyperlink} target="_blank">
+                                  ${courseResponse.data[i].hyperlink}</a>
                                 </p>
+                                <button class="btn btn-info" data-toggle="modal" data-target="#details">
+                                  View
+                                </button>
                               </div>
                             </div>
                           </div>`;
