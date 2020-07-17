@@ -50,6 +50,6 @@ document
       const date = document.querySelector('#date').value;
       const keywords = document.querySelector('#keywords');
 
-      console.log(keywords);
+      console.log(keywords.selectedOptions);
     } catch (err) {}
   });
