@@ -80,7 +80,7 @@ a {
 }
 a:hover {
   text-decoration: none;
-  color: rgb(66, 79, 255);
+  color: #5bc0de;
 }
 
 /* Forgot password */
