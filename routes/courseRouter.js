@@ -38,7 +38,7 @@ router.post('/search', async (req, res, next) => {
 	try{
 		let { keywords } = req.body;
 		let data = await Course.aggregate([
-			{ $match: { keywords: { $all: keywords }}},
+			{ $match: { keywords: { $in: keywords }}},
 			{ $unwind: "$languages" },
 			{ $group: {
 				_id: "$languages",
@@ -46,7 +46,13 @@ router.post('/search', async (req, res, next) => {
 				"count": { $sum: 1 }
 			}}
 		]);
-		res.status(200).json({ ok:1, data });
+		let combined = [];
+		data.forEach(part => {
+			part.courses.forEach(c => {
+				if(combined.find(e => e._id === c._id) === undefined) combined.push(c);
+			});
+		});
+		res.status(200).json({ ok:1, data, combined });
 	} catch(err){ next(err); }
 });
 
