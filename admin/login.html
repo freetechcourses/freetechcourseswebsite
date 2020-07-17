@@ -4,11 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Favicon -->
-    <link
-      rel="icon"
-      type="image/png"
-      href="./assets/img/favicon.png"
-    />
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
 
     <!-- Bootstrap CDN -->
     <link
@@ -33,7 +29,7 @@
     <title>Login Page</title>
   </head>
   <body>
-    <div class="container-fluid bg">
+    <div id="particles-js">
       <div class="row">
         <div class="col-xl-5 col-md-6 col-sm-8 col-xs-12" style="margin: auto;">
           <div class="centered">
@@ -83,7 +79,7 @@
 
               <button
                 type="submit"
-                class="btn btn-success btn-block"
+                class="btn btn-info btn-block"
                 id="login-button"
               >
                 Login
@@ -105,5 +101,12 @@
     <!-- Custom Scripts -->
     <script src="./js/utilities/baseUrl.js"></script>
     <script src="./js/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+      /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+      particlesJS.load("particles-js", "particles.json", function () {
+        console.log("particles.js config loaded");
+      });
+    </script>
   </body>
 </html>
