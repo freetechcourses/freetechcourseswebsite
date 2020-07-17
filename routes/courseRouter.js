@@ -6,7 +6,8 @@ const auth = require('../utilities/auth');
 
 router.get('/latest', async (req, res, next) => {
 	try{
-		let page = req.query.page || 0
+		let page = req.query.page || 0;
+		page = parseInt(page);
 		let data = await Course.find({}, { __v: 0 }, { sort: {'date':-1}, skip: (page * 6), limit: 6 });
 		let [{ total }] = await Course.aggregate([{ $group: { _id: null, "total": { $sum:1 }}}]);
 		res.status(200).json({ ok:1, data, total });
