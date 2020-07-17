@@ -57,56 +57,141 @@
             <a class="nav-link" href="counselling.html">Counselling</a
             ><span class="sr-only">(current)</span>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Reach Us</a>
-          </li>
         </ul>
       </div>
     </nav>
     <!-- End Of Navbar -->
 
+    <!-- Jumbotron -->
+    <div class="jumbotron counselling">
+      <h1 class="display-3" style="text-align: center;">
+        Free Career Counselling
+      </h1>
+      <ul type="none" style="text-align: center;">
+        <li class="question">Thinking about doing Masters in Germany?</li>
+        <li class="question">
+          Looking for a career change into IT/Software development field?
+        </li>
+        <li  class="question">Confused about where to start?</li>
+      </ul>
+      <div class="container" id="img-container">
+        <img
+            src="./assets/img/questions.png"
+            alt="confused person"
+            id="questions"
+          />
+      </div>
+      
+    </div>
+    </div>
+    <!-- End Of Jumbotron -->
+
     <!--Main Content-->
+
+    <div class="container-fluid" style="text-align: center; padding-bottom: 10px;">
+      <h1>Get Free Career Guidance!</h1>
+      <p>Get to know about the opportunities, expenses, general application process
+        etc!</p>
+        <p>Drop a Message below with your resume and a short note about your interests and we'll get back to you asap!</p>
+    </div>
+    <hr class="w-50 mx-auto">
     <div class="container p-md-5">
       <div class="row">
         <div class="col-md-6">
-          <h1 class="display-3 mb-3">
-            Free Career Counselling
-          </h1>
-          <p>
-            <img src="./assets/img/pngwave.png" alt="bullet" id="bullet" />
-            Thinking about doing Masters in Germany? Get to know about the
-          opportunities, expenses, general application process etc.<br />
-          <img src="./assets/img/pngwave.png" alt="bullet" id="bullet" />
-          Looking for a career change into IT/Software development field?
-          Confused about where to start?
-          </p>
+          <h1 class="display-3 mb-3">Reach Us</h1>
+          <form>
+            <div class="form-group">
+              <label for="name">Enter Your Name</label>
+              <input
+                type="name"
+                class="form-control"
+                id="name"
+                placeholder="Name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Enter Your Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Email"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Enter Your Message</label>
+              <textarea
+                name="message"
+                class="form-control"
+                id="message"
+                rows="4"
+                placeholder="Message"
+                required
+              ></textarea>
+            </div>
+
+            <div
+              class="alert alert-success alert-dismissible fade show sent-message-successful-alert"
+              role="alert"
+            >
+              <small class="text-success">
+                Form Submitted Successfully!
+              </small>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+              >
+                <span>&times;</span>
+              </button>
+            </div>
+
+            <div
+              class="alert alert-danger alert-dismissible fade show sent-message-error-alert"
+              role="alert"
+            >
+              <small class="text-danger">
+                Some Error Occured, Refresh the Browser and try again
+              </small>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+              >
+                <span>&times;</span>
+              </button>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn" id="submit-message">
+                Send Message!
+              </button>
+            </div>
+          </form>
         </div>
         <div class="col-md-6">
-          <img
-            src="assets/img/career.png"
-            alt="career-guidance"
-            id="contact-img"
-          />
-        </div>
+          <img src="assets/img/contact.png" alt="contact" id="contact-img" />
         </div>
       </div>
     </div>
+
     <!--End of Main Content-->
 
     <!-- Footer -->
     <div class="footer bg-secondary">
-      <div class="container">
-        <div class="row justify-content-center p-2">
-          <div class="col-12">
-            <p class="lead text-center text-light">
-              <small>
-                Made with
-                <i class="fas fa-heart text-danger"></i>
-                by (kuch toh add karna hai)
-              </small>
-            </p>
-          </div>
-        </div>
+      <div class="container icons">
+        <a href="https://www.facebook.com/OnlineFreeTechCourses/"
+          ><i class="fab fa-facebook-square"></i
+        ></a>
+        <a href="https://www.linkedin.com/company/free-tech-courses/"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
       </div>
     </div>
     <!-- End Of Footer -->

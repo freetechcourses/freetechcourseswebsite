@@ -34,3 +34,36 @@ input:-webkit-autofill {
   width: 10px;
   height: 10px;
 }
+#questions {
+  width: 300px;
+  height: 225px;
+}
+
+#img-container {
+  text-align: center;
+}
+
+.question,
+p {
+  font-size: 1.35em;
+}
+
+.counselling {
+  background-image: url("../assets/img/bg.png");
+  background-size: cover;
+}
+
+i {
+  font-size: 2rem;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.icons {
+  text-align: center;
+}
+a {
+  color: white;
+}
+a:hover {
+  color: orange;
+}
