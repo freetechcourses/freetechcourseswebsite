@@ -1,33 +1,41 @@
-$(document).ready(function () {
-  $('.sel').chosen({ width: '300px' });
-});
-
-$('#myForm').on('submit', function (e) {
-  $('#successModal').modal('show');
-  e.preventDefault();
-});
-
-// Get all keywords
+// Get all keywords and languages
 window.onload = async () => {
-  const response = await (
+  const keywordResponse = await (
     await fetch(`${url}/course/keywords`, { method: 'GET' })
   ).json();
 
-  const keywords = await response.allKeywords;
+  const languageResponse = await (
+    await fetch(`${url}/course/languages`, { method: 'GET' })
+  ).json();
 
-  console.log(response.allKeywords);
+  const keywords = await keywordResponse.allKeywords;
+  const languages = await languageResponse.allLanguages;
 
-  let keywordsSelector = document.querySelector('#keywords');
+  console.log(languages);
+
+  $(document).ready(function () {
+    $('.sel').chosen({ width: '300px' });
+  });
+
+  // Add keywords to multi-select option
+  let keywordSelector = document.querySelector('#keywords');
   for (let i = 0; i < keywords.length; i++) {
     let option = document.createElement('option');
     option.value = keywords[i];
     option.innerHTML = keywords[i];
-    keywordsSelector.appendChild(option);
-    // keywordsSelector.add(new Option(keywords[i]));
-    keywordsSelector.style = null;
+    keywordSelector.appendChild(option);
+    keywordSelector.style = null;
   }
 
-  console.log(keywordsSelector);
+  // Add languages to multi-select option
+  let languageSelector = document.querySelector('#languages');
+  for (let i = 0; i < languages.length; i++) {
+    let option = document.createElement('option');
+    option.value = languages[i];
+    option.innerHTML = languages[i];
+    languageSelector.appendChild(option);
+    languageSelector.style = null;
+  }
 };
 
 // Request to add a new course to backend
@@ -36,8 +44,12 @@ document
   .addEventListener('click', async (e) => {
     try {
       e.preventDefault();
-      const select = document.querySelector('#technology').value;
 
-      console.log(typeof select);
+      const title = document.querySelector('#title').value;
+      const description = document.querySelector('#description').value;
+      const date = document.querySelector('#date').value;
+      const keywords = document.querySelector('#keywords');
+
+      console.log(keywords);
     } catch (err) {}
   });

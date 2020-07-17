@@ -22,8 +22,14 @@ router.get('/single/:id', async (req, res, next) => {
 router.get('/keywords', async (req, res, next) => {
 	try {
 		let [{ allKeywords }] = await Course.aggregate([{ $unwind: "$keywords" }, { $group: { _id: null, allKeywords: { $addToSet: "$keywords" } } }]);
-		console.log(allKeywords);
 		res.status(200).json({ ok: 1, allKeywords });
+	} catch (err) { next(err) }
+})
+
+router.get('/languages', async (req, res, next) => {
+	try {
+		let [{ allLanguages }] = await Course.aggregate([{ $unwind: "$languages" }, { $group: { _id: null, allLanguages: { $addToSet: "$languages" } } }]);
+		res.status(200).json({ ok: 1, allLanguages });
 	} catch (err) { next(err) }
 })
 
