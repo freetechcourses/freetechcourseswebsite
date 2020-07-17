@@ -1,28 +1,44 @@
-// Sending Message data to backend
-document
-  .getElementById('submit-message')
-  .addEventListener('click', async (e) => {
-    try {
-      e.preventDefault();
-      const name = document.querySelector('#name').value;
-      const email = document.querySelector('#email').value;
-      const message = document.querySelector('#message').value;
+// Getting all keywords and course details from backend
+window.onload = async () => {
+  try {
+    // Getting keywords
+    const keywordResponse = await (
+      await fetch(`${url}/course/keywords`, { method: 'GET' })
+    ).json();
 
-      const response = await fetch(`${url}/contact/newcontact`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message }),
-      });
+    const keywords = await keywordResponse.allKeywords.sort();
 
-      response.ok
-        ? (document.querySelector(
-            '.sent-message-successful-alert'
-          ).style.display = 'block')
-        : (document.querySelector('.sent-message-error-alert').style.display =
-            'block');
-    } catch (err) {
-      console.log(err);
-      document.querySelector('.sent-message-error-alert').style.display =
-        'block';
+    $(document).ready(function () {
+      $('.sel').chosen({ width: '100%' });
+    });
+
+    // Add keywords to multi-select option
+    let keywordSelector = document.querySelector('#search-courses');
+    for (let i = 0; i < keywords.length; i++) {
+      let option = document.createElement('option');
+      option.value = keywords[i];
+      option.innerHTML = keywords[i];
+      keywordSelector.appendChild(option);
+      keywordSelector.style = null;
     }
-  });
+
+    // Getting courses
+    const courseResponse = await (
+      await fetch(`${url}/course/latest`, { method: 'GET' })
+    ).json();
+
+    console.log(courseResponse);
+
+    document.getElementById('view-more').addEventListener('click', async () => {
+      try {
+        for (let i = 1; i <= courseResponse.total / 6; i++) {
+          const response = await (
+            await fetch(`${url}/course/latest?page=${i}`, { method: 'GET' })
+          ).json();
+
+          console.log(response);
+        }
+      } catch (err) {}
+    });
+  } catch (err) {}
+};
