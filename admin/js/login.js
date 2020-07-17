@@ -18,7 +18,7 @@ document.getElementById("login-button").addEventListener("click", async (e) => {
 
     if (data.ok) {
       sessionStorage.setItem("token", data.token);
-      window.location.href = "/dashboard.html";
+      window.location.href = "/add-courses.html";
     } else {
       document.querySelector(".error-message-alert").style.display = "block";
     }

@@ -13,4 +13,25 @@ router.post('/newcontact', async (req, res, next) => {
 
 router.use(auth);
 
+
+router.get('/all', async (req, res, next) => {
+	try{
+		let feedbacks = await Contact.find({});
+		res.status(200).json({ ok:1, feedbacks });
+	} catch(err){ next(err); }
+});
+
+
+router.delete('/:id', async (req, res, next) => {
+	try{
+		let { deletedCount } = await Course.deleteOne({ _id: req.params.id });
+		if(deletedCount !== 1){
+			let err = new Error('Could not delete');
+			next(err);
+			return;
+		}
+		res.status(200).json({ ok:1 });
+	} catch(err){ next(err); }
+});
+
 module.exports = router;
