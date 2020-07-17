@@ -33,7 +33,7 @@ router.get('/languages', async (req, res, next) => {
 	} catch (err) { next(err) }
 });
 
-router.get('/search', async (req, res, next) => {
+router.post('/search', async (req, res, next) => {
 	try{
 		let { keywords } = req.body;
 		let data = await Course.aggregate([
