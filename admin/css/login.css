@@ -1,5 +1,5 @@
 * {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: large;
 }
 
@@ -97,7 +97,7 @@ a {
 }
 a:hover {
   text-decoration: none;
-  color: #5bc0de;
+  color: #17158a;
 }
 
 /* Forgot password */
