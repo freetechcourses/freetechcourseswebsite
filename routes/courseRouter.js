@@ -35,13 +35,14 @@ router.get('/languages', async (req, res, next) => {
 
 router.get('/search', async (req, res, next) => {
 	try{
-		let keywords = req.body;
+		let { keywords } = req.body;
 		let data = await Course.aggregate([
-			{ $match: { $keywords: { $all: keywords }}},
+			{ $match: { keywords: { $all: keywords }}},
 			{ $unwind: "$languages" },
 			{ $group: {
 				_id: "$languages",
-				count: { $sum: 1 }
+				"courses": { $push: "$$ROOT" },
+				"count": { $sum: 1 }
 			}}
 		]);
 		res.status(200).json({ ok:1, data });
