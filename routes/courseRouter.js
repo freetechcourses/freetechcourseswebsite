@@ -6,7 +6,7 @@ const auth = require('../utilities/auth');
 
 router.get('/latest', async (req, res, next) => {
 	try{
-		let data = await Course.find({}, { __v: 0 }, { sort: {'date':-1}, skip: (page * 6), limit: 6 });
+		let data = await Course.find({}, { __v: 0 }, { sort: {'date':-1}, limit: 6 });
 		res.status(200).json({ ok:1, data });
 	} catch(err){ next(err); }
 });
