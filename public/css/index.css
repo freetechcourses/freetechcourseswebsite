@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 /* Alert for contact form */
 .sent-message-successful-alert,
 .sent-message-error-alert {
@@ -90,7 +94,7 @@ input:-webkit-autofill {
 .icons {
   text-align: center;
   font-size: 2rem;
-  padding: 10px;
+  margin-top: 0;
 }
 
 .icon {
@@ -99,6 +103,7 @@ input:-webkit-autofill {
 
 .icon:hover {
   color: orange;
+  text-decoration: none;
 }
 /*End of Icons*/
 
@@ -107,4 +112,19 @@ input:-webkit-autofill {
   color: white;
   background-position: right;
   background-size: cover;
+}
+
+#connect {
+  text-align: center;
+  color: white;
+  padding-top: 10px;
+}
+
+.footer {
+  background-color: #003152;
+}
+
+#admin-link {
+  text-align: center;
+  padding-bottom: 10px;
 }
