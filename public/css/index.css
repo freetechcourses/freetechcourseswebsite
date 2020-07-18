@@ -72,6 +72,11 @@ input:-webkit-autofill {
   text-align: center;
 }
 
+.question-list {
+  padding: 3rem;
+  text-align: center;
+}
+
 .question,
 .text {
   font-size: 1.35em;

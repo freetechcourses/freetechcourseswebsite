@@ -22,7 +22,7 @@ window.onload = async () => {
       keywordSelector.style = null;
     }
 
-    // Getting courses
+    // Getting latest courses
     const courseResponse = await (
       await fetch(`${url}/course/latest`, { method: 'GET' })
     ).json();
@@ -37,9 +37,9 @@ window.onload = async () => {
                                   ${courseResponse.data[i].description}
                                 </p>
                                 <p>
-                                  <strong>Course link:</strong><br />
                                   <a href=${courseResponse.data[i].hyperlink} target="_blank">
-                                  ${courseResponse.data[i].hyperlink}</a>
+                                    <strong>Course link:</strong><br />
+                                  </a>
                                 </p>
                                 <button 
                                   class="btn btn-info" 
@@ -80,59 +80,62 @@ window.onload = async () => {
                                     ${courseDetailsResponse.data.description}
                                   </p>
                                   <p>
-                                    <strong>Course added on Date:</strong> 
+                                    <strong>Date:</strong> 
                                     ${new Date(
                                       courseDetailsResponse.data.date
                                     ).toDateString()}<br/>
-                                    <strong>Course link:</strong> 
                                     <a href=${
                                       courseDetailsResponse.data.hyperlink
                                     } target="_blank">
-                                      ${courseDetailsResponse.data.hyperlink}
+                                      <strong>Course link:</strong> 
                                     </a>
                                   </p>`;
             $('#details-body').html(detailsInfo);
-          } catch (err) {}
+          } catch (err) {
+            console.log(err);
+          }
         });
     }
 
-    // Generator function for view more implementation
-    async function* viewMore() {
-      for (let i = 1; i <= courseResponse.total / 6; i++) {
-        const response = await (
-          await fetch(`${url}/course/latest?page=${i}`, { method: 'GET' })
-        ).json();
+    // // Generator function for view more implementation
+    // async function* viewMore() {
+    //   for (let i = 1; i <= courseResponse.total / 6; i++) {
+    //     const response = await (
+    //       await fetch(`${url}/course/latest?page=${i}`, { method: 'GET' })
+    //     ).json();
 
-        yield response.data;
-      }
-    }
+    //     yield response.data;
+    //   }
+    // }
 
-    let viewMoreCourses = viewMore();
+    // let viewMoreCourses = viewMore();
 
-    // Adding 6 more courses on "View More" click and disabling after data = []
-    document.getElementById('view-more').addEventListener('click', async () => {
-      for (let i = 0; i < (await viewMoreCourses.value) || 0; i++) {
-        console.log(await viewMoreCourses.value[i]);
-        const courseCard = `<div class="col-lg-4 col-sm-6 mb-4" id=${courseResponse.data[i]._id}>
-                            <div class="card">
-                              <img class="card-img-top" src=${courseResponse.data[i].courseImage} alt=${courseResponse.data[i].name} />
-                              <div class="card-body">
-                                <h5 class="card-title">${courseResponse.data[i].name}</h5>
-                                <p class="card-text">
-                                  ${courseResponse.data[i].description}
-                                </p>
-                                <p class="card-text">
-                                  <strong>Course link:</strong><br />
-                                  <a href=${courseResponse.data[i].hyperlink}>${courseResponse.data[i].hyperlink}</a>
-                                </p>
-                              </div>
-                            </div>
-                          </div>`;
-        $('#display-courses').append(courseCard);
-      }
-      !(await viewMoreCourses.value)
-        ? (document.querySelector('#view-more').style.display = 'none')
-        : null;
-    });
-  } catch (err) {}
+    // // Adding 6 more courses on "View More" click and disabling after data = []
+    // document.getElementById('view-more').addEventListener('click', async () => {
+    //   for (let i = 0; i < (await viewMoreCourses.value) || 0; i++) {
+    //     console.log(await viewMoreCourses.value[i]);
+    //     const courseCard = `<div class="col-lg-4 col-sm-6 mb-4" id=${courseResponse.data[i]._id}>
+    //                         <div class="card">
+    //                           <img class="card-img-top" src=${courseResponse.data[i].courseImage} alt=${courseResponse.data[i].name} />
+    //                           <div class="card-body">
+    //                             <h5 class="card-title">${courseResponse.data[i].name}</h5>
+    //                             <p class="card-text">
+    //                               ${courseResponse.data[i].description}
+    //                             </p>
+    //                             <p class="card-text">
+    //                               <strong>Course link:</strong><br />
+    //                               <a href=${courseResponse.data[i].hyperlink}>${courseResponse.data[i].hyperlink}</a>
+    //                             </p>
+    //                           </div>
+    //                         </div>
+    //                       </div>`;
+    //     $('#display-courses').append(courseCard);
+    //   }
+    //   !(await viewMoreCourses.value)
+    //     ? (document.querySelector('#view-more').style.display = 'none')
+    //     : null;
+    // });
+  } catch (err) {
+    console.log(err);
+  }
 };
