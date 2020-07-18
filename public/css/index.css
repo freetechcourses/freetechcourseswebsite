@@ -41,6 +41,7 @@
 }
 /* End Of Modal Image */
 
+/*Counselling page*/
 #contact-img {
   width: 100%;
   height: 100%;
@@ -59,10 +60,7 @@
 input:-webkit-autofill {
   transition: background-color 5000s ease-in-out 0s;
 }
-#bullet {
-  width: 10px;
-  height: 10px;
-}
+
 #questions {
   width: 300px;
   height: 225px;
@@ -73,7 +71,7 @@ input:-webkit-autofill {
 }
 
 .question-list {
-  padding: 3rem;
+  padding: 2rem;
   text-align: center;
 }
 
@@ -83,10 +81,12 @@ input:-webkit-autofill {
 }
 
 .counselling {
-  background-image: url('../assets/img/bg.png');
+  background-image: url("../assets/img/bg.png");
   background-size: cover;
 }
+/*End of Counselling Page*/
 
+/*Icons*/
 .icons {
   text-align: center;
   font-size: 2rem;
@@ -100,4 +100,11 @@ input:-webkit-autofill {
 .icon:hover {
   color: orange;
 }
+/*End of Icons*/
 
+#home-bg {
+  background-image: url("../assets/img/bg-1.jpg");
+  color: white;
+  background-position: right;
+  background-size: cover;
+}
