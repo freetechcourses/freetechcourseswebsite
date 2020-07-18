@@ -12,6 +12,35 @@
 }
 /* End Of Footer */
 
+/* Jumbotron */
+.jumbotron {
+  border-radius: 0;
+}
+/* End Of Jumbotron */
+
+/* Card Text */
+.card-text {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+/* End Of Card Text */
+
+/* Card Image */
+.card-img-top {
+  height: 215px;
+}
+/* End Of Card Image */
+
+/* Modal Image */
+.img-fluid {
+  width: 100%;
+}
+/* End Of Modal Image */
+
 #contact-img {
   width: 100%;
   height: 100%;
@@ -44,12 +73,12 @@ input:-webkit-autofill {
 }
 
 .question,
-p {
+.text {
   font-size: 1.35em;
 }
 
 .counselling {
-  background-image: url("../assets/img/bg.png");
+  background-image: url('../assets/img/bg.png');
   background-size: cover;
 }
 

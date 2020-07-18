@@ -27,28 +27,74 @@ window.onload = async () => {
       await fetch(`${url}/course/latest`, { method: 'GET' })
     ).json();
 
-    // const displayCourses = document.querySelector('#display-courses');
     for (let i = 0; i < courseResponse.data.length; i++) {
-      const courseCard = `<div class="col-lg-4 col-sm-6 mb-4" id=${courseResponse.data[i]._id}>
-                            <div class="card">
+      const courseCard = `<div class="col-lg-4 col-sm-6 mb-4" data-id=${courseResponse.data[i]._id}>
+                            <div class="card" id=${courseResponse.data[i]._id}>
                               <img class="card-img-top" src=${courseResponse.data[i].courseImage} alt=${courseResponse.data[i].name} />
                               <div class="card-body">
                                 <h5 class="card-title">${courseResponse.data[i].name}</h5>
                                 <p class="card-text">
                                   ${courseResponse.data[i].description}
                                 </p>
-                                <p class="card-text">
+                                <p>
                                   <strong>Course link:</strong><br />
                                   <a href=${courseResponse.data[i].hyperlink} target="_blank">
                                   ${courseResponse.data[i].hyperlink}</a>
                                 </p>
-                                <button class="btn btn-info" data-toggle="modal" data-target="#details">
-                                  View
+                                <button 
+                                  class="btn btn-info" 
+                                  data-toggle="modal" 
+                                  data-target="#details" 
+                                  id=${courseResponse.data[i]._id}
+                                >
+                                  More Info
                                 </button>
                               </div>
                             </div>
                           </div>`;
       $('#display-courses').append(courseCard);
+
+      // Getting more info about a individual course in a modal
+      document
+        .getElementById(`${courseResponse.data[i]._id}`)
+        .addEventListener('click', async () => {
+          try {
+            const courseDetailsResponse = await (
+              await fetch(
+                `${url}/course/single/${courseResponse.data[i]._id}`,
+                { method: 'GET' }
+              )
+            ).json();
+
+            console.log(courseDetailsResponse.data);
+            const detailsInfo = `<img 
+                                    alt=${courseDetailsResponse.data.name} 
+                                    class="img-fluid" 
+                                    src=${
+                                      courseDetailsResponse.data.courseImage
+                                    }
+                                  />
+                                  <h3 class="pt-4">${
+                                    courseDetailsResponse.data.name
+                                  }</h3>
+                                  <p class="lead">
+                                    ${courseDetailsResponse.data.description}
+                                  </p>
+                                  <p>
+                                    <strong>Course added on Date:</strong> 
+                                    ${new Date(
+                                      courseDetailsResponse.data.date
+                                    ).toDateString()}<br/>
+                                    <strong>Course link:</strong> 
+                                    <a href=${
+                                      courseDetailsResponse.data.hyperlink
+                                    } target="_blank">
+                                      ${courseDetailsResponse.data.hyperlink}
+                                    </a>
+                                  </p>`;
+            $('#details-body').html(detailsInfo);
+          } catch (err) {}
+        });
     }
 
     // Generator function for view more implementation
@@ -66,7 +112,7 @@ window.onload = async () => {
 
     // Adding 6 more courses on "View More" click and disabling after data = []
     document.getElementById('view-more').addEventListener('click', async () => {
-      for (let i = 0; i < await viewMoreCourses.value || 0; i++) {
+      for (let i = 0; i < (await viewMoreCourses.value) || 0; i++) {
         console.log(await viewMoreCourses.value[i]);
         const courseCard = `<div class="col-lg-4 col-sm-6 mb-4" id=${courseResponse.data[i]._id}>
                             <div class="card">
