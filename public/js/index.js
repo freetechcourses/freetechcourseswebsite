@@ -66,7 +66,6 @@ window.onload = async () => {
               )
             ).json();
 
-            console.log(courseDetailsResponse.data);
             const detailsInfo = `<img 
                                     alt=${courseDetailsResponse.data.name} 
                                     class="img-fluid" 
