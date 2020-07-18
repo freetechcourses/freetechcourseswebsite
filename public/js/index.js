@@ -28,7 +28,8 @@ window.onload = async () => {
     ).json();
 
     for (let i = 0; i < courseResponse.data.length; i++) {
-      const courseCard = `<div class="col-lg-4 col-sm-6 mb-4" data-id=${courseResponse.data[i]._id}>
+      console.log(courseResponse.data[i]);
+      const courseCard = `<div class="col-lg-4 col-sm-6 mb-4">
                             <div class="card" id=${courseResponse.data[i]._id}>
                               <img class="card-img-top" src=${courseResponse.data[i].courseImage} alt=${courseResponse.data[i].name} />
                               <div class="card-body">
@@ -38,7 +39,7 @@ window.onload = async () => {
                                 </p>
                                 <p>
                                   <a href=${courseResponse.data[i].hyperlink} target="_blank">
-                                    <strong>Course link:</strong><br />
+                                    <strong>Course link</strong><br />
                                   </a>
                                 </p>
                                 <button 
@@ -65,6 +66,7 @@ window.onload = async () => {
                 { method: 'GET' }
               )
             ).json();
+            console.log(courseDetailsResponse.data.languages);
 
             const detailsInfo = `<img 
                                     alt=${courseDetailsResponse.data.name} 
@@ -87,9 +89,10 @@ window.onload = async () => {
                                     <a href=${
                                       courseDetailsResponse.data.hyperlink
                                     } target="_blank">
-                                      <strong>Course link:</strong> 
+                                      <strong>Course link</strong> 
                                     </a>
-                                  </p>`;
+                                  </p>
+                                  `;
             $('#details-body').html(detailsInfo);
           } catch (err) {
             console.log(err);
