@@ -53,17 +53,16 @@ p {
   background-size: cover;
 }
 
-i {
-  font-size: 2rem;
-  padding: 10px;
-  margin-bottom: 10px;
-}
 .icons {
   text-align: center;
+  font-size: 2rem;
+  padding: 10px;
 }
-a {
+
+.icon {
   color: white;
 }
-a:hover {
+
+.icon:hover {
   color: orange;
 }
