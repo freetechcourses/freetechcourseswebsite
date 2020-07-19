@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js online",
+    "start": "node server.js online",
     "local": "nodemon server.js local",
     "docker": "node server.js docker"
   },

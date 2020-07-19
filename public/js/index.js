@@ -1,5 +1,5 @@
 // Getting all keywords and course details from backend
-window.onload = async () => {
+(async () => {
   try {
     // Getting keywords
     const keywordResponse = await (
@@ -9,7 +9,7 @@ window.onload = async () => {
     const keywords = await keywordResponse.allKeywords.sort();
 
     $(document).ready(function () {
-      $('.sel').chosen({ width: '100%' });
+      $('.sel').chosen({ width: '100%', padding: '100px' });
     });
 
     // Add keywords to multi-select option
@@ -27,7 +27,10 @@ window.onload = async () => {
       await fetch(`${url}/course/latest`, { method: 'GET' })
     ).json();
 
+    console.log(courseResponse);
+
     for (let i = 0; i < courseResponse.data.length; i++) {
+      console.log(courseResponse.data[i]);
       const courseCard = `<div class="col-lg-4 col-sm-6 mb-4">
                             <div class="card" id=${courseResponse.data[i]._id} data-target="#details" data-toggle="modal">
                               <img class="card-img-top" src=${courseResponse.data[i].courseImage} alt=${courseResponse.data[i].name} />
@@ -137,4 +140,24 @@ window.onload = async () => {
   } catch (err) {
     console.log(err);
   }
-};
+})();
+
+document.getElementById('search-button').addEventListener('click', async () => {
+  try {
+    const oldKeywords = document.querySelector('#search-courses');
+    const keywords = [...oldKeywords.selectedOptions].map(
+      (option) => option.value
+    );
+
+    console.log(keywords);
+    const response = await (
+      await fetch(`${url}/course/search`, {
+        method: 'POST',
+        body: JSON.stringify({ keywords }),
+        headers: { 'Content-Type': 'application/json' },
+      })
+    ).json();
+
+    console.log(response);
+  } catch (err) {}
+});

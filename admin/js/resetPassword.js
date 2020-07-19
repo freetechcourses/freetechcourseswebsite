@@ -11,18 +11,18 @@ document
       const resetToken = window.location.href.split('?')[1];
 
       if (newPassword === confirmNewPassword) {
-        const response = await fetch(`${url}/user/changepassword`, {
-          method: 'POST',
-          body: JSON.stringify({
-            newpass: newPassword,
-            resetToken,
-          }),
-          headers: { 'Content-Type': 'application/json' },
-        });
+        const response = await (
+          await fetch(`${url}/user/changepassword`, {
+            method: 'POST',
+            body: JSON.stringify({
+              newpass: newPassword,
+              resetToken,
+            }),
+            headers: { 'Content-Type': 'application/json' },
+          })
+        ).json();
 
-        const data = await response.json();
-
-        if (data.ok) {
+        if (response.ok) {
           window.location.href = '/login.html';
         } else {
           document.querySelector('.password-reset-alert').style.display =
