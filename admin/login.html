@@ -76,17 +76,14 @@
                   <span>&times;</span>
                 </button>
               </div>
-
-              <button
-                type="submit"
-                class="btn btn-info btn-block"
-                id="login-button"
-              >
-                Login
-              </button>
-              <a class="btn btn-success btn-block" type="button" href="index.html">
-                Go back
-              </a>
+              <div id="buttons">
+                <button type="submit" class="btn btn-info" id="login-button">
+                  Login
+                </button>
+                <a class="btn btn-success" type="button" href="index.html">
+                  Go back
+                </a>
+              </div>
               <div id="forgot-password">
                 <a href="forgot-password.html">Forgot password?</a>
               </div>
@@ -107,8 +104,8 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
       /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-      particlesJS.load('particles-js', 'particles.json', function () {
-        console.log('particles.js config loaded');
+      particlesJS.load("particles-js", "particles.json", function () {
+        console.log("particles.js config loaded");
       });
     </script>
   </body>

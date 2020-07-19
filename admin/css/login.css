@@ -81,13 +81,17 @@ input:-webkit-autofill {
   transition: background-color 5000s ease-in-out 0s;
 }
 .btn {
-  padding: 10px;
-  border-radius: 7px;
+  padding: 5px 7px;
+  border-radius: 5px;
   box-shadow: 0;
   transition: box-shadow ease-in-out 500ms;
+  width: 6em;
 }
 .btn:hover {
   box-shadow: 2px 2px 5px rgb(0, 0, 0, 0.3);
+}
+#buttons {
+  text-align: center;
 }
 .input-container:hover {
   box-shadow: 2px 2px 5px rgb(0, 0, 0, 0.3);
