@@ -45,13 +45,7 @@ router.post('/search', async (req, res, next) => {
 				"count": { $sum: 1 }
 			}}
 		]);
-		let combined = [];
-		data.forEach(part => {
-			part.courses.forEach(c => {
-				if(combined.find(e => e._id === c._id) === undefined) combined.push(c);
-			});
-		});
-		res.status(200).json({ ok:1, data, combined });
+		res.status(200).json({ ok:1, data });
 	} catch(err){ next(err); }
 });
 
