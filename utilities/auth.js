@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const key = require('./key');
+const { JWTKEY } = require('./env');
 const b64toa = require('./btoa');
 
 module.exports = async (req,res,next) => {
@@ -12,7 +12,7 @@ module.exports = async (req,res,next) => {
 			next(err);
 			return;
 		}
-		let out = await jwt.verify(token, key);
+		let out = await jwt.verify(token, JWTKEY);
 		req.email = out.email;
 		next();
 	} catch(err){

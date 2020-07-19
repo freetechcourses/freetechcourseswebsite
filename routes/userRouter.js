@@ -1,7 +1,7 @@
 const express = require('express');
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
-const key = require('../utilities/key');
+const { JWTKEY } = require('../utilities/env');
 const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const baseurl = require('../utilities/baseurl');
@@ -29,7 +29,7 @@ router.post('/login', async (req, res, next) => {
 			next(err);
 			return;
 		}
-		let token = jwt.sign({ email }, key);
+		let token = jwt.sign({ email }, JWTKEY);
 		res.status(200).json({ ok: 1, token });
 	} catch (err) { next(err); }
 });
@@ -38,7 +38,7 @@ router.post('/login', async (req, res, next) => {
 router.post('/forgotpassword', async (req, res, next) => {
 	try {
 		let { email } = req.body;
-		let resetToken = jwt.sign({ email }, key, { expiresIn: 60 * 60 });
+		let resetToken = jwt.sign({ email }, JWTKEY, { expiresIn: 60 * 60 });
 		let output = await User.updateOne({ email }, { resetToken });
 		if (output.nModified !== 1 || output.n !== 1) {
 			let err = new Error('Email not found');
@@ -71,7 +71,7 @@ router.get('/resetpassword', async (req, res, next) => {
 			next(err);
 			return;
 		}
-		await jwt.verify(resetToken, key);
+		await jwt.verify(resetToken, JWTKEY);
 		// add res.redirect here
 		res.redirect(`/reset-password.html?${resetToken}`);
 	} catch (err) {
@@ -99,7 +99,7 @@ router.post('/changepassword', async (req, res, next) => {
 router.get('/verifytoken', (req, res, next) => {
 	try {
 		let { token } = req.headers;
-		jwt.verify(token, key);
+		jwt.verify(token, JWTKEY);
 		res.status(200).json({ ok: 1 });
 	} catch (err) {
 		let e = new Error('Invalid token');

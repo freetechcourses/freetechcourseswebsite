@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-require('dotenv').config();
+const { MONGOURL } = require('../utilities/env');
 const list = {
 	"local": "mongodb://127.0.0.1:27017/cdata",
 	"docker": "mongodb://mongo:27017/cdata",
-	"online": process.env.MONGOURL
+	"online": MONGOURL
 };
 
 module.exports = async context => {
