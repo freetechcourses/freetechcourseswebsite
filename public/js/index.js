@@ -28,28 +28,19 @@ window.onload = async () => {
     ).json();
 
     for (let i = 0; i < courseResponse.data.length; i++) {
-      console.log(courseResponse.data[i]);
       const courseCard = `<div class="col-lg-4 col-sm-6 mb-4">
-                            <div class="card" id=${courseResponse.data[i]._id}>
+                            <div class="card" id=${courseResponse.data[i]._id} data-target="#details" data-toggle="modal">
                               <img class="card-img-top" src=${courseResponse.data[i].courseImage} alt=${courseResponse.data[i].name} />
                               <div class="card-body">
-                                <h5 class="card-title">${courseResponse.data[i].name}</h5>
+                                <h5 class="card-title course-name">${courseResponse.data[i].name}</h5>
                                 <p class="card-text">
                                   ${courseResponse.data[i].description}
                                 </p>
                                 <p>
-                                  <a href=${courseResponse.data[i].hyperlink} target="_blank">
+                                  <a href=${courseResponse.data[i].hyperlink} target="_blank" class="card-link">
                                     <strong>Course link</strong><br />
                                   </a>
                                 </p>
-                                <button 
-                                  class="btn btn-info" 
-                                  data-toggle="modal" 
-                                  data-target="#details" 
-                                  id=${courseResponse.data[i]._id}
-                                >
-                                  More Info
-                                </button>
                               </div>
                             </div>
                           </div>`;
@@ -66,7 +57,6 @@ window.onload = async () => {
                 { method: 'GET' }
               )
             ).json();
-            console.log(courseDetailsResponse.data.languages);
 
             const detailsInfo = `<img 
                                     alt=${courseDetailsResponse.data.name} 
@@ -75,9 +65,13 @@ window.onload = async () => {
                                       courseDetailsResponse.data.courseImage
                                     }
                                   />
-                                  <h3 class="pt-4">${
-                                    courseDetailsResponse.data.name
-                                  }</h3>
+                                  <a href=${
+                                    courseDetailsResponse.data.hyperlink
+                                  } target="_blank" class="card-link">
+                                    <h3 class="pt-4">${
+                                      courseDetailsResponse.data.name
+                                    }</h3>
+                                  </a>
                                   <p class="lead">
                                     ${courseDetailsResponse.data.description}
                                   </p>
@@ -85,10 +79,12 @@ window.onload = async () => {
                                     <strong>Date:</strong> 
                                     ${new Date(
                                       courseDetailsResponse.data.date
-                                    ).toDateString()}<br/>
+                                    ).toDateString()}
+                                  </p>
+                                  <p>
                                     <a href=${
                                       courseDetailsResponse.data.hyperlink
-                                    } target="_blank">
+                                    } target="_blank" class="card-link">
                                       <strong>Course link</strong> 
                                     </a>
                                   </p>

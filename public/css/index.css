@@ -31,6 +31,12 @@ html {
   text-overflow: ellipsis;
   white-space: normal;
 }
+
+.course-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 /* End Of Card Text */
 
 /* Card Image */
@@ -85,7 +91,7 @@ input:-webkit-autofill {
 }
 
 .counselling {
-  background-image: url("../assets/img/bg.png");
+  background-image: url('../assets/img/bg.png');
   background-size: cover;
 }
 /*End of Counselling Page*/
@@ -108,7 +114,7 @@ input:-webkit-autofill {
 /*End of Icons*/
 
 #home-bg {
-  background-image: url("../assets/img/bg-1.jpg");
+  background-image: url('../assets/img/bg-1.jpg');
   color: white;
   background-position: right;
   background-size: cover;
