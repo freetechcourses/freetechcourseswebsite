@@ -36,15 +36,9 @@ router.get('/languages', async (req, res, next) => {
 router.post('/search', async (req, res, next) => {
 	try{
 		let { keywords } = req.body;
-		let data = await Course.aggregate([
-			{ $match: { keywords: { $in: keywords }}},
-			{ $unwind: "$languages" },
-			{ $group: {
-				_id: "$languages",
-				"courses": { $push: "$$ROOT" },
-				"count": { $sum: 1 }
-			}}
-		]);
+		let data = await Course.find({
+			keywords: { $in: keywords }
+		});
 		res.status(200).json({ ok:1, data });
 	} catch(err){ next(err); }
 });
