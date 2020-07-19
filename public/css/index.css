@@ -9,18 +9,21 @@ html {
 }
 /* End Of Alert for contact form */
 
-/* Footer */
-.footer {
-  width: 100%;
-  bottom: 0;
-}
-/* End Of Footer */
-
 /* Jumbotron */
 .jumbotron {
   border-radius: 0;
 }
 /* End Of Jumbotron */
+
+/* Search */
+.chosen-choices {
+  border-radius: 4px;
+}
+.chosen-search-input {
+  margin: 0.4rem !important;
+  font-size: 1rem !important;
+}
+/* End Of Search */
 
 /* Card Text */
 .card-text {
@@ -126,11 +129,15 @@ input:-webkit-autofill {
   padding-top: 10px;
 }
 
-.footer {
-  background-color: #003152;
-}
-
 #admin-link {
   text-align: center;
   padding-bottom: 10px;
 }
+
+/* Footer */
+.footer {
+  width: 100%;
+  bottom: 0;
+  background-color: #003152;
+}
+/* End Of Footer */

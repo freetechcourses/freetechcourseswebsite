@@ -12,7 +12,7 @@ window.onload = async () => {
   const languages = await languageResponse.allLanguages;
 
   $(document).ready(function () {
-    $('.sel').chosen({ width: '300px' });
+    $('.sel').chosen({ width: '100%' });
   });
 
   // Add keywords to multi-select option
