@@ -3,3 +3,4 @@ package-lock.json
 mdata/
 .env
 images/
+.DS_Store
