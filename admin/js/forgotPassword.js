@@ -6,15 +6,15 @@ document
       e.preventDefault();
       const email = document.querySelector('#email').value;
 
-      const response = await fetch(`${url}/user/forgotpassword`, {
-        method: 'POST',
-        body: JSON.stringify({ email }),
-        headers: { 'Content-Type': 'application/json' },
-      });
+      const response = await (
+        await fetch(`${url}/user/forgotpassword`, {
+          method: 'POST',
+          body: JSON.stringify({ email }),
+          headers: { 'Content-Type': 'application/json' },
+        })
+      ).json();
 
-      const data = await response.json();
-
-      if (data.ok) {
+      if (response.ok) {
         document.querySelector('.email-sent-success-alert').style.display =
           'block';
         document.querySelector(

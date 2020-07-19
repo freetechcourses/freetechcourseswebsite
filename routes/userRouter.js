@@ -99,8 +99,16 @@ router.post('/changepassword', async (req, res, next) => {
 router.get('/verifytoken', (req, res, next) => {
 	try {
 		let { token } = req.headers;
-		jwt.verify(token, JWTKEY);
-		res.status(200).json({ ok: 1 });
+		if(token){
+			jwt.verify(token, JWTKEY);
+			res.status(200).json({ ok: 1 });	
+		}
+		else {
+			let e = new Error('Invalid token');
+			e.status = 401;
+			next(e);
+			return;
+		}
 	} catch (err) {
 		let e = new Error('Invalid token');
 		e.status = 401;

@@ -70,7 +70,7 @@ document
       const hyperlink = document.querySelector('#course-link').value;
       const courseImage = document.querySelector('#img-link').value;
 
-      const response = await (
+      await (
         await fetch(`${url}/course/add`, {
           method: 'POST',
           body: JSON.stringify({
@@ -88,8 +88,6 @@ document
           },
         })
       ).json();
-
-      console.log(response);
     } catch (err) {
       console.log(err);
     }
