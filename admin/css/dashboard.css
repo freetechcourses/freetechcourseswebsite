@@ -62,6 +62,7 @@ body {
     position: static;
     height: auto;
     width: 100vw;
+    padding: 0;
   }
   .top-navbar {
     position: static;
