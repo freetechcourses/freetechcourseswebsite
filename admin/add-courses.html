@@ -56,7 +56,7 @@
             <!-- Sidebar -->
             <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
               <a
-                href="dashboard.html"
+                href="add-courses.html"
                 class="navbar-brand text-white d-block text-center mx-auto py-3 mb-4 button-border"
               >
                 <img
@@ -77,22 +77,20 @@
                 </li>
                 <li class="nav-item">
                   <a
-                    href="update-courses.html"
+                    href="edit-courses.html"
                     class="nav-link text-white p-3 mb-2 sidebar-link"
                   >
-                    <i class="far fa-images text-light fa-lg mr-3"></i>
-                    Update Courses
+                    <i class="fas fa-edit text-light fa-lg mr-3"></i>
+                    Edit Courses
                   </a>
                 </li>
                 <li class="nav-item">
                   <a
-                    href="delete-courses.html"
+                    href="messages.html"
                     class="nav-link text-white p-3 mb-2 sidebar-link"
                   >
-                    <i
-                      class="fas fa-exclamation-triangle text-light fa-lg mr-3"
-                    ></i>
-                    Delete Courses
+                    <i class="fas fa-envelope text-light fa-lg mr-3"></i>
+                    Messages
                   </a>
                 </li>
               </ul>
@@ -291,7 +289,9 @@
               </div>
 
               <div class="form-group">
-                <label for="date" class="col-12">Date on which Course is to be Added:</label>
+                <label for="date" class="col-12"
+                  >Date on which Course is to be Added:</label
+                >
                 <input
                   type="date"
                   name="date"
@@ -306,7 +306,9 @@
               </div>
 
               <div class="form-group">
-                <label for="new-keywords" class="col-12">Add new Keyword(s):</label>
+                <label for="new-keywords" class="col-12"
+                  >Add new Keyword(s):</label
+                >
                 <input
                   type="text"
                   name="new-keywords"
@@ -316,12 +318,16 @@
               </div>
 
               <div class="form-group">
-                <label for="languages" class="col-12">Select Language(s):</label>
+                <label for="languages" class="col-12"
+                  >Select Language(s):</label
+                >
                 <select class="sel" id="languages" multiple> </select>
               </div>
 
               <div class="form-group">
-                <label for="new-languages" class="col-12">Add new Language(s):</label>
+                <label for="new-languages" class="col-12"
+                  >Add new Language(s):</label
+                >
                 <input
                   type="text"
                   name="new-languages"
@@ -331,7 +337,9 @@
               </div>
 
               <div class="form-group">
-                <label for="course-link" class="col-12">Add link for Course:</label>
+                <label for="course-link" class="col-12"
+                  >Add link for Course:</label
+                >
                 <input
                   class="form-control"
                   type="url"
@@ -360,6 +368,11 @@
                 >
                   Add Course!
                 </button>
+                <a href="index.html" target="_blank" class="pl-4 text-muted">
+                  <small style="font-size: 14px;">
+                    View Added Course
+                  </small>
+                </a>
               </div>
             </form>
           </div>

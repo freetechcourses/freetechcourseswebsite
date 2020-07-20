@@ -70,8 +70,8 @@ router.patch('/update/:id', async (req, res, next) => {
 
 router.delete('/delete/:id', async (req, res, next) => {
 	try{
-		let out = await Course.deleteOne({ _id: req.params.id });
-		if(out.deletedCount !== 1){
+		let { deletedCount } = await Course.deleteOne({ _id: req.params.id });
+		if(deletedCount !== 1){
 			let err = new Error('Delete failed');
 			next(err);
 			return;
