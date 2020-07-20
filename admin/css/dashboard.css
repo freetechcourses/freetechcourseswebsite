@@ -69,6 +69,12 @@ body {
 }
 /* End Of Navbar */
 
+/* Messages */
+#no-messages {
+  display: none;
+}
+/* End Of Messages */
+
 /* Settings */
 .change-password,
 #error-message {
@@ -91,10 +97,6 @@ body {
   }
 }
 /*End of Media Queries for main content*/
-
-.row-parent {
-  font-size: 20px;
-}
 
 h1,
 label {
