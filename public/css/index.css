@@ -23,6 +23,12 @@ html {
   margin: 0.4rem !important;
   font-size: 1rem !important;
 }
+.search-choice {
+  font-size: 18px;
+  background: white !important;
+  display: flex !important;
+  justify-content: space-around;
+}
 /* End Of Search */
 
 /* Card Text */
