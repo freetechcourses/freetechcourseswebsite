@@ -24,7 +24,7 @@ router.get('/all', async (req, res, next) => {
 
 router.delete('/:id', async (req, res, next) => {
 	try{
-		let { deletedCount } = await Course.deleteOne({ _id: req.params.id });
+		let { deletedCount } = await Contact.deleteOne({ _id: req.params.id });
 		if(deletedCount !== 1){
 			let err = new Error('Could not delete');
 			next(err);
