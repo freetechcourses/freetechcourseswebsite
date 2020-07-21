@@ -76,6 +76,36 @@ body {
 }
 /* End Of Messages */
 
+/* Edit courses */
+/* Search */
+.chosen-choices {
+  border-radius: 4px;
+}
+.chosen-search-input {
+  margin: 0.4rem !important;
+  font-size: 1rem !important;
+}
+.search-choice {
+  font-size: 18px;
+  background: white !important;
+  display: flex !important;
+  justify-content: space-around;
+}
+/* End Of Search */
+
+/* No Courses */
+#no-courses {
+  display: none;
+}
+/* End Of No Courses */
+
+/* Delete Course */
+.delete-course-successful {
+  display: none;
+}
+/* End Of Delete Course */
+/* End Of Edit courses */
+
 /* Settings */
 .change-password,
 #error-message {
@@ -103,17 +133,6 @@ h1,
 label {
   font-family: 'Archivo Narrow', sans-serif;
 }
-
-/* Search */
-.chosen-choices {
-  border-radius: 4px;
-  border: 1px solid #999;
-}
-.chosen-search-input {
-  margin: 0.4rem !important;
-  font-size: 1rem !important;
-}
-/* End Of Search */
 
 /*inputs*/
 input,

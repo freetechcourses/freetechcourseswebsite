@@ -270,111 +270,128 @@
 
     <!--Main Content-->
     <main>
-      <div class="container-fluid row-parent">
-        <div class="row">
-          <div class="container-fluid col-lg-8 col-md-6 col-xs-12">
-            <h1>Add Courses</h1>
-            <form action="#" id="add-courses-form">
-              <div class="form-group">
-                <label for="name" class="col-12">Name</label>
-                <input type="text" class="form-control" id="name" name="name" />
-              </div>
-              <div class="form-group">
-                <label for="description" class="col-12">Description</label>
-                <textarea
-                  class="form-control"
-                  id="description"
-                  rows="3"
-                ></textarea>
-              </div>
+      <div class="container">
+        <div class="row mt-5 pt-5 mb-5">
+          <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <h1>Add Courses</h1>
+                <form action="#" id="add-courses-form">
+                  <div class="form-group">
+                    <label for="name" class="col-12">Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      name="name"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="description" class="col-12">Description</label>
+                    <textarea
+                      class="form-control"
+                      id="description"
+                      rows="3"
+                    ></textarea>
+                  </div>
 
-              <div class="form-group">
-                <label for="date" class="col-12"
-                  >Date on which Course is to be Added:</label
-                >
-                <input
-                  type="date"
-                  name="date"
-                  id="date"
-                  class="form-control col-xl-4 col-lg-6"
-                />
-              </div>
+                  <div class="form-group">
+                    <label for="date" class="col-12"
+                      >Date on which Course is to be Added:</label
+                    >
+                    <input
+                      type="date"
+                      name="date"
+                      id="date"
+                      class="form-control col-xl-4 col-lg-6"
+                    />
+                  </div>
 
-              <div class="form-group">
-                <label for="keywords" class="col-12">Select Keyword(s):</label>
-                <select class="sel" id="keywords" multiple> </select>
-              </div>
+                  <div class="form-group">
+                    <label for="keywords" class="col-12"
+                      >Select Keyword(s):</label
+                    >
+                    <select class="sel" id="keywords" multiple> </select>
+                  </div>
 
-              <div class="form-group">
-                <label for="new-keywords" class="col-12"
-                  >Add new Keyword(s):</label
-                >
-                <input
-                  type="text"
-                  name="new-keywords"
-                  id="new-keywords"
-                  class="form-control"
-                />
-              </div>
+                  <div class="form-group">
+                    <label for="new-keywords" class="col-12"
+                      >Add new Keyword(s):</label
+                    >
+                    <input
+                      type="text"
+                      name="new-keywords"
+                      id="new-keywords"
+                      class="form-control"
+                    />
+                  </div>
 
-              <div class="form-group">
-                <label for="languages" class="col-12"
-                  >Select Language(s):</label
-                >
-                <select class="sel" id="languages" multiple> </select>
-              </div>
+                  <div class="form-group">
+                    <label for="languages" class="col-12"
+                      >Select Language(s):</label
+                    >
+                    <select class="sel" id="languages" multiple> </select>
+                  </div>
 
-              <div class="form-group">
-                <label for="new-languages" class="col-12"
-                  >Add new Language(s):</label
-                >
-                <input
-                  type="text"
-                  name="new-languages"
-                  id="new-languages"
-                  class="form-control"
-                />
-              </div>
+                  <div class="form-group">
+                    <label for="new-languages" class="col-12"
+                      >Add new Language(s):</label
+                    >
+                    <input
+                      type="text"
+                      name="new-languages"
+                      id="new-languages"
+                      class="form-control"
+                    />
+                  </div>
 
-              <div class="form-group">
-                <label for="course-link" class="col-12"
-                  >Add link for Course:</label
-                >
-                <input
-                  class="form-control"
-                  type="url"
-                  id="course-link"
-                  name="course-link"
-                />
-              </div>
+                  <div class="form-group">
+                    <label for="course-link" class="col-12"
+                      >Add link for Course:</label
+                    >
+                    <input
+                      class="form-control"
+                      type="url"
+                      id="course-link"
+                      name="course-link"
+                    />
+                  </div>
 
-              <div class="form-group">
-                <label for="img-link" class="col-12">Add link for Image:</label>
-                <input
-                  class="form-control"
-                  type="url"
-                  id="img-link"
-                  name="img-link"
-                />
-              </div>
+                  <div class="form-group">
+                    <label for="img-link" class="col-12"
+                      >Add link for Image:</label
+                    >
+                    <input
+                      class="form-control"
+                      type="url"
+                      id="img-link"
+                      name="img-link"
+                    />
+                  </div>
 
-              <div class="wrap">
-                <button
-                  class="button"
-                  type="submit"
-                  id="add-course-button"
-                  data-target="#success-modal"
-                  data-toggle="modal"
-                >
-                  Add Course!
-                </button>
-                <a href="index.html" target="_blank" class="pl-4 text-muted">
-                  <small style="font-size: 14px;">
-                    View Added Course
-                  </small>
-                </a>
+                  <div class="wrap">
+                    <button
+                      class="button"
+                      type="submit"
+                      id="add-course-button"
+                      data-target="#success-modal"
+                      data-toggle="modal"
+                    >
+                      Add Course!
+                    </button>
+                    <a
+                      href="index.html"
+                      target="_blank"
+                      class="pl-4 text-muted"
+                    >
+                      <small style="font-size: 14px;">
+                        View Added Course
+                      </small>
+                    </a>
+                  </div>
+                </form>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>

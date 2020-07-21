@@ -267,73 +267,36 @@
 
     <!--Main Content-->
     <main>
-      <div class="container-fluid row-parent">
-        <div class="row">
-          <div class="container-fluid col-lg-8 col-md-6 col-xs-12">
-            <h1>Messages</h1>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Message</th>
-                </tr>
-              </thead>
-              <tbody id="messages">
-                <tr id="no-messages">
-                  <td colspan="4" class="text-center">
-                    No messages yet!
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <div class="container">
+        <div class="row mt-5 pt-5 mb-5 justify-content-center">
+          <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <h1>Messages</h1>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Message</th>
+                    </tr>
+                  </thead>
+                  <tbody id="messages">
+                    <tr id="no-messages">
+                      <td colspan="4" class="text-center">
+                        No messages yet!
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </main>
     <!--End of Main Content-->
-
-    <!-- Delete Message Confirmation Modal -->
-    <div id="delete-message-modal" class="modal fade">
-      <div class="modal-dialog modal-confirm2">
-        <div class="modal-content">
-          <button
-            type="button"
-            class="close close-btn"
-            data-dismiss="modal"
-            aria-hidden="true"
-          >
-            &times;
-          </button>
-          <div class="col-12 text-center">
-            <img
-              src="./assets/img/question.png"
-              alt="question-mark"
-              id="question"
-            />
-          </div>
-          <div class="modal-header flex-column">
-            <h4 class="modal-title w-100 col-12 text-center">
-              Are you sure you want to Delete this message?
-            </h4>
-          </div>
-          <div class="modal-footer justify-content-center">
-            <button type="button" class="btn btn-success" data-dismiss="modal">
-              Nope
-            </button>
-            <button
-              class="btn btn-danger delete-message-button"
-              data-dismiss="modal"
-              id="delete-message-button"
-            >
-              Yes
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Of Delete Message Confirmation Modal -->
 
     <!-- Footer -->
     <div class="container-fluid">
@@ -381,6 +344,8 @@
     <script src="./js/utilities/verifyToken.js"></script>
     <script src="./js/utilities/settingsPageAccessRequest.js"></script>
     <script src="./js/utilities/logout.js"></script>
+    <script src="./js/utilities/deleteModal.js"></script>
+    <script src="./js/utilities/deleteRequest.js"></script>
     <script src="./js/messages.js"></script>
   </body>
 </html>

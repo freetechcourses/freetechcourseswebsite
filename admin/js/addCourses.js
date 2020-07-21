@@ -8,8 +8,8 @@ window.onload = async () => {
     await fetch(`${url}/course/languages`, { method: 'GET' })
   ).json();
 
-  const keywords = await keywordResponse.allKeywords;
-  const languages = await languageResponse.allLanguages;
+  const keywords = await keywordResponse.allKeywords.sort();
+  const languages = await languageResponse.allLanguages.sort();
 
   $(document).ready(function () {
     $('.sel').chosen({ width: '100%' });
