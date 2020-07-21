@@ -68,14 +68,22 @@ router.patch('/update/:id', async (req, res, next) => {
 });
 
 
-router.delete('/delete/:id', async (req, res, next) => {
+router.delete('/delete', async (req, res, next) => {
 	try{
-		let { deletedCount } = await Course.deleteOne({ _id: req.params.id });
-		if(deletedCount !== 1){
-			let err = new Error('Delete failed');
+		let { list } = req.body;
+		if(!Array.isArray(list)){
+			let err = new Error('list must be an array');
+			err.status = 400;
 			next(err);
 			return;
 		}
+		if(list.length === 0){
+			let err = new Error('Empty list');
+			err.status = 400;
+			next(err);
+			return;
+		}
+		await Course.deleteMany({ _id: { $in: list }});
 		res.status(200).json({ ok:1 });
 	} catch(err){ next(err); }
 });
