@@ -56,8 +56,8 @@ router.post('/add', async (req, res, next) => {
 
 router.patch('/update/:id', async (req, res, next) => {
 	try{
-		let updates = cut(req.body, ['name','description','courseImage','hyperlink',])
-		let out = await Course.updateOne({ _id: req.params.id }, updates);
+		let updates = cut(req.body, ['name','description','courseImage','hyperlink','date','languages','keywords']);
+		let out = await Course.updateOne({ _id: req.params.id }, { $set: updates });
 		if(out.n !== 1 || out.nModified !== 1){
 			let err = new Error('Update failed');
 			next(err);
