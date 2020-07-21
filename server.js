@@ -6,6 +6,7 @@ const app = express();
 const userRouter = require('./routes/userRouter');
 const courseRouter = require('./routes/courseRouter');
 const contactRouter = require('./routes/contactRouter');
+const blogRouter = require('./routes/blogRouter');
 
 const context = process.argv[2] || "local";
 require('./dbconfig/connect')(context);
@@ -39,6 +40,7 @@ app.use((req, res, next) => {
 app.use('/user', userRouter);
 app.use('/course', courseRouter);
 app.use('/contact', contactRouter);
+app.use('/blog', blogRouter);
 
 // Handling undefined routes
 app.use((req, res, next) => {
