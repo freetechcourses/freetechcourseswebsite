@@ -286,7 +286,7 @@
                 class="alert alert-danger alert-dismissible fade show delete-course-successful"
                 role="alert"
               >
-                Course Deleted Successfully!
+                Courses Deleted Successfully!
                 <button
                   type="button"
                   class="close"
@@ -309,13 +309,26 @@
             <div class="row justify-content-center">
               <div class="col-12" style="overflow-x: auto;">
                 <h1>Edit Courses</h1>
+              <div class="col-12">
+                <div class="row">
+                  <h1 class="pr-5">Edit Courses</h1>
+                  <button
+                    class="btn btn-sm text-danger"
+                    id="delete-courses"
+                    data-toggle="modal"
+                    data-target=".delete-courses-modal"
+                  >
+                    <i class="fas fa-trash-alt"></i> DELETE
+                  </button>
+                </div>
                 <table class="table table-hover">
                   <thead>
                     <tr>
+                      <th scope="col"></th>
                       <th scope="col">#</th>
                       <th scope="col">Title</th>
                       <th scope="col">Course Link</th>
-                      <th scope="col">Options</th>
+                      <th scope="col"></th>
                     </tr>
                   </thead>
                   <tbody id="courses">

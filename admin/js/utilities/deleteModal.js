@@ -1,6 +1,6 @@
-const deleteModal = (id, name, URL, redirectUrl, modalId) => {
-  console.log(id);
-  const modal = ` <div id=${modalId} class="modal fade">
+// Delete modal function
+const deleteModal = (modalClass, confirmId, name, requestUrl, redirectUrl) => {
+  const modal = `<div class="modal ${modalClass} fade">
       <div class="modal-dialog modal-confirm2">
         <div class="modal-content">
           <button
@@ -21,7 +21,7 @@ const deleteModal = (id, name, URL, redirectUrl, modalId) => {
           <div class="modal-header flex-column">
             <h4 class="modal-title w-100 col-12 text-center">
               Are you sure you want to
-              <span class="text-danger">DELETE</span> this ${name}?
+              <span class="text-danger">DELETE</span> the selected ${name}(s)?
             </h4>
           </div>
           <div class="modal-footer justify-content-center">
@@ -29,9 +29,8 @@ const deleteModal = (id, name, URL, redirectUrl, modalId) => {
               Nope
             </button>
             <button
-              type="button"
               class="btn btn-danger"
-              id=${id}
+              id=${confirmId}
               data-dismiss="modal"
             >
               Yes
@@ -42,5 +41,5 @@ const deleteModal = (id, name, URL, redirectUrl, modalId) => {
     </div>`;
   $('body').append(modal);
 
-  deleteRequest(id, URL, redirectUrl);
-};
+  deleteRequest(confirmId, requestUrl, redirectUrl)
+}
