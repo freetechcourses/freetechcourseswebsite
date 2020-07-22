@@ -4,3 +4,5 @@ function dategen() {
 };
 
 if(require.main === module) console.log(dategen());
+
+module.exports = dategen;
