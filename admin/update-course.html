@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
+
+    <!-- Fontawesome icons -->
+    <script
+      src="https://kit.fontawesome.com/74c1adc36b.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <!--Chosen Stylesheet-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css"
+    />
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <title>Admin Panel</title>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-light">
+      <button
+        class="navbar-toggler ml-auto mb-2 bg-light"
+        type="button"
+        data-toggle="collapse"
+        data-target="#admin-navbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="admin-navbar">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- Sidebar -->
+            <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
+              <a
+                href="add-courses.html"
+                class="navbar-brand text-white d-block text-center mx-auto py-3 mb-4 button-border"
+              >
+                <img
+                  src="./assets/img/logo_transparent_whitetext.png"
+                  alt="logo"
+                  id="dashboard-logo"
+                />
+              </a>
+              <ul class="navbar-nav flex-column mt-4">
+                <li class="nav-item">
+                  <a
+                    href="add-courses.html"
+                    class="nav-link text-white p-3 mb-2 sidebar-link"
+                  >
+                    <i class="fas fa-fill text-light fa-lg mr-3"></i>
+                    Add Courses
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    href="edit-courses.html"
+                    class="nav-link text-white p-3 mb-2 sidebar-link"
+                  >
+                    <i class="fas fa-edit text-light fa-lg mr-3"></i>
+                    Edit Courses
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    href="update-course.html"
+                    class="nav-link text-white p-3 mb-2 sidebar-link current"
+                  >
+                    <i class="fas fa-tools text-light fa-lg mr-3"></i>
+                    Update Course
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    href="messages.html"
+                    class="nav-link text-white p-3 mb-2 sidebar-link"
+                  >
+                    <i class="fas fa-envelope text-light fa-lg mr-3"></i>
+                    Messages
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <!-- End Of Sidebar -->
+
+            <!-- Top nav -->
+            <div
+              class="col-xl-10 col-lg-9 col-md-8 ml-auto bg-dark fixed-top py-2 top-navbar"
+            >
+              <div class="row align-items-center">
+                <div class="col-md-9">
+                  <h4 class="text-light text-uppercase mb-0">Dashboard</h4>
+                </div>
+                <div class="col-md-3">
+                  <ul class="navbar-nav">
+                    <li class="nav-item ml-md-auto">
+                      <div class="dropleft">
+                        <button
+                          type="button"
+                          id="admin-dropdown"
+                          class="nav-link btn btn-dark text-white dropdown-toggle"
+                          data-toggle="dropdown"
+                        >
+                          <i class="fas fa-user text-light fa-lg"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                          <a
+                            href="#"
+                            class="dropdown-item"
+                            data-toggle="modal"
+                            data-target="#settings-modal"
+                          >
+                            <i class="fas fa-cog fa-lg mr-2 text-secondary"></i>
+                            Settings
+                          </a>
+                          <a
+                            href="#"
+                            class="dropdown-item"
+                            data-toggle="modal"
+                            data-target="#logout-modal"
+                          >
+                            <i
+                              class="fas fa-sign-out-alt fa-lg mr-2 text-danger"
+                            ></i>
+                            Logout
+                          </a>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- End Of Top nav -->
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- End Of Navbar -->
+
+    <!-- Logout Modal -->
+    <div id="logout-modal" class="modal fade">
+      <div class="modal-dialog modal-confirm2">
+        <div class="modal-content">
+          <button
+            type="button"
+            class="close close-btn"
+            data-dismiss="modal"
+            aria-hidden="true"
+          >
+            &times;
+          </button>
+          <div class="col-12 text-center">
+            <img
+              src="./assets/img/question.png"
+              alt="question-mark"
+              id="question"
+            />
+          </div>
+          <div class="modal-header flex-column">
+            <h4 class="modal-title w-100 col-12 text-center">
+              Are you sure you want to Log out?
+            </h4>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-success" data-dismiss="modal">
+              Stay here
+            </button>
+            <a
+              type="button"
+              href="login.html"
+              class="btn btn-danger"
+              id="logout"
+            >
+              Logout
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Of Logout Modal -->
+
+    <!-- Settings Modal -->
+    <div class="modal fade" id="settings-modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <button type="button" class="close close-btn" data-dismiss="modal">
+            &times;
+          </button>
+          <div class="col-12 text-center key-img">
+            <img src="./assets/img/key.png" alt="key-icon" id="key" />
+          </div>
+          <div class="modal-header">
+            <h4 class="modal-title col-12 text-center">
+              Before you go to settings...
+            </h4>
+          </div>
+          <div class="modal-body">
+            <p class="text-center">
+              Please enter your credentials again to access Settings
+            </p>
+            <p class="text-center">
+              <small class="text-muted">
+                (This is required to keep the admin panel secure)
+              </small>
+            </p>
+            <form class="p-4" id="settings-form" enctype="multipart/form-data">
+              <div class="form-group row">
+                <label for="email" class="col-12 col-form-label">
+                  Email
+                </label>
+                <input
+                  type="text"
+                  id="email"
+                  class="col-12 form-control"
+                  placeholder="Enter Email"
+                  required
+                />
+              </div>
+              <div class="form-group row">
+                <label for="password" class="col-12 col-form-label">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  class="col-12 form-control"
+                  placeholder="Enter Password"
+                  required
+                />
+              </div>
+              <div class="row">
+                <p class="col-12 text-center">
+                  <small id="error-message" class="text-danger"
+                    >Invalid Credentials</small
+                  >
+                </p>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <a
+              type="button"
+              href="#"
+              id="settings-button"
+              class="btn btn-secondary"
+            >
+              <i class="fas fa-cog fa-lg mr-2"></i>
+              Go to Settings
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Of Settings Modal -->
+
+    <!--Main Content-->
+    <main>
+      <div class="container">
+        <div class="row mt-5 pt-5 mb-5">
+          <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <div class="row">
+                  <h1 class="pr-5">Update This Course</h1>
+                  <a
+                    class="btn btn-sm text-secondary"
+                    id="go-back"
+                    href="edit-courses.html"
+                  >
+                    <i class="fas fa-arrow-left"></i> GO BACK
+                  </a>
+                </div>
+                <form action="#" id="add-courses-form">
+                  <div class="form-group">
+                    <label for="name" class="col-12">Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      name="name"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="description" class="col-12">Description</label>
+                    <textarea class="form-control" id="description" rows="6">
+                    </textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="date" class="col-12"
+                      >Date on which Course is to be Added:</label
+                    >
+                    <input
+                      type="date"
+                      name="date"
+                      id="date"
+                      class="form-control col-xl-4 col-lg-6"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="keywords" class="col-12"
+                      >Select Keyword(s):</label
+                    >
+                    <select class="sel" id="keywords" multiple> </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="new-keywords" class="col-12"
+                      >Add new Keyword(s):</label
+                    >
+                    <input
+                      type="text"
+                      name="new-keywords"
+                      id="new-keywords"
+                      class="form-control"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="languages" class="col-12"
+                      >Select Language(s):</label
+                    >
+                    <select class="sel" id="languages" multiple> </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="new-languages" class="col-12"
+                      >Add new Language(s):</label
+                    >
+                    <input
+                      type="text"
+                      name="new-languages"
+                      id="new-languages"
+                      class="form-control"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="course-link" class="col-12"
+                      >Add link for Course:</label
+                    >
+                    <input
+                      class="form-control"
+                      type="url"
+                      id="course-link"
+                      name="course-link"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="img-link" class="col-12"
+                      >Add link for Image:</label
+                    >
+                    <input
+                      class="form-control"
+                      type="url"
+                      id="img-link"
+                      name="img-link"
+                    />
+                  </div>
+
+                  <div class="wrap">
+                    <button
+                      class="button"
+                      type="submit"
+                      id="update-course-button"
+                      data-target="#success-modal"
+                      data-toggle="modal"
+                    >
+                      Update Course!
+                    </button>
+                    <a
+                      href="index.html"
+                      target="_blank"
+                      class="pl-4 text-muted"
+                    >
+                      <small style="font-size: 14px;">
+                        View Updated Course
+                      </small>
+                    </a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!--End of Main Content-->
+
+    <!--Success Modal-->
+    <div id="success-modal" class="modal fade">
+      <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="icon-box">
+              <i class="material-icons">&#xE876;</i>
+            </div>
+            <h4 class="modal-title text-center col-12">Success!</h4>
+          </div>
+          <div class="modal-body">
+            <p class="text-center">Course Updated successfully.</p>
+          </div>
+          <div class="modal-footer">
+            <a type="button" href="edit-courses.html" class="btn btn-block">
+              OK
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End of Success Modal-->
+
+    <!-- Footer -->
+    <div class="container-fluid">
+      <div class="row border-top pt-3 footer">
+        <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+          <div class="row">
+            <div class="col-lg-6 text-center">
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <a href="#" class="text-dark">FreeTechCourses</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-6 text-center">
+              <p>
+                Footer tag, will decide what to write here
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Of Footer -->
+
+    <!-- Bootstrap, Popper and jQuery JS CDNs -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="./js/utilities/baseUrl.js"></script>
+    <script src="./js/utilities/verifyToken.js"></script>
+    <script src="./js/utilities/settingsPageAccessRequest.js"></script>
+    <script src="./js/utilities/logout.js"></script>
+    <script src="./js/updateCourse.js"></script>
+  </body>
+</html>

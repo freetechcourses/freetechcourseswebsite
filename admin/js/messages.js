@@ -32,6 +32,7 @@
       }
     } else {
       document.getElementById('no-messages').style.display = 'block';
+      document.querySelector('#delete-messages').style.display = 'none';
     }
   } catch (err) {
     console.log(err);

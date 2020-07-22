@@ -64,7 +64,7 @@ router.patch('/update/:id', async (req, res, next) => {
 			return;
 		}
 		res.status(200).json({ ok:1 });
-	} catch(err){ next(err); }
+	} catch(err){ next(err); console.log(err) }
 });
 
 

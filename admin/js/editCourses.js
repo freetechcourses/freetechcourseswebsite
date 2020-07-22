@@ -69,7 +69,12 @@ document.getElementById('search-button').addEventListener('click', async () => {
           </a>
         </td>
         <td>
-          <a class="btn btn-success btn-sm" href="update-course.html">
+          <a 
+            type="button" 
+            class="btn btn-success btn-sm" 
+            href="update-course.html" 
+            onclick="update('${response.data[i]._id}')"
+          >
             Update
           </a>
         </td>
@@ -91,3 +96,8 @@ deleteModal(
   'course',
   '/edit-courses.html'
 );
+
+function update(id) {
+  console.log(id);
+  sessionStorage.setItem('id', id);
+}
