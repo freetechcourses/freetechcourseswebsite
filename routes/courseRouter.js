@@ -88,13 +88,4 @@ router.delete('/delete', async (req, res, next) => {
 	} catch(err){ next(err); }
 });
 
-
-router.get('/date/:date', async (req, res, next) => {
-	try{
-		let data = await Course.find({ date: (new Date(req.params.date)).getTime() });
-		res.status(200).json({ ok:1, data });
-	} catch(err){ next(err); }
-});
-
-
 module.exports = router;

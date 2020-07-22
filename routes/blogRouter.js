@@ -3,6 +3,7 @@ const router = express.Router();
 const Blog = require('../models/blog');
 const cut = require('../utilities/cut');
 const auth = require('../utilities/auth');
+const dategen = require('../utilities/dategen');
 
 router.get('/latest', async (req, res, next) => {
 	try{
@@ -21,10 +22,7 @@ router.get('/bydate/:date', async (req, res, next) => {
 			return;
 		}
 		if(typeof date === 'string') date = parseInt(date);
-		let data = await Blog.find({ date: {
-			$lte: date+86401000,
-			$gte: date-86401000 
-		} });
+		let data = await Blog.find({ date });
 		res.status(200).json({ ok:1, data });
 	} catch(err){ next(err); }
 });
@@ -41,7 +39,7 @@ router.use(auth);
 router.post('/add', async (req, res, next) => {
 	try{
 		let input = cut(req.body, ['title','body']);
-		input.date = Date.now();
+		input.date = dategen();
 		let newblog = new Blog(input);
 		await newblog.save();
 		res.status(200).json({ ok:1 });
