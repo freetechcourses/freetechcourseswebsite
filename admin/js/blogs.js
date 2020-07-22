@@ -10,7 +10,7 @@
         const blog = ` <tr id=${i}>
         <td scope="row">${i + 1}</td>
         <td>${response.data[i].title}</td>
-        <td>${new Date(response.data[i].date).toLocaleString()}</td>
+        <td>${new Date(response.data[i].date).toDateString()}</td>
         <td>
           <a 
             type="button" 

@@ -20,7 +20,7 @@ $(document).ready(function () {
           <hr />
           <p class="text-muted">
             Posted on 
-            Date: ${new Date(response.data[i].date).toLocaleString()} 
+            Date: ${new Date(response.data[i].date).toDateString()} 
           </p>
           <hr />
           <div class="blog-image mb-3"></div>
