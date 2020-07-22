@@ -98,6 +98,5 @@ deleteModal(
 );
 
 function update(id) {
-  console.log(id);
   sessionStorage.setItem('id', id);
 }

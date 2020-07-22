@@ -92,10 +92,19 @@
                 <li class="nav-item">
                   <a
                     href="new-blog.html"
-                    class="nav-link text-white p-3 mb-2 sidebar-link current"
+                    class="nav-link text-white p-3 mb-2 sidebar-link"
                   >
                     <i class="fas fa-feather-alt text-light fa-lg mr-3"></i>
                     New Blog
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    href="delete-blog.html"
+                    class="nav-link text-white p-3 mb-2 sidebar-link current"
+                  >
+                    <i class="fas fa-eraser text-light fa-lg mr-3"></i>
+                    Delete Blog
                   </a>
                 </li>
               </ul>
@@ -273,81 +282,58 @@
     </div>
     <!-- End Of Settings Modal -->
 
-    <!-- Main Layout -->
+    <!-- Main Content -->
     <main>
       <div class="container">
         <div class="row mt-5 pt-5 mb-5">
           <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
             <div class="row justify-content-center">
               <div class="col-12">
-                <h1>Add Blog</h1>
-                <form id="add-blog-form">
-                  <div class="form-group">
-                    <label for="title" class="col-12">Title</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="title"
-                      name="title"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="body" class="col-12">Blog Content</label>
-                    <textarea
-                      class="form-control"
-                      id="body"
-                      rows="20"
-                    ></textarea>
-                  </div>
-                  <div class="wrap">
-                    <button
-                      class="button"
-                      type="submit"
-                      id="add-blog-button"
-                      data-target="#success-modal"
-                      data-toggle="modal"
-                    >
-                      Add Blog!
-                    </button>
-                    <a
-                      href="blog.html"
-                      target="_blank"
-                      class="pl-4 text-muted"
-                    >
-                      <small style="font-size: 14px;">
-                        View Added Blog
-                      </small>
-                    </a>
-                  </div>
-                </form>
+                <h1>Delete This Blog</h1>
+                <h2 id="blog-title"></h2>
+                <p class="lead" id="blog-body"></p>
+                <button
+                  class="btn btn-danger"
+                  data-target="#delete-blog-modal"
+                  data-toggle="modal"
+                >
+                  Delete
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </main>
-    <!-- End Of Main Layout -->
+    <!-- End Of Main Content -->
 
-    <!-- Success Modal -->
-    <div id="success-modal" class="modal fade">
-      <div class="modal-dialog modal-confirm">
+    <!-- Delete Blog Modal -->
+    <div id="delete-blog-modal" class="modal fade">
+      <div class="modal-dialog modal-confirm2">
         <div class="modal-content">
-          <div class="modal-header">
-            <div class="icon-box">
-              <i class="material-icons">&#xE876;</i>
-            </div>
-            <h4 class="modal-title text-center col-12">Success!</h4>
+          <button type="button" class="close close-btn" data-dismiss="modal" aria-hidden="true">
+            &times;
+          </button>
+          <div class="col-12 text-center">
+            <img src="./assets/img/question.png" alt="question-mark" id="question" />
           </div>
-          <div class="modal-body">
-            <p class="text-center">Blog added successfully.</p>
+          <div class="modal-header flex-column">
+            <h4 class="modal-title w-100 col-12 text-center">
+              Are you sure you want to <span class="text-danger">DELETE</span> this Blog?
+            </h4>
           </div>
-          <div class="modal-footer">
-            <button class="btn btn-block" data-dismiss="modal">OK</button>
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-success" data-dismiss="modal">
+              Nope
+            </button>
+            <a type="button" href="blogs.html" class="btn btn-danger" id="delete-blog">
+              Yes
+            </a>
           </div>
         </div>
       </div>
     </div>
-    <!-- End Of Success Modal -->
+    <!-- End Of Delete Blog Modal -->
 
     <!-- Footer -->
     <div class="container-fluid">
@@ -394,6 +380,6 @@
     <script src="./js/utilities/verifyToken.js"></script>
     <script src="./js/utilities/settingsPageAccessRequest.js"></script>
     <script src="./js/utilities/logout.js"></script>
-    <script src="./js/newBlog.js"></script>
+    <script src="./js/deleteBlog.js"></script>
   </body>
 </html>

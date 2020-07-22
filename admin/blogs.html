@@ -83,7 +83,7 @@
                 <li class="nav-item">
                   <a
                     href="blogs.html"
-                    class="nav-link text-white p-3 mb-2 sidebar-link"
+                    class="nav-link text-white p-3 mb-2 sidebar-link current"
                   >
                     <i class="fas fa-comment-alt text-light fa-lg mr-3"></i>
                     Blogs
@@ -92,7 +92,7 @@
                 <li class="nav-item">
                   <a
                     href="new-blog.html"
-                    class="nav-link text-white p-3 mb-2 sidebar-link current"
+                    class="nav-link text-white p-3 mb-2 sidebar-link"
                   >
                     <i class="fas fa-feather-alt text-light fa-lg mr-3"></i>
                     New Blog
@@ -273,81 +273,38 @@
     </div>
     <!-- End Of Settings Modal -->
 
-    <!-- Main Layout -->
+    <!--Main Content-->
     <main>
       <div class="container">
-        <div class="row mt-5 pt-5 mb-5">
+        <div class="row mt-5 pt-5 mb-5 justify-content-center">
           <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
             <div class="row justify-content-center">
-              <div class="col-12">
-                <h1>Add Blog</h1>
-                <form id="add-blog-form">
-                  <div class="form-group">
-                    <label for="title" class="col-12">Title</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="title"
-                      name="title"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="body" class="col-12">Blog Content</label>
-                    <textarea
-                      class="form-control"
-                      id="body"
-                      rows="20"
-                    ></textarea>
-                  </div>
-                  <div class="wrap">
-                    <button
-                      class="button"
-                      type="submit"
-                      id="add-blog-button"
-                      data-target="#success-modal"
-                      data-toggle="modal"
-                    >
-                      Add Blog!
-                    </button>
-                    <a
-                      href="blog.html"
-                      target="_blank"
-                      class="pl-4 text-muted"
-                    >
-                      <small style="font-size: 14px;">
-                        View Added Blog
-                      </small>
-                    </a>
-                  </div>
-                </form>
+              <div class="col-12" style="overflow-x: auto;">
+                <h1 class="pr-5">Blogs</h1>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Title</th>
+                      <th scope="col">Date</th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody id="blogs">
+                    <tr id="no-blogs">
+                      <td colspan="4" class="text-center">
+                        No blogs added yet!
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
       </div>
     </main>
-    <!-- End Of Main Layout -->
-
-    <!-- Success Modal -->
-    <div id="success-modal" class="modal fade">
-      <div class="modal-dialog modal-confirm">
-        <div class="modal-content">
-          <div class="modal-header">
-            <div class="icon-box">
-              <i class="material-icons">&#xE876;</i>
-            </div>
-            <h4 class="modal-title text-center col-12">Success!</h4>
-          </div>
-          <div class="modal-body">
-            <p class="text-center">Blog added successfully.</p>
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-block" data-dismiss="modal">OK</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Of Success Modal -->
+    <!--End of Main Content-->
 
     <!-- Footer -->
     <div class="container-fluid">
@@ -394,6 +351,6 @@
     <script src="./js/utilities/verifyToken.js"></script>
     <script src="./js/utilities/settingsPageAccessRequest.js"></script>
     <script src="./js/utilities/logout.js"></script>
-    <script src="./js/newBlog.js"></script>
+    <script src="./js/blogs.js"></script>
   </body>
 </html>
