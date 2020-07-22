@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"cdata.contacts"}],"uuid":"c6119e0e8520419ba9645f2e8c78b9a9"}
