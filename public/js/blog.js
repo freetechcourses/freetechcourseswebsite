@@ -14,9 +14,9 @@ $(document).ready(function () {
 
     if (response.data.length) {
       for (let i = 0; i < response.data.length; i++) {
-        const blog = `<h1 class="pt-3" id=${response.data[i]._id}>
+        const blog = `<h2 class="pt-3" id=${response.data[i]._id}>
           ${response.data[i].title}
-          </h1>
+          </h2>
           <hr />
           <p class="text-muted">
             Posted on 
@@ -25,9 +25,16 @@ $(document).ready(function () {
           <hr />
           <div class="blog-image mb-3"></div>
           <hr />
-          <div>
+          <div class="card-text">
             ${response.data[i].body}
           </div>
+          <a 
+            class="btn text-info mt-3"
+            href="single-blog.html"
+            onclick="blogInfo('${response.data[i]._id}')"
+          >
+            Read More
+          </a>
           <hr />`;
         $('#blogs').append(blog);
       }
@@ -38,3 +45,7 @@ $(document).ready(function () {
     console.log(err);
   }
 })();
+
+function blogInfo(id) {
+  localStorage.setItem('id', id);
+}
