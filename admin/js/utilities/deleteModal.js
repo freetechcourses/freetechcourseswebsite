@@ -41,5 +41,5 @@ const deleteModal = (modalClass, confirmId, name, requestUrl, redirectUrl) => {
     </div>`;
   $('body').append(modal);
 
-  deleteRequest(confirmId, requestUrl, redirectUrl)
-}
+  deleteRequest(confirmId, requestUrl, redirectUrl);
+};

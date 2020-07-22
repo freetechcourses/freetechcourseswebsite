@@ -1,6 +1,7 @@
 // Login Request
 document.getElementById("login-button").addEventListener("click", async (e) => {
   try {
+    e.preventDefault();
     const email = document.querySelector("#email").value;
     const password = document.querySelector("#password-field").value;
 
