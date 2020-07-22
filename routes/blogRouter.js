@@ -44,7 +44,7 @@ router.post('/add', async (req, res, next) => {
 		input.date = Date.now();
 		let newblog = new Blog(input);
 		await newblog.save();
-		res.status({ ok:1 });
+		res.status(200).json({ ok:1 });
 	} catch(err){ next(err); }
 });
 
