@@ -21,13 +21,6 @@
       crossorigin="anonymous"
     />
 
-    <!--Chosen Stylesheet-->
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css"
-    />
-
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="./css/dashboard.css" />
     <title>Admin Panel</title>
@@ -80,15 +73,6 @@
                 </li>
                 <li class="nav-item">
                   <a
-                    href="update-course.html"
-                    class="nav-link text-white p-3 mb-2 sidebar-link current"
-                  >
-                    <i class="fas fa-tools text-light fa-lg mr-3"></i>
-                    Update Course
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a
                     href="messages.html"
                     class="nav-link text-white p-3 mb-2 sidebar-link"
                   >
@@ -112,6 +96,15 @@
                   >
                     <i class="fas fa-feather-alt text-light fa-lg mr-3"></i>
                     New Blog
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    href="delete-blog.html"
+                    class="nav-link text-white p-3 mb-2 sidebar-link current"
+                  >
+                    <i class="fas fa-eraser text-light fa-lg mr-3"></i>
+                    Delete Blog
                   </a>
                 </li>
               </ul>
@@ -289,164 +282,58 @@
     </div>
     <!-- End Of Settings Modal -->
 
-    <!--Main Content-->
+    <!-- Main Content -->
     <main>
       <div class="container">
         <div class="row mt-5 pt-5 mb-5">
           <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
             <div class="row justify-content-center">
               <div class="col-12">
-                <div class="row">
-                  <h1 class="pr-5">Update This Course</h1>
-                  <a
-                    class="btn btn-sm text-secondary"
-                    id="go-back"
-                    href="edit-courses.html"
-                  >
-                    <i class="fas fa-arrow-left"></i> GO BACK
-                  </a>
-                </div>
-                <form action="#" id="add-courses-form">
-                  <div class="form-group">
-                    <label for="name" class="col-12">Name</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="name"
-                      name="name"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="description" class="col-12">Description</label>
-                    <textarea class="form-control" id="description" rows="6">
-                    </textarea>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="date" class="col-12"
-                      >Date on which Course is to be Added:</label
-                    >
-                    <input
-                      type="date"
-                      name="date"
-                      id="date"
-                      class="form-control col-xl-4 col-lg-6"
-                    />
-                  </div>
-
-                  <div class="form-group">
-                    <label for="keywords" class="col-12"
-                      >Select Keyword(s):</label
-                    >
-                    <select class="sel" id="keywords" multiple> </select>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="new-keywords" class="col-12"
-                      >Add new Keyword(s):</label
-                    >
-                    <input
-                      type="text"
-                      name="new-keywords"
-                      id="new-keywords"
-                      class="form-control"
-                    />
-                  </div>
-
-                  <div class="form-group">
-                    <label for="languages" class="col-12"
-                      >Select Language(s):</label
-                    >
-                    <select class="sel" id="languages" multiple> </select>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="new-languages" class="col-12"
-                      >Add new Language(s):</label
-                    >
-                    <input
-                      type="text"
-                      name="new-languages"
-                      id="new-languages"
-                      class="form-control"
-                    />
-                  </div>
-
-                  <div class="form-group">
-                    <label for="course-link" class="col-12"
-                      >Add link for Course:</label
-                    >
-                    <input
-                      class="form-control"
-                      type="url"
-                      id="course-link"
-                      name="course-link"
-                    />
-                  </div>
-
-                  <div class="form-group">
-                    <label for="img-link" class="col-12"
-                      >Add link for Image:</label
-                    >
-                    <input
-                      class="form-control"
-                      type="url"
-                      id="img-link"
-                      name="img-link"
-                    />
-                  </div>
-
-                  <div class="wrap">
-                    <button
-                      class="button"
-                      type="submit"
-                      id="update-course-button"
-                      data-target="#success-modal"
-                      data-toggle="modal"
-                    >
-                      Update Course!
-                    </button>
-                    <a
-                      href="index.html"
-                      target="_blank"
-                      class="pl-4 text-muted"
-                    >
-                      <small style="font-size: 14px;">
-                        View Updated Course
-                      </small>
-                    </a>
-                  </div>
-                </form>
+                <h1>Delete This Blog</h1>
+                <h2 id="blog-title"></h2>
+                <p class="lead" id="blog-body"></p>
+                <button
+                  class="btn btn-danger"
+                  data-target="#delete-blog-modal"
+                  data-toggle="modal"
+                >
+                  Delete
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </main>
-    <!--End of Main Content-->
+    <!-- End Of Main Content -->
 
-    <!--Success Modal-->
-    <div id="success-modal" class="modal fade">
-      <div class="modal-dialog modal-confirm">
+    <!-- Delete Blog Modal -->
+    <div id="delete-blog-modal" class="modal fade">
+      <div class="modal-dialog modal-confirm2">
         <div class="modal-content">
-          <div class="modal-header">
-            <div class="icon-box">
-              <i class="material-icons">&#xE876;</i>
-            </div>
-            <h4 class="modal-title text-center col-12">Success!</h4>
+          <button type="button" class="close close-btn" data-dismiss="modal" aria-hidden="true">
+            &times;
+          </button>
+          <div class="col-12 text-center">
+            <img src="./assets/img/question.png" alt="question-mark" id="question" />
           </div>
-          <div class="modal-body">
-            <p class="text-center">Course Updated successfully.</p>
+          <div class="modal-header flex-column">
+            <h4 class="modal-title w-100 col-12 text-center">
+              Are you sure you want to <span class="text-danger">DELETE</span> this Blog?
+            </h4>
           </div>
-          <div class="modal-footer">
-            <a type="button" href="edit-courses.html" class="btn btn-block">
-              OK
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-success" data-dismiss="modal">
+              Nope
+            </button>
+            <a type="button" href="blogs.html" class="btn btn-danger" id="delete-blog">
+              Yes
             </a>
           </div>
         </div>
       </div>
     </div>
-    <!--End of Success Modal-->
+    <!-- End Of Delete Blog Modal -->
 
     <!-- Footer -->
     <div class="container-fluid">
@@ -487,13 +374,12 @@
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
 
     <!-- Custom Scripts -->
     <script src="./js/utilities/baseUrl.js"></script>
     <script src="./js/utilities/verifyToken.js"></script>
     <script src="./js/utilities/settingsPageAccessRequest.js"></script>
     <script src="./js/utilities/logout.js"></script>
-    <script src="./js/updateCourse.js"></script>
+    <script src="./js/deleteBlog.js"></script>
   </body>
 </html>
