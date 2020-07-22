@@ -11,32 +11,24 @@
     // Displaying all messages
     if (response.feedbacks.length) {
       for (let i = 0; i < response.feedbacks.length; i++) {
-        const messageDetails = ` <tr id=${i}>
-                                <th scope="row">${i + 1}</th>
-                                <td>${response.feedbacks[i].name}</td>
-                                <td>${response.feedbacks[i].email}</td>
-                                <td>
-                                  ${response.feedbacks[i].message}
-                                </td>
-                                <td>
-                                  <button
-                                    class="btn btn-danger delete"
-                                    data-target="#delete-message-modal"
-                                    data-toggle="modal"
-                                  >
-                                    Delete
-                                  </button>
-                                </td>
-                              </tr>`;
+        const messageDetails = `<tr id=${i}>
+        <td>
+          <div class="form-check">
+            <input 
+              class="form-check-input position-static" 
+              type="checkbox"
+              value=${response.feedbacks[i]._id} 
+            />
+          </div>
+        </td>
+        <th scope="row">${i + 1}</th>
+        <td>${response.feedbacks[i].name}</td>
+        <td>${response.feedbacks[i].email}</td>
+        <td>
+          ${response.feedbacks[i].message}
+        </td>
+      </tr>`;
         $('#messages').append(messageDetails);
-
-        deleteModal(
-          `${response.feedbacks[i]._id}`,
-          'Message',
-          'contact',
-          '/messages.html',
-          'delete-message-modal'
-        );
       }
     } else {
       document.getElementById('no-messages').style.display = 'block';
@@ -45,3 +37,11 @@
     console.log(err);
   }
 })();
+
+deleteModal(
+  'delete-messages-modal',
+  'delete-selected-messages',
+  'Message',
+  'contact',
+  '/messages.html'
+);

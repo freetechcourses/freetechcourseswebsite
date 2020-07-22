@@ -22,16 +22,24 @@ router.get('/all', async (req, res, next) => {
 });
 
 
-router.delete('/:id', async (req, res, next) => {
-	try{
-		let { deletedCount } = await Contact.deleteOne({ _id: req.params.id });
-		if(deletedCount !== 1){
-			let err = new Error('Could not delete');
+router.delete('/delete', async (req, res, next) => {
+	try {
+		let { list } = req.body;
+		if (!Array.isArray(list)) {
+			let err = new Error('list must be an array');
+			err.status = 400;
 			next(err);
 			return;
 		}
-		res.status(200).json({ ok:1 });
-	} catch(err){ next(err); }
+		if (list.length === 0) {
+			let err = new Error('Empty list');
+			err.status = 400;
+			next(err);
+			return;
+		}
+		await Contact.deleteMany({ _id: { $in: list } });
+		res.status(200).json({ ok: 1 });
+	} catch (err) { next(err); }
 });
 
 module.exports = router;

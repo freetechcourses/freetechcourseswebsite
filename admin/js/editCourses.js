@@ -6,6 +6,9 @@
 
   const keywords = await keywordResponse.allKeywords.sort();
 
+  // Removing delete button from DOM
+  document.querySelector('#delete-courses').style.display = 'none';
+
   $(document).ready(function () {
     $('.sel').chosen({ width: '100%' });
   });
@@ -32,6 +35,9 @@ document.getElementById('search-button').addEventListener('click', async () => {
     // Emptying parent div to accomodate new courses
     $('#display-courses').empty();
 
+    // Appending delete button to DOM
+    document.querySelector('#delete-courses').style.display = 'inline';
+
     // Getting searched courses
     const response = await (
       await fetch(`${url}/course/search`, {
@@ -45,54 +51,30 @@ document.getElementById('search-button').addEventListener('click', async () => {
 
     if (response.data.length) {
       for (let i = 0; i < response.data.length; i++) {
-        const courses = `<tr>
-                        <td scope="row">${i + 1}</td>
-                        <td>${response.data[i].name}</td>
-                        <td>
-                          <a href=${response.data[i].hyperlink} target="_blank">
-                            Course Link
-                          </a>
-                        </td>
-                        <td>
-                          <div class="dropdown">
-                            <a
-                              class="btn btn-sm options"
-                              type="button"
-                              data-toggle="dropdown"
-                              href="#"
-                            >
-                              <i class="fas fa-ellipsis-v"></i>
-                            </a>
-                            <div class="dropdown-menu">
-                              <a
-                                href="#"
-                                class="dropdown-item"
-                                data-toggle="modal"
-                                data-target="#update-course-modal"
-                              >
-                                Update
-                              </a>
-                              <button
-                                href="#"
-                                class="dropdown-item"
-                                data-toggle="modal"
-                                data-target="#delete-course-modal"
-                              >
-                                Delete
-                              </button>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>`;
+        const courses = ` <tr id=${i}>
+        <td>
+          <div class="form-check">
+            <input 
+              class="form-check-input position-static" 
+              type="checkbox" 
+              value=${response.data[i]._id}
+            />
+          </div>
+        </td>
+        <td scope="row">${i + 1}</td>
+        <td>${response.data[i].name}</td>
+        <td>
+          <a href=${response.data[i].hyperlink} target="_blank">
+            Course Link
+          </a>
+        </td>
+        <td>
+          <a class="btn btn-success btn-sm" href="update-course.html">
+            Update
+          </a>
+        </td>
+      </tr>`;
         $('#courses').append(courses);
-
-        deleteModal(
-          `${response.data[i]._id}`,
-          'Course',
-          'course/delete',
-          '/edit-courses.html',
-          'delete-course-modal'
-        );
       }
     } else {
       document.querySelector('#no-courses').style.display = 'block';
@@ -101,3 +83,11 @@ document.getElementById('search-button').addEventListener('click', async () => {
     console.log(err);
   }
 });
+
+deleteModal(
+  'delete-courses-modal',
+  'delete-selected-courses',
+  'Course',
+  'course',
+  '/edit-courses.html'
+);
