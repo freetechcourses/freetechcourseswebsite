@@ -4,10 +4,16 @@ const Course = require('../models/data');
 const cut = require('../utilities/cut');
 const auth = require('../utilities/auth');
 
-router.get('/latest', async (req, res, next) => {
+router.get('/latest?page', async (req, res, next) => {
 	try{
-		let data = await Course.find({}, { __v: 0 }, { sort: {'date':-1}, limit: 6 });
-		res.status(200).json({ ok:1, data });
+		let { page } = req.query;
+		if(!page) page = 0;
+		if(typeof page === 'string') page = parseInt(page);
+		let data = await Course.find({}, { __v: 0 }, { sort: {'date':-1}, skip: (page * 6), limit: 6 });
+		let output = { ok:1, data };
+		output.page = page;
+		output.nextPage = data.length === 6 ? page + 1 : false;
+		res.status(200).json(output);
 	} catch(err){ next(err); }
 });
 
