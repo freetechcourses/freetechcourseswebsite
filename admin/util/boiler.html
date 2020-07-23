@@ -98,15 +98,6 @@
                     New Blog
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a
-                    href="delete-blog.html"
-                    class="nav-link text-white p-3 mb-2 sidebar-link current"
-                  >
-                    <i class="fas fa-eraser text-light fa-lg mr-3"></i>
-                    Delete Blog
-                  </a>
-                </li>
               </ul>
             </div>
             <!-- End Of Sidebar -->
@@ -282,73 +273,6 @@
     </div>
     <!-- End Of Settings Modal -->
 
-    <!-- Main Content -->
-    <main>
-      <div class="container">
-        <div class="row mt-5 pt-5 mb-5">
-          <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
-            <div class="row justify-content-center">
-              <div class="col-12">
-                <h1>Delete This Blog</h1>
-                <div id="blog-content"></div>
-                <button
-                  class="btn btn-danger"
-                  data-target="#delete-blog-modal"
-                  data-toggle="modal"
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-    <!-- End Of Main Content -->
-
-    <!-- Delete Blog Modal -->
-    <div id="delete-blog-modal" class="modal fade">
-      <div class="modal-dialog modal-confirm2">
-        <div class="modal-content">
-          <button
-            type="button"
-            class="close close-btn"
-            data-dismiss="modal"
-            aria-hidden="true"
-          >
-            &times;
-          </button>
-          <div class="col-12 text-center">
-            <img
-              src="./assets/img/question.png"
-              alt="question-mark"
-              id="question"
-            />
-          </div>
-          <div class="modal-header flex-column">
-            <h4 class="modal-title w-100 col-12 text-center">
-              Are you sure you want to
-              <span class="text-danger">DELETE</span> this Blog?
-            </h4>
-          </div>
-          <div class="modal-footer justify-content-center">
-            <button type="button" class="btn btn-success" data-dismiss="modal">
-              Nope
-            </button>
-            <a
-              type="button"
-              href="blogs.html"
-              class="btn btn-danger"
-              id="delete-blog"
-            >
-              Yes
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Of Delete Blog Modal -->
-
     <!-- Footer -->
     <div class="container-fluid">
       <div class="row border-top pt-3 footer">
@@ -390,10 +314,9 @@
     ></script>
 
     <!-- Custom Scripts -->
-    <script src="./js/util/baseUrl.js"></script>
-    <script src="./js/util/verifyToken.js"></script>
-    <script src="./js/util/settingsPageAccessRequest.js"></script>
-    <script src="./js/util/logout.js"></script>
-    <script src="./js/deleteBlog.js"></script>
+    <script src="./js/utilities/baseUrl.js"></script>
+    <script src="./js/utilities/verifyToken.js"></script>
+    <script src="./js/utilities/settingsPageAccessRequest.js"></script>
+    <script src="./js/utilities/logout.js"></script>
   </body>
 </html>
