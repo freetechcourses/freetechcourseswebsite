@@ -34,6 +34,7 @@
 
     <!-- Custom Stylesheets -->
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/calendar.css">
     <title>Free Tech Courses</title>
   </head>
 
@@ -87,8 +88,14 @@
         <!-- End Of Blog Area -->
 
           <!-- Calendar -->
-          <div class="datepicker">
+          <!-- <div class="datepicker">
             <div class="datepicker-header"></div>
+          </div> -->
+
+          <div class="calendar-wrapper">
+            <button id="btnPrev" type="button">Prev</button>
+            <button id="btnNext" type="button">Next</button>
+            <div id="divCal"></div>
           </div>
           <!-- End Of Calendar -->
         </div>
@@ -154,6 +161,7 @@
 
     <!-- Custom Scripts -->
     <script src="js/utilities/baseUrl.js"></script>
+    <script src="js/utilities/calendar.js"></script>
     <script src="js/singleBlog.js"></script>
   </body>
 </html>

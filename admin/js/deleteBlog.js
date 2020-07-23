@@ -10,8 +10,12 @@
     console.log(response);
     if (response.ok) {
       const blog = `<h2>${response.data.title}</h2>
-                  <img alt=${response.data.title} src=${response.data.blogImage} />
-                <p class="lead">${response.data.body}</p>`;
+                  <img 
+                    alt=${response.data.title} 
+                    src=${response.data.blogImage} 
+                    class="rounded mx-auto img-fluid"
+                  />
+                  <p class="lead">${response.data.body}</p>`;
       $('#blog-content').append(blog);
     } else {
       console.log(response);

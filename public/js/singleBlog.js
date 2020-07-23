@@ -20,10 +20,14 @@ $(document).ready(function () {
           </h2>
           <hr />
           <p class="text-muted">
-            Posted on Date: ${new Date(response.data.date).toLocaleString()}
+            Posted on Date: ${new Date(response.data.date).toDateString()}
           </p>
           <hr />
-          <div class="blog-image mb-3"></div>
+          <img
+            alt=${response.data.title} 
+            src=${response.data.blogImage} 
+            class="rounded mx-auto img-fluid"
+          />
           <hr />
           <div>
             ${response.data.body}
