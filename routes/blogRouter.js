@@ -3,7 +3,6 @@ const router = express.Router();
 const Blog = require('../models/blog');
 const cut = require('../utilities/cut');
 const auth = require('../utilities/auth');
-const dategen = require('../utilities/dategen');
 
 router.get('/latest', async (req, res, next) => {
 	try{
@@ -22,7 +21,12 @@ router.get('/bydate/:date', async (req, res, next) => {
 			return;
 		}
 		if(typeof date === 'string') date = parseInt(date);
-		let data = await Blog.find({ date });
+		date = new Date(date).getDate();
+		let data = await Blog.find({
+			$where: function() {
+				return new Date(this.date).getDate() === date;
+			}
+		});
 		res.status(200).json({ ok:1, data });
 	} catch(err){ next(err); }
 });
@@ -34,12 +38,19 @@ router.get('/single/:id', async (req, res, next) => {
 	} catch(err){ next(err); }
 });
 
+router.get('/alldates', async (req, res, next) => {
+	try{
+		let [{ allDates }] = await Blog.aggregate([{ $group: { _id:null, allDates: { $addToSet: "$date" }}}]);
+		res.status(200).json({ ok:1, allDates });
+	} catch(err){ next(err); }
+});
+
 router.use(auth);
 
 router.post('/add', async (req, res, next) => {
 	try{
 		let input = cut(req.body, ['title','body','blogImage']);
-		input.date = dategen();
+		input.date = Date.now();
 		let newblog = new Blog(input);
 		await newblog.save();
 		res.status(200).json({ ok:1 });
