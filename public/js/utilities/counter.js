@@ -17,9 +17,4 @@ function a() {
 }
 
 let b = a();
-let c = a();
-
-console.log(b());
-console.log(b());
-console.log(c());
 
