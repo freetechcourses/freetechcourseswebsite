@@ -25,15 +25,9 @@
       crossorigin="anonymous"
     />
 
-    <!--Chosen Stylesheet-->
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css"
-    />
-
     <!-- Custom Stylesheets -->
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/calendar.css" />
     <title>Free Tech Courses</title>
   </head>
 
@@ -85,9 +79,16 @@
         <!-- End Of Blog Area -->
 
           <!-- Calendar -->
-          <div class="datepicker">
+          <!-- <div class="datepicker">
             <div class="datepicker-header"></div>
+          </div> -->
+
+          <div class="calendar-wrapper">
+            <button id="btnPrev" type="button">Prev</button>
+            <button id="btnNext" type="button">Next</button>
+            <div id="divCal"></div>
           </div>
+
           <!-- End Of Calendar -->
         </div>
       </div>
@@ -146,12 +147,12 @@
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 
     <!-- Custom Scripts -->
     <script src="js/utilities/baseUrl.js"></script>
+    <script src="js/utilities/calendar.js"></script>
     <script src="js/blog.js"></script>
   </body>
 </html>

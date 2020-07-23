@@ -110,6 +110,12 @@ body {
 #no-blogs {
   display: none;
 }
+.blog-image {
+  width: 100%;
+  height: 40vh;
+  background-color: rgb(179, 179, 179);
+  border-radius: 5px;
+}
 /* End Of Blogs */
 
 /* Settings */

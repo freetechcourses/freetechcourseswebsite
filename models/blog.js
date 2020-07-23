@@ -8,6 +8,10 @@ const blogSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
+	blogImage: {
+		type: String,
+		required: true
+	},
 	date: {
 		type: Number,
 		required: true

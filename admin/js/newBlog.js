@@ -5,6 +5,7 @@ document
     try {
       e.preventDefault();
       const title = document.getElementById('title').value;
+      const blogImage = document.getElementById('img-link').value;
       const body = document.getElementById('body').value;
 
       const response = await (
@@ -14,7 +15,7 @@ document
             'Content-Type': 'application/json',
             token: `${sessionStorage.getItem('token')}`,
           },
-          body: JSON.stringify({ title, body }),
+          body: JSON.stringify({ title, body, blogImage }),
         })
       ).json();
 

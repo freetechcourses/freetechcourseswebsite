@@ -7,9 +7,12 @@
       })
     ).json();
 
+    console.log(response);
     if (response.ok) {
-      document.getElementById('blog-title').innerText = response.data.title;
-      document.getElementById('blog-body').innerText = response.data.body;
+      const blog = `<h2>${response.data.title}</h2>
+                  <img alt=${response.data.title} src=${response.data.blogImage} />
+                <p class="lead">${response.data.body}</p>`;
+      $('#blog-content').append(blog);
     } else {
       console.log(response);
     }

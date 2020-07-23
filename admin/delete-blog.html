@@ -290,8 +290,7 @@
             <div class="row justify-content-center">
               <div class="col-12">
                 <h1>Delete This Blog</h1>
-                <h2 id="blog-title"></h2>
-                <p class="lead" id="blog-body"></p>
+                <div id="blog-content"></div>
                 <button
                   class="btn btn-danger"
                   data-target="#delete-blog-modal"
@@ -311,22 +310,37 @@
     <div id="delete-blog-modal" class="modal fade">
       <div class="modal-dialog modal-confirm2">
         <div class="modal-content">
-          <button type="button" class="close close-btn" data-dismiss="modal" aria-hidden="true">
+          <button
+            type="button"
+            class="close close-btn"
+            data-dismiss="modal"
+            aria-hidden="true"
+          >
             &times;
           </button>
           <div class="col-12 text-center">
-            <img src="./assets/img/question.png" alt="question-mark" id="question" />
+            <img
+              src="./assets/img/question.png"
+              alt="question-mark"
+              id="question"
+            />
           </div>
           <div class="modal-header flex-column">
             <h4 class="modal-title w-100 col-12 text-center">
-              Are you sure you want to <span class="text-danger">DELETE</span> this Blog?
+              Are you sure you want to
+              <span class="text-danger">DELETE</span> this Blog?
             </h4>
           </div>
           <div class="modal-footer justify-content-center">
             <button type="button" class="btn btn-success" data-dismiss="modal">
               Nope
             </button>
-            <a type="button" href="blogs.html" class="btn btn-danger" id="delete-blog">
+            <a
+              type="button"
+              href="blogs.html"
+              class="btn btn-danger"
+              id="delete-blog"
+            >
               Yes
             </a>
           </div>
