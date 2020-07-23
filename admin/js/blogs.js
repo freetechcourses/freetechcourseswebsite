@@ -2,7 +2,7 @@
 (async () => {
   try {
     const response = await (
-      await fetch(`${url}/blog/latest`, { method: 'GET' })
+      await fetch(`${url}/blog/latest`, { method: "GET" })
     ).json();
 
     if (response.data.length) {
@@ -22,16 +22,16 @@
           </a>
         </td>
       </tr>`;
-        $('#blogs').append(blog);
+        $("#blogs").append(blog);
       }
     } else {
-      document.querySelector('#no-blogs').style.display = 'block';
+      document.querySelector("#no-blogs").style.display = "block";
     }
   } catch (err) {
-    console.log(err);
+    window.location.href = "/err500.html";
   }
 })();
 
 function deleteButton(blogId) {
-  sessionStorage.setItem('blogId', blogId);
+  sessionStorage.setItem("blogId", blogId);
 }

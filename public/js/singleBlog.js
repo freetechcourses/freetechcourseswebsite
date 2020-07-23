@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $('.datepicker').datepicker({
+  $(".datepicker").datepicker({
     prevText: '<i class="fa fa-fw fa-angle-left"></i>',
     nextText: '<i class="fa fa-fw fa-angle-right"></i>',
   });
@@ -8,8 +8,8 @@ $(document).ready(function () {
 (async () => {
   try {
     const response = await (
-      await fetch(`${url}/blog/single/${localStorage.getItem('id')}`, {
-        method: 'GET',
+      await fetch(`${url}/blog/single/${localStorage.getItem("id")}`, {
+        method: "GET",
       })
     ).json();
     console.log(response);
@@ -33,9 +33,9 @@ $(document).ready(function () {
             ${response.data.body}
           </div>
           <hr />`;
-      $('#single-blog').append(blog);
+      $("#single-blog").append(blog);
     }
   } catch (err) {
-    console.log(err);
+    window.location.href = "/err500.html";
   }
 })();

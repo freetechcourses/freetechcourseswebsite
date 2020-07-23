@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $('.datepicker').datepicker({
+  $(".datepicker").datepicker({
     prevText: '<i class="fa fa-fw fa-angle-left"></i>',
     nextText: '<i class="fa fa-fw fa-angle-right"></i>',
   });
@@ -8,7 +8,7 @@ $(document).ready(function () {
 (async () => {
   try {
     const response = await (
-      await fetch(`${url}/blog/latest`, { method: 'GET' })
+      await fetch(`${url}/blog/latest`, { method: "GET" })
     ).json();
     console.log(response);
 
@@ -40,16 +40,16 @@ $(document).ready(function () {
             Read More
           </a>
           <hr />`;
-        $('#blogs').append(blog);
+        $("#blogs").append(blog);
       }
     } else {
-      alert('There are no blogs');
+      alert("There are no blogs");
     }
   } catch (err) {
-    console.log(err);
+    window.location.href = "/err500.html";
   }
 })();
 
 function blogInfo(id) {
-  localStorage.setItem('id', id);
+  localStorage.setItem("id", id);
 }
