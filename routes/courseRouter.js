@@ -4,7 +4,7 @@ const Course = require('../models/data');
 const cut = require('../utilities/cut');
 const auth = require('../utilities/auth');
 
-router.get('/latest?page', async (req, res, next) => {
+router.get('/latest', async (req, res, next) => {
 	try{
 		let { page } = req.query;
 		if(!page) page = 0;
@@ -14,7 +14,9 @@ router.get('/latest?page', async (req, res, next) => {
 		output.page = page;
 		output.nextPage = data.length === 6 ? page + 1 : false;
 		res.status(200).json(output);
-	} catch(err){ next(err); }
+	} catch(err){ 
+		console.log(err);
+		next(err); }
 });
 
 
