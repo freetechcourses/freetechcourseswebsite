@@ -14,9 +14,7 @@ router.get('/latest', async (req, res, next) => {
 		output.page = page;
 		output.nextPage = data.length === 6 ? page + 1 : false;
 		res.status(200).json(output);
-	} catch(err){ 
-		console.log(err);
-		next(err); }
+	} catch(err){ next(err); }
 });
 
 
