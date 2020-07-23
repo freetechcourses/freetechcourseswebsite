@@ -23,7 +23,7 @@ class Cal {
     ];
 
     // Set the current month, year
-    var d = new Date();
+    let d = new Date();
 
     this.currMonth = d.getMonth();
     this.currYear = d.getFullYear();
@@ -55,7 +55,7 @@ class Cal {
   }
   // Show month (year, month)
   showMonth(y, m) {
-    var d = new Date(),
+    let d = new Date(),
       // First day of the week in the selected month
       firstDayOfMonth = new Date(y, m, 1).getDay(),
       // Last day of the selected month
@@ -64,7 +64,7 @@ class Cal {
       lastDayOfLastMonth =
         m == 0 ? new Date(y - 1, 11, 0).getDate() : new Date(y, m, 0).getDate();
 
-    var html = '<table>';
+    let html = '<table>';
 
     // Write selected month and year
     html += '<thead><tr>';
@@ -73,15 +73,15 @@ class Cal {
 
     // Write the header of the days of the week
     html += '<tr class="days">';
-    for (var i = 0; i < this.DaysOfWeek.length; i++) {
+    for (let i = 0; i < this.DaysOfWeek.length; i++) {
       html += '<td>' + this.DaysOfWeek[i] + '</td>';
     }
     html += '</tr>';
 
     // Write the days
-    var i = 1;
+    let i = 1;
     do {
-      var dow = new Date(y, m, i).getDay();
+      let dow = new Date(y, m, i).getDay();
 
       // If Sunday, start new row
       if (dow == 0) {
@@ -91,17 +91,17 @@ class Cal {
       // it will write the last days from the previous month
       else if (i == 1) {
         html += '<tr>';
-        var k = lastDayOfLastMonth - firstDayOfMonth + 1;
-        for (var j = 0; j < firstDayOfMonth; j++) {
+        let k = lastDayOfLastMonth - firstDayOfMonth + 1;
+        for (let j = 0; j < firstDayOfMonth; j++) {
           html += '<td class="not-current">' + k + '</td>';
           k++;
         }
       }
 
       // Write the current day in the loop
-      var chk = new Date();
-      var chkY = chk.getFullYear();
-      var chkM = chk.getMonth();
+      let chk = new Date();
+      let chkY = chk.getFullYear();
+      let chkM = chk.getMonth();
       if (
         chkY == this.currYear &&
         chkM == this.currMonth &&
@@ -124,7 +124,7 @@ class Cal {
       // If not Saturday, but last day of the selected month
       // it will write the next few days from the next month
       else if (i == lastDateOfMonth) {
-        var k = 1;
+        let k = 1;
         for (dow; dow < 6; dow++) {
           html += '<td class="not-current">' + k + '</td>';
           k++;
@@ -143,9 +143,9 @@ class Cal {
 }
 
 // On Load of the window
-window.onload = function () {
+(async () => {
   // Start calendar
-  var c = new Cal('divCal');
+  let c = new Cal('divCal');
   c.showcurr();
 
   // Bind next and previous button clicks
@@ -155,7 +155,7 @@ window.onload = function () {
   getId('btnPrev').onclick = function () {
     c.previousMonth();
   };
-};
+})();
 
 // Get element by id
 function getId(id) {

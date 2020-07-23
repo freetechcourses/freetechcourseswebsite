@@ -24,7 +24,7 @@ document.getElementById('view-more').addEventListener('click', async () => {
     // Displaying courses
     displayCourses(response.data);
 
-    // Removing View More button if no courses
+    // Removing View More button if no nextPage === false
     if (!response.nextPage) {
       $('#view-more').remove();
     }

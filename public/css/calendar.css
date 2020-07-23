@@ -30,12 +30,12 @@ td.not-current {
   color: #c0c0c0;
 }
 td.normal {
-  padding: 0.3rem;
+  padding: 0.4rem;
 }
 td.today {
   font-weight: 700;
   color: rgb(40, 40, 59);
-  padding: 0.3rem;
+  padding: 0.4rem;
 }
 thead td {
   border: none;
