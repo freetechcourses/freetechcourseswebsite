@@ -23,7 +23,11 @@ $(document).ready(function () {
             Date: ${new Date(response.data[i].date).toDateString()} 
           </p>
           <hr />
-          <div class="blog-image mb-3"></div>
+          <img
+            alt=${response.data[i].title} 
+            src=${response.data[i].blogImage} 
+            class="rounded mx-auto img-fluid"
+          />
           <hr />
           <div class="card-text">
             ${response.data[i].body}
