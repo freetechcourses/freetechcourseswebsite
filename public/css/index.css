@@ -221,3 +221,7 @@ input:-webkit-autofill {
   border-color: #0003a5;
   color: #0003a5;
 } */
+#no-results {
+  width: 100%;
+  display: none;
+}

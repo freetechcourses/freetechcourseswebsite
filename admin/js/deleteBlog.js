@@ -2,8 +2,8 @@
 (async () => {
   try {
     const response = await (
-      await fetch(`${url}/blog/single/${sessionStorage.getItem('blogId')}`, {
-        method: 'GET',
+      await fetch(`${url}/blog/single/${sessionStorage.getItem("blogId")}`, {
+        method: "GET",
       })
     ).json();
 
@@ -16,22 +16,22 @@
                     class="rounded mx-auto img-fluid"
                   />
                   <p class="lead">${response.data.body}</p>`;
-      $('#blog-content').append(blog);
+      $("#blog-content").append(blog);
     } else {
       console.log(response);
     }
   } catch (err) {
-    console.log(err);
+    window.location.href = "/err500.html";
   }
 })();
 
 // Deleting blog request
-document.getElementById('delete-blog').addEventListener('click', async () => {
+document.getElementById("delete-blog").addEventListener("click", async () => {
   try {
     await (
-      await fetch(`${url}/blog/delete/${sessionStorage.getItem('blogId')}`, {
-        method: 'DELETE',
-        headers: { token: `${sessionStorage.getItem('token')}` },
+      await fetch(`${url}/blog/delete/${sessionStorage.getItem("blogId")}`, {
+        method: "DELETE",
+        headers: { token: `${sessionStorage.getItem("token")}` },
       })
     ).json();
   } catch (err) {

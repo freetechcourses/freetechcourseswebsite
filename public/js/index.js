@@ -3,7 +3,7 @@
   try {
     // Getting latest courses
     const response = await (
-      await fetch(`${url}/course/latest`, { method: 'GET' })
+      await fetch(`${url}/course/latest`, { method: "GET" })
     ).json();
 
     // Displaying latest courses
@@ -14,11 +14,11 @@
 })();
 
 // View More
-document.getElementById('view-more').addEventListener('click', async () => {
+document.getElementById("view-more").addEventListener("click", async () => {
   try {
     // Getting next 6 courses
     const response = await (
-      await fetch(`${url}/course/latest?page=${b()}`, { method: 'GET' })
+      await fetch(`${url}/course/latest?page=${b()}`, { method: "GET" })
     ).json();
 
     // Displaying courses
@@ -26,9 +26,9 @@ document.getElementById('view-more').addEventListener('click', async () => {
 
     // Removing View More button if no nextPage === false
     if (!response.nextPage) {
-      $('#view-more').remove();
+      $("#view-more").remove();
     }
   } catch (err) {
-    console.log(err);
+    window.location.href = "/err500.html";
   }
 });
