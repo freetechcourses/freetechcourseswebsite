@@ -38,7 +38,7 @@
         </div>
       </div>
       <div id="go-back-btn-div">
-        <button id="go-back-btn">
+        <button id="go-back-btn" onclick="goBack()">
           <i class="fas fa-caret-left icon"></i>GO BACK
         </button>
       </div>
@@ -66,5 +66,10 @@
 
     <!-- Custom Scripts -->
     <script src="js/util/baseUrl.js"></script>
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
   </body>
 </html>
