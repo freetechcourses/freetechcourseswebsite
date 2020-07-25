@@ -21,7 +21,7 @@
       console.log(response);
     }
   } catch (err) {
-    console.log(err);
+    alert("Something went wrong:/\nPlease try again in a short while!");
   }
 })();
 
@@ -35,6 +35,6 @@ document.getElementById("delete-blog").addEventListener("click", async () => {
       })
     ).json();
   } catch (err) {
-    console.log(err);
+    alert("Something went wrong:/\nPlease try again in a short while!");
   }
 });

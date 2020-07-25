@@ -28,6 +28,6 @@ document
         document.querySelector(".change-password").style.display = "none";
       }
     } catch (err) {
-      console.log(err);
+      alert("Something went wrong:/\nPlease try again in a short while!");
     }
   });

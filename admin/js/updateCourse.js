@@ -39,7 +39,7 @@
       document.getElementById("img-link").value = response.data.courseImage;
     }
   } catch (err) {
-    console.log(err);
+    alert("Something went wrong:/\nPlease try again in a short while!");
   }
 })();
 
@@ -96,7 +96,7 @@ document
         })
       ).json();
     } catch (err) {
-      console.log(err);
+      alert("Something went wrong:/\nPlease try again in a short while!");
     }
   });
 

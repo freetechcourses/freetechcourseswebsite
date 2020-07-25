@@ -61,7 +61,7 @@ const displayCourses = (data) => {
                                     `;
             $("#details-body").html(detailsInfo);
           } catch (err) {
-            console.log(err);
+            alert("Something went wrong:/\nPlease try again in a short while!");
           }
         });
     }

@@ -44,6 +44,6 @@ document.getElementById("search-button").addEventListener("click", async () => {
     // Displaying searched courses
     displayCourses(response.data);
   } catch (err) {
-    console.log(err);
+    alert("Something went wrong:/\nPlease try again in a short while!");
   }
 });

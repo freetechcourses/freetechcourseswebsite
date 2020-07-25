@@ -29,6 +29,6 @@ document.getElementById("view-more").addEventListener("click", async () => {
       $("#view-more").remove();
     }
   } catch (err) {
-    console.log(err);
+    alert("Something went wrong:/\nPlease try again in a short while!");
   }
 });

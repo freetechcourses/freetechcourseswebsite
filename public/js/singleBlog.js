@@ -36,6 +36,6 @@ $(document).ready(function () {
       $("#single-blog").append(blog);
     }
   } catch (err) {
-    console.log(err);
+    alert("Something went wrong:/\nPlease try again in a short while!");
   }
 })();

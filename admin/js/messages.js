@@ -35,7 +35,7 @@
       document.querySelector("#delete-messages").style.display = "none";
     }
   } catch (err) {
-    console.log(err);
+    alert("Something went wrong:/\nPlease try again in a short while!");
   }
 })();
 
