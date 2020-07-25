@@ -2,84 +2,84 @@
 (async () => {
   try {
     const response = await (
-      await fetch(`${url}/course/single/${sessionStorage.getItem("id")}`, {
-        method: "GET",
+      await fetch(`${url}/course/single/${sessionStorage.getItem('id')}`, {
+        method: 'GET',
       })
     ).json();
 
     if (response.ok) {
-      document.getElementById("name").value = response.data.name;
-      document.getElementById("description").innerText =
+      document.getElementById('name').value = response.data.name;
+      document.getElementById('description').innerText =
         response.data.description;
-      document.getElementById("date").value = new Date(response.data.date)
+      document.getElementById('date').value = new Date(response.data.date)
         .toISOString()
-        .split("T")[0];
+        .split('T')[0];
       $(document).ready(function () {
-        $(".sel").chosen({ width: "100%" });
+        $('.sel').chosen({ width: '100%' });
       });
-      let keywordSelector = document.querySelector("#keywords");
+      let keywordSelector = document.querySelector('#keywords');
       for (let i = 0; i < response.data.keywords.length; i++) {
-        let option = document.createElement("option");
+        let option = document.createElement('option');
         option.value = response.data.keywords[i];
         option.innerHTML = response.data.keywords[i];
         option.selected = true;
         keywordSelector.appendChild(option);
         keywordSelector.style = null;
       }
-      let languageSelector = document.querySelector("#languages");
+      let languageSelector = document.querySelector('#languages');
       for (let i = 0; i < response.data.languages.length; i++) {
-        let option = document.createElement("option");
+        let option = document.createElement('option');
         option.value = response.data.languages[i];
         option.innerHTML = response.data.languages[i];
         option.selected = true;
         languageSelector.appendChild(option);
         languageSelector.style = null;
       }
-      document.getElementById("course-link").value = response.data.hyperlink;
-      document.getElementById("img-link").value = response.data.courseImage;
+      document.getElementById('course-link').value = response.data.hyperlink;
+      document.getElementById('img-link').value = response.data.courseImage;
     }
   } catch (err) {
-    alert("Something went wrong:/\nPlease try again in a short while!");
+    alert('Something went wrong:/\nPlease try again in a short while!');
   }
 })();
 
 // Request to update a new course to backend
 document
-  .getElementById("update-course-button")
-  .addEventListener("click", async (e) => {
+  .getElementById('update-course-button')
+  .addEventListener('click', async (e) => {
     try {
       e.preventDefault();
 
-      const name = document.querySelector("#name").value;
-      const description = document.querySelector("#description").value;
-      const date = new Date(document.querySelector("#date").value).getTime();
+      const name = document.querySelector('#name').value;
+      const description = document.querySelector('#description').value;
+      const date = new Date(document.querySelector('#date').value).getTime();
 
-      const oldKeywords = document.querySelector("#keywords");
+      const oldKeywords = document.querySelector('#keywords');
       const keywordValues = [...oldKeywords.selectedOptions].map(
         (option) => option.value
       );
-      const newKeywords = document.querySelector("#new-keywords").value;
+      const newKeywords = document.querySelector('#new-keywords').value;
       const newKeywordValues = newKeywords
-        .split(",")
+        .split(',')
         .map((keyword) => keyword.trim());
       const keywords = keywordValues.concat(newKeywordValues);
 
-      const oldLanguages = document.querySelector("#languages");
+      const oldLanguages = document.querySelector('#languages');
       const languageValues = [...oldLanguages.selectedOptions].map(
         (option) => option.value
       );
-      const newLanguages = document.querySelector("#new-languages").value;
+      const newLanguages = document.querySelector('#new-languages').value;
       const newLanguageValues = newLanguages
-        .split(",")
+        .split(',')
         .map((language) => language.trim());
       const languages = languageValues.concat(newLanguageValues);
 
-      const hyperlink = document.querySelector("#course-link").value;
-      const courseImage = document.querySelector("#img-link").value;
+      const hyperlink = document.querySelector('#course-link').value;
+      const courseImage = document.querySelector('#img-link').value;
 
       await (
-        await fetch(`${url}/course/update/${sessionStorage.getItem("id")}`, {
-          method: "PATCH",
+        await fetch(`${url}/course/update/${sessionStorage.getItem('id')}`, {
+          method: 'PATCH',
           body: JSON.stringify({
             name,
             description,
@@ -90,17 +90,17 @@ document
             courseImage,
           }),
           headers: {
-            "Content-Type": "application/json",
-            token: `${sessionStorage.getItem("token")}`,
+            'Content-Type': 'application/json',
+            token: `${sessionStorage.getItem('token')}`,
           },
         })
       ).json();
     } catch (err) {
-      alert("Something went wrong:/\nPlease try again in a short while!");
+      alert('Something went wrong:/\nPlease try again in a short while!');
     }
   });
 
 // Removing Id from session storage
-document.getElementById("go-back").addEventListener("click", () => {
-  sessionStorage.removeItem("id");
+document.getElementById('go-back').addEventListener('click', () => {
+  sessionStorage.removeItem('id');
 });

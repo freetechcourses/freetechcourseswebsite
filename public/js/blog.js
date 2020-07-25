@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $(".datepicker").datepicker({
+  $('.datepicker').datepicker({
     prevText: '<i class="fa fa-fw fa-angle-left"></i>',
     nextText: '<i class="fa fa-fw fa-angle-right"></i>',
   });
@@ -8,7 +8,7 @@ $(document).ready(function () {
 (async () => {
   try {
     const response = await (
-      await fetch(`${url}/blog/latest`, { method: "GET" })
+      await fetch(`${url}/blog/latest`, { method: 'GET' })
     ).json();
     console.log(response);
 
@@ -40,11 +40,11 @@ $(document).ready(function () {
             Read More
           </a>
           <hr />`;
-        $("#blogs").append(blog);
+        $('#blogs').append(blog);
       }
     } else {
-      document.getElementById("no-blogs").style.display = block;
-      document.getElementById("no-blogs-text").style.display = block;
+      document.getElementById('no-blogs').style.display = 'block';
+      document.getElementById('no-blogs-text').style.display = 'block';
     }
   } catch (err) {
     console.log(err);
@@ -52,5 +52,5 @@ $(document).ready(function () {
 })();
 
 function blogInfo(id) {
-  localStorage.setItem("id", id);
+  localStorage.setItem('id', id);
 }

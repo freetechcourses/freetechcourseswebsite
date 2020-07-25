@@ -17,16 +17,16 @@ const displayCourses = (data) => {
                                 </div>
                               </div>
                             </div>`;
-      $("#display-courses").append(courseCard);
+      $('#display-courses').append(courseCard);
 
       // Getting more info about a individual course in a modal
       document
         .getElementById(`${data[i]._id}`)
-        .addEventListener("click", async () => {
+        .addEventListener('click', async () => {
           try {
             const response = await (
               await fetch(`${url}/course/single/${data[i]._id}`, {
-                method: "GET",
+                method: 'GET',
               })
             ).json();
 
@@ -59,16 +59,16 @@ const displayCourses = (data) => {
                                       </a>
                                     </p>
                                     `;
-            $("#details-body").html(detailsInfo);
+            $('#details-body').html(detailsInfo);
           } catch (err) {
-            alert("Something went wrong:/\nPlease try again in a short while!");
+            alert('Something went wrong:/\nPlease try again in a short while!');
           }
         });
     }
   } else {
-    document.querySelector("#no-results").style.display = "block";
-    document.querySelector(".disappear-on-no-search").style.display = "none";
-    document.querySelector(".disappear-on-no-search1").style.display = "none";
-    document.querySelector(".disappear-on-no-search2").style.display = "none";
+    document.querySelector('#no-results').style.display = 'block';
+    document.querySelector('.disappear-on-no-search').style.display = 'none';
+    document.querySelector('.disappear-on-no-search1').style.display = 'none';
+    document.querySelector('.disappear-on-no-search2').style.display = 'none';
   }
 };

@@ -3,8 +3,8 @@
   try {
     const response = await (
       await fetch(`${url}/contact/all`, {
-        method: "GET",
-        headers: { token: `${sessionStorage.getItem("token")}` },
+        method: 'GET',
+        headers: { token: `${sessionStorage.getItem('token')}` },
       })
     ).json();
 
@@ -28,21 +28,21 @@
           ${response.feedbacks[i].message}
         </td>
       </tr>`;
-        $("#messages").append(messageDetails);
+        $('#messages').append(messageDetails);
       }
     } else {
-      document.getElementById("no-messages").style.display = "block";
-      document.querySelector("#delete-messages").style.display = "none";
+      document.getElementById('no-messages').style.display = 'block';
+      document.querySelector('#delete-messages').style.display = 'none';
     }
   } catch (err) {
-    alert("Something went wrong:/\nPlease try again in a short while!");
+    alert('Something went wrong:/\nPlease try again in a short while!');
   }
 })();
 
 deleteModal(
-  "delete-messages-modal",
-  "delete-selected-messages",
-  "Message",
-  "contact",
-  "/messages.html"
+  'delete-messages-modal',
+  'delete-selected-messages',
+  'Message',
+  'contact',
+  '/messages.html'
 );

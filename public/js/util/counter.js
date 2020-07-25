@@ -8,4 +8,3 @@ function a() {
 }
 
 let b = a();
-
