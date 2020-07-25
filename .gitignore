@@ -4,3 +4,4 @@ mdata/
 .env
 images/
 .DS_Store
+dump/
