@@ -44,10 +44,7 @@ app.use('/blog', blogRouter);
 
 // Handling undefined routes
 app.use((req, res, next) => {
-	let err = new Error('undefined route');
-	err.status = 404;
 	res.redirect('/err404.html');
-	next(err);
 });
 
 // Final error handler
