@@ -298,15 +298,19 @@ function showCalendar(month, year) {
         break;
       } else {
         let cell = document.createElement('td');
+        let link = document.createElement('A');
+        link.setAttribute('href', '#');
+        link.classList.add('card-link', 'text-secondary');
         let cellText = document.createTextNode(date);
         if (
           date === today.getDate() &&
           year === today.getFullYear() &&
           month === today.getMonth()
         ) {
-          cell.classList.add('text-dark', 'h4');
-        } // color today's date
-        cell.appendChild(cellText);
+          link.classList.add('h4');
+        }
+        link.appendChild(cellText);
+        cell.appendChild(link);
         row.appendChild(cell);
         date++;
       }
@@ -315,3 +319,22 @@ function showCalendar(month, year) {
     tbl.appendChild(row); // appending each row into calendar body.
   }
 }
+
+// Getting blog dates
+(async () => {
+  try {
+    const response = await (
+      await fetch(`${url}/blog/alldates`, { method: 'GET' })
+    ).json();
+    const blogDates = response.allDates.map((date) => new Date(date).getDate());
+    console.log(blogDates);
+    [...document.getElementsByTagName('a')].filter((link, index) => {
+      if (blogDates.includes(parseInt(link.innerText))) {
+        console.log(link);
+        link.classList.add('badge', 'badge-secondary', 'text-light');
+      }
+    });
+  } catch (err) {
+    console.log(err);
+  }
+})();
