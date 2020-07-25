@@ -44,6 +44,6 @@ document.getElementById("search-button").addEventListener("click", async () => {
     // Displaying searched courses
     displayCourses(response.data);
   } catch (err) {
-    window.location.href = "/err500.html";
+    console.log(err);
   }
 });

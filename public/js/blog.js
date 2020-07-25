@@ -46,7 +46,7 @@ $(document).ready(function () {
       alert("There are no blogs");
     }
   } catch (err) {
-    window.location.href = "/err500.html";
+    console.log(err);
   }
 })();
 

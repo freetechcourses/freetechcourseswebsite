@@ -35,7 +35,7 @@
       document.querySelector("#delete-messages").style.display = "none";
     }
   } catch (err) {
-    window.location.href = "/err500.html";
+    console.log(err);
   }
 })();
 

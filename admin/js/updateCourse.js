@@ -39,7 +39,7 @@
       document.getElementById("img-link").value = response.data.courseImage;
     }
   } catch (err) {
-    window.location.href = "/err500.html";
+    console.log(err);
   }
 })();
 
@@ -96,7 +96,7 @@ document
         })
       ).json();
     } catch (err) {
-      window.location.href = "/err500.html";
+      console.log(err);
     }
   });
 

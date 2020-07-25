@@ -28,7 +28,7 @@
       document.querySelector("#no-blogs").style.display = "block";
     }
   } catch (err) {
-    window.location.href = "/err500.html";
+    console.log(err);
   }
 })();
 

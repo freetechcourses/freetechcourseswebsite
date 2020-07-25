@@ -36,6 +36,6 @@ $(document).ready(function () {
       $("#single-blog").append(blog);
     }
   } catch (err) {
-    window.location.href = "/err500.html";
+    console.log(err);
   }
 })();

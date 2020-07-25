@@ -26,6 +26,6 @@ document
         });
       }
     } catch (err) {
-      window.location.href = "/err500.html";
+      console.log(err);
     }
   });

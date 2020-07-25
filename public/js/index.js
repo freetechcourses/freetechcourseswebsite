@@ -29,6 +29,6 @@ document.getElementById("view-more").addEventListener("click", async () => {
       $("#view-more").remove();
     }
   } catch (err) {
-    window.location.href = "/err500.html";
+    console.log(err);
   }
 });

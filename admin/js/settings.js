@@ -28,6 +28,6 @@ document
         document.querySelector(".change-password").style.display = "none";
       }
     } catch (err) {
-      window.location.href = "/err500.html";
+      console.log(err);
     }
   });
