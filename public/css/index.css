@@ -221,7 +221,24 @@ input:-webkit-autofill {
   border-color: #0003a5;
   color: #0003a5;
 } */
+
+/*no search result image*/
 #no-results {
   width: 100%;
+  display: none;
+}
+.disappear-on-no-search,
+.disappear-on-no-search1,
+.disappear-on-no-search2 {
+  display: block;
+}
+
+/*show image on no blogs yet*/
+#no-blogs {
+  width: 100%;
+  display: none;
+}
+#no-blogs-text {
+  text-align: center;
   display: none;
 }

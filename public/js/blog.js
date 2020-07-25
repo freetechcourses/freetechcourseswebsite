@@ -43,7 +43,8 @@ $(document).ready(function () {
         $("#blogs").append(blog);
       }
     } else {
-      alert("There are no blogs");
+      document.getElementById("no-blogs").style.display = block;
+      document.getElementById("no-blogs-text").style.display = block;
     }
   } catch (err) {
     console.log(err);
