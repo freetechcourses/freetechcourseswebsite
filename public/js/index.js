@@ -9,7 +9,7 @@
     // Displaying latest courses
     displayCourses(response.data);
   } catch (err) {
-    console.log(err);
+    alert("Something went wrong:/\nPlease try again in a short while!");
   }
 })();
 
