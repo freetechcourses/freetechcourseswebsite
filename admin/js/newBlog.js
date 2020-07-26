@@ -7,6 +7,7 @@ document
       const title = document.getElementById('title').value;
       const blogImage = document.getElementById('img-link').value;
       const body = document.getElementById('body').value;
+      const date = Date.now();
 
       const response = await (
         await fetch(`${url}/blog/add`, {
@@ -15,7 +16,7 @@ document
             'Content-Type': 'application/json',
             token: `${sessionStorage.getItem('token')}`,
           },
-          body: JSON.stringify({ title, body, blogImage }),
+          body: JSON.stringify({ title, body, blogImage, date }),
         })
       ).json();
 
