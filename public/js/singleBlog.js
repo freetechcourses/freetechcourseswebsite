@@ -11,10 +11,20 @@
     displaySingleBlog(response);
 
     // Updating breadcrumb
-    document.getElementById('blog-by-date').innerText = `Blogs on ${new Date(
-      parseInt(localStorage.getItem('blogDate'))
-    ).toDateString()}`;
+    if (localStorage.getItem('blogDate')) {
+      document.getElementById('blog-by-date').innerText = `Blogs on ${new Date(
+        parseInt(localStorage.getItem('blogDate'))
+      ).toDateString()}`;
+    } else {
+      console.log('not');
+      document.getElementById('no-display').style.display = 'none';
+    }
   } catch (err) {
     alert('Something went wrong:/\nPlease try again in a short while!');
   }
 })();
+
+// removing blog dates stored in localstorage
+function removeBlogDate() {
+  localStorage.removeItem('blogDate');
+}

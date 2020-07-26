@@ -12,11 +12,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
-    />
-
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -34,7 +29,12 @@
   <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm navbar-light bg-light sticky-top">
-      <a href="/index.html" class="navbar-brand">
+      <a
+        href="/index.html"
+        class="navbar-brand"
+        type="button"
+        onclick="removeBlogDate()"
+      >
         <img
           src="./assets/img/logo_transparent.png"
           alt="freetechcourses"
@@ -55,16 +55,32 @@
       <div class="collapse navbar-collapse" id="navbar-content">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a
+              class="nav-link"
+              href="index.html"
+              type="button"
+              onclick="removeBlogDate()"
+            >
               Home
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="blog.html">Blog</a
+            <a
+              class="nav-link"
+              href="blog.html"
+              type="button"
+              onclick="removeBlogDate()"
+              >Blog</a
             ><span class="sr-only">(current)</span>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="reach.html">Reach Us</a>
+            <a
+              class="nav-link"
+              href="reach.html"
+              type="button"
+              onclick="removeBlogDate()"
+              >Reach Us</a
+            >
           </li>
         </ul>
       </div>
@@ -84,6 +100,7 @@
           <h3 id="no-blogs-text">Sorry, no blogs yet!</h3>
         </div>
         <!-- End Of Blog Area -->
+
         <!-- Calendar -->
         <div class="container col-lg-4 col-md-4">
           <div class="card mt-4">
@@ -300,8 +317,6 @@
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
     ></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 
     <!-- Custom Scripts -->
     <script src="js/util/baseUrl.js"></script>

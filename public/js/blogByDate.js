@@ -12,10 +12,19 @@
     displayBlogs(response.data);
 
     // Updating breadcrumb
-    document.getElementById('blog-by-date').innerText = `Blogs on ${new Date(
-      parseInt(localStorage.getItem('blogDate'))
-    ).toDateString()}`;
+    if (localStorage.getItem('blogDate')) {
+      document.getElementById('blog-by-date').innerText = `Blogs on ${new Date(
+        parseInt(localStorage.getItem('blogDate'))
+      ).toDateString()}`;
+    } else {
+      null;
+    }
   } catch (err) {
     console.log(err);
   }
 })();
+
+// removing blog dates stored in localstorage
+function removeBlogDate() {
+  localStorage.removeItem('blogDate');
+}

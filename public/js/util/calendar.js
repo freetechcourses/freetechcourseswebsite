@@ -101,6 +101,8 @@ function showCalendar(month, year) {
         await fetch(`${url}/blog/alldates`, { method: 'GET' })
       ).json();
 
+      console.log(response);
+
       // Coverting blog dates to timestamps
       const blogDates = response.allDates.map((date) =>
         new Date(date).getDate()

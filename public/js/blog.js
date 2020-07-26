@@ -1,10 +1,4 @@
-$(document).ready(function () {
-  $('.datepicker').datepicker({
-    prevText: '<i class="fa fa-fw fa-angle-left"></i>',
-    nextText: '<i class="fa fa-fw fa-angle-right"></i>',
-  });
-});
-
+// Displaying all blogs
 (async () => {
   try {
     const response = await (
@@ -17,3 +11,8 @@ $(document).ready(function () {
     console.log(err);
   }
 })();
+
+// removing blog dates stored in localstorage
+function removeBlogDate() {
+  localStorage.removeItem('blogDate');
+}
