@@ -74,7 +74,7 @@ function showCalendar(month, year) {
         let cell = document.createElement('td');
         let link = document.createElement('A');
         link.setAttribute('type', 'button');
-        link.setAttribute('href', 'single-blog-by-date.html');
+        link.setAttribute('href', 'blog-by-date.html');
         link.classList.add('card-link', 'text-secondary');
         let cellText = document.createTextNode(date);
         if (

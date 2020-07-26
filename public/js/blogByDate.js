@@ -1,4 +1,4 @@
-// Get blog by date timestamp
+// Get blogs by date timestamp
 (async () => {
   try {
     const response = await (
@@ -7,6 +7,9 @@
       })
     ).json();
     console.log(response);
+
+    // Displaying blogs
+    displayBlogs(response.data);
   } catch (err) {
     console.log(err);
   }

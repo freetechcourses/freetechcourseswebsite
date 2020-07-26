@@ -82,7 +82,14 @@
     <div class="container-fluid mb-4 p-5">
       <div class="row">
         <!-- Blog Area -->
-        <div class="container col-lg-7 col-md-7" id="single-blog"></div>
+        <div class="container col-lg-7 col-md-7" id="blogs">
+          <img
+            src="./assets/img/no blogs.jpg"
+            alt="no blogs to display"
+            id="no-blogs"
+          />
+          <h3 id="no-blogs-text">Sorry, no blogs yet!</h3>
+        </div>
         <!-- End Of Blog Area -->
       </div>
     </div>
@@ -145,6 +152,7 @@
 
     <!-- Custom Scripts -->
     <script src="js/util/baseUrl.js"></script>
-    <script src="js/singleBlogByDate.js"></script>
+    <script src="js/util/displayBlogs.js"></script>
+    <script src="js/blogByDate.js"></script>
   </body>
 </html>
