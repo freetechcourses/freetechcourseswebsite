@@ -1,7 +1,7 @@
 const express = require('express');
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
-const { JWTKEY } = require('../utilities/env');
+const { JWTKEY, EMAIL, PASSWORD } = require('../utilities/env');
 const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const baseurl = require('../utilities/baseurl');
@@ -11,8 +11,8 @@ const auth = require('../utilities/auth');
 const transporter = nodemailer.createTransport({
 	service: 'Gmail',
 	auth: {
-		user: 'freeonlinetechcourses@gmail.com',
-		pass: '3of8jhali3nf'
+		user: EMAIL,
+		pass: PASSWORD
 	}
 });
 
