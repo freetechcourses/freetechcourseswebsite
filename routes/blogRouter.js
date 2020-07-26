@@ -22,11 +22,14 @@ router.get('/bydate/:date', async (req, res, next) => {
 		}
 		if(typeof date === 'string') date = parseInt(date);
 		date = new Date(date).getDate();
-		let data = await Blog.find({
-			$where: function() {
-				return new Date(this.date).getDate() === date;
+		let data = await Blog.aggregate([{
+			$project: {
+				title:1, body:1, blogImage:1, _id: 1, 
+				day: { $dayOfMonth: "$date" }
 			}
-		});
+		}, {
+			$match: { day: date }
+		}]);
 		res.status(200).json({ ok:1, data });
 	} catch(err){ next(err); }
 });
