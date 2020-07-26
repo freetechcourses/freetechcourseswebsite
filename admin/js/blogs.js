@@ -5,7 +5,14 @@
       await fetch(`${url}/blog/latest`, { method: 'GET' })
     ).json();
 
+    // Sortings blogs in descending order of time
+    response.data.sort((a, b) => {
+      return b.date - a.date;
+    });
+
+    // Checking if blogs are actually present
     if (response.data.length) {
+      // looping through all blogs
       for (let i = 0; i < response.data.length; i++) {
         const blog = ` <tr id=${i}>
         <td scope="row">${i + 1}</td>
@@ -32,6 +39,7 @@
   }
 })();
 
+// Setting blogId in session storage
 function deleteButton(blogId) {
   sessionStorage.setItem('blogId', blogId);
 }

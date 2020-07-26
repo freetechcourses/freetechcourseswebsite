@@ -5,6 +5,11 @@
       await fetch(`${url}/blog/latest`, { method: 'GET' })
     ).json();
 
+    // Sortings blogs in descending order of time
+    response.data.sort((a, b) => {
+      return b.date - a.date;
+    });
+
     // Displaying blogs
     displayBlogs(response.data);
   } catch (err) {

@@ -16,7 +16,6 @@
         parseInt(localStorage.getItem('blogDate'))
       ).toDateString()}`;
     } else {
-      console.log('not');
       document.getElementById('no-display').style.display = 'none';
     }
   } catch (err) {

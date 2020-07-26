@@ -97,6 +97,7 @@ deleteModal(
   '/edit-courses.html'
 );
 
+// Setting course id in session storage
 function update(id) {
   sessionStorage.setItem('id', id);
 }
