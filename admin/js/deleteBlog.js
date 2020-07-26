@@ -7,7 +7,6 @@
       })
     ).json();
 
-    console.log(response);
     if (response.ok) {
       const blog = `<h2>${response.data.title}</h2>
                   <img 

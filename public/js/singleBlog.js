@@ -12,7 +12,6 @@ $(document).ready(function () {
         method: 'GET',
       })
     ).json();
-    console.log(response);
 
     if (response.ok) {
       const blog = `<h2 class="pt-3" id="${response.data._id}">

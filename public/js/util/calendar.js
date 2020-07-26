@@ -299,7 +299,8 @@ function showCalendar(month, year) {
       } else {
         let cell = document.createElement('td');
         let link = document.createElement('A');
-        link.setAttribute('href', '#');
+        link.setAttribute('type', 'button');
+        link.setAttribute('href', 'single-blog-by-date.html');
         link.classList.add('card-link', 'text-secondary');
         let cellText = document.createTextNode(date);
         if (
@@ -326,15 +327,33 @@ function showCalendar(month, year) {
     const response = await (
       await fetch(`${url}/blog/alldates`, { method: 'GET' })
     ).json();
+
+    // Coverting blog dates to timestamps
     const blogDates = response.allDates.map((date) => new Date(date).getDate());
-    console.log(blogDates);
+
+    // Adding different class to dates having blogs
     [...document.getElementsByTagName('a')].filter((link, index) => {
       if (blogDates.includes(parseInt(link.innerText))) {
-        console.log(link);
         link.classList.add('badge', 'badge-secondary', 'text-light');
       }
+    });
+
+    // Setting id and other attributes to dates having blogs
+    [...document.querySelectorAll('.badge')].map((badge) => {
+      const blogDate = new Date(
+        new Date(Date.now()).getFullYear(),
+        new Date(Date.now()).getMonth(),
+        parseInt(badge.innerText)
+      ).getTime();
+      badge.id = blogDate;
+      badge.setAttribute('onclick', `getBlogByDate('${blogDate}')`);
+      console.log(badge);
     });
   } catch (err) {
     console.log(err);
   }
 })();
+
+function getBlogByDate(blogDate) {
+  localStorage.setItem('blogDate', blogDate);
+}
