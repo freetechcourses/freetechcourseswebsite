@@ -21,10 +21,14 @@ router.get('/bydate/:timestamp', async (req, res, next) => {
 			return;
 		}
 		if(typeof timestamp === 'string') timestamp = parseInt(timestamp);
-		let day = new Date(timestamp).getDate();
+		let date = new Date(timestamp);
+		let [day, month, year] = [date.getDate(), date.getMonth(), date.getFullYear()];
 		let data = await Blog.find({});
 		data = data.map(p => p.toObject());
-		data = data.filter(p => new Date(p.date).getDate() === day);
+		data = data.filter(p => {
+			let check = new Date(p.date);
+			return (check.getDate() === day && check.getMonth() === month && check.getFullYear() === year);
+		});
 		res.status(200).json({ ok:1, data });
 	} catch(err){ next(err); }
 });
