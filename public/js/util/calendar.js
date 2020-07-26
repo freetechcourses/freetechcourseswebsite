@@ -93,39 +93,41 @@ function showCalendar(month, year) {
 
     tbl.appendChild(row); // appending each row into calendar body.
   }
+
+  // Getting blog dates
+  (async () => {
+    try {
+      const response = await (
+        await fetch(`${url}/blog/alldates`, { method: 'GET' })
+      ).json();
+
+      // Coverting blog dates to timestamps
+      const blogDates = response.allDates.map((date) =>
+        new Date(date).getDate()
+      );
+
+      // Adding different class to dates having blogs
+      [...document.getElementsByTagName('a')].filter((link, index) => {
+        if (blogDates.includes(parseInt(link.innerText))) {
+          link.classList.add('badge', 'badge-secondary', 'text-light');
+        }
+      });
+
+      // Setting id and other attributes to dates having blogs
+      [...document.querySelectorAll('.badge')].map((badge) => {
+        const blogDate = new Date(
+          new Date(Date.now()).getFullYear(),
+          new Date(Date.now()).getMonth(),
+          parseInt(badge.innerText)
+        ).getTime();
+        badge.id = blogDate;
+        badge.setAttribute('onclick', `getBlogByDate('${blogDate}')`);
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  })();
 }
-
-// Getting blog dates
-(async () => {
-  try {
-    const response = await (
-      await fetch(`${url}/blog/alldates`, { method: 'GET' })
-    ).json();
-
-    // Coverting blog dates to timestamps
-    const blogDates = response.allDates.map((date) => new Date(date).getDate());
-
-    // Adding different class to dates having blogs
-    [...document.getElementsByTagName('a')].filter((link, index) => {
-      if (blogDates.includes(parseInt(link.innerText))) {
-        link.classList.add('badge', 'badge-secondary', 'text-light');
-      }
-    });
-
-    // Setting id and other attributes to dates having blogs
-    [...document.querySelectorAll('.badge')].map((badge) => {
-      const blogDate = new Date(
-        new Date(Date.now()).getFullYear(),
-        new Date(Date.now()).getMonth(),
-        parseInt(badge.innerText)
-      ).getTime();
-      badge.id = blogDate;
-      badge.setAttribute('onclick', `getBlogByDate('${blogDate}')`);
-    });
-  } catch (err) {
-    console.log(err);
-  }
-})();
 
 function getBlogByDate(blogDate) {
   localStorage.setItem('blogDate', blogDate);

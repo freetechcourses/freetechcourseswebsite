@@ -10,6 +10,11 @@
 
     // Displaying blogs
     displayBlogs(response.data);
+
+    // Updating breadcrumb
+    document.getElementById('blog-by-date').innerText = `Blogs on ${new Date(
+      parseInt(localStorage.getItem('blogDate'))
+    ).toDateString()}`;
   } catch (err) {
     console.log(err);
   }

@@ -19,5 +19,6 @@ const displaySingleBlog = (response) => {
           </div>
           <hr />`;
     $('#single-blog').append(blog);
+    document.getElementById('blog-name').innerText = `${response.data.title}`;
   }
 };
