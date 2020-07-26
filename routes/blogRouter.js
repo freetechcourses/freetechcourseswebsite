@@ -11,25 +11,20 @@ router.get('/latest', async (req, res, next) => {
 	} catch(err){ next(err); }
 });
 
-router.get('/bydate/:date', async (req, res, next) => {
+router.get('/bydate/:timestamp', async (req, res, next) => {
 	try{
-		let { date } = req.params;
-		if(!date){
+		let { timestamp } = req.params;
+		if(!timestamp){
 			let err = new Error('Date required');
 			err.status = 400;
 			next(err);
 			return;
 		}
-		if(typeof date === 'string') date = parseInt(date);
-		date = new Date(date).getDate();
-		let data = await Blog.aggregate([{
-			$project: {
-				title:1, body:1, blogImage:1, _id: 1, 
-				day: { $dayOfMonth: "$date" }
-			}
-		}, {
-			$match: { day: date }
-		}]);
+		if(typeof timestamp === 'string') timestamp = parseInt(timestamp);
+		let day = new Date(timestamp).getDate();
+		let data = await Blog.find({});
+		data = data.map(p => p.toObject());
+		data = data.filter(p => new Date(p.date).getDate() === day);
 		res.status(200).json({ ok:1, data });
 	} catch(err){ next(err); }
 });
