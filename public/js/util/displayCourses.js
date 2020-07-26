@@ -68,7 +68,5 @@ const displayCourses = (data) => {
   } else {
     document.querySelector('#no-results').style.display = 'block';
     document.querySelector('.disappear-on-no-search').style.display = 'none';
-    document.querySelector('.disappear-on-no-search1').style.display = 'none';
-    document.querySelector('.disappear-on-no-search2').style.display = 'none';
   }
 };

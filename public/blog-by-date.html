@@ -94,6 +94,25 @@
     </nav>
     <!-- End Of Navbar -->
 
+    <!-- Universal Error Alert -->
+    <div
+      class="alert alert-warning alert-dismissible fade show"
+      role="alert"
+      id="universal-error-alert"
+    >
+      <strong>Something went wrong :/</strong> Please try again in a short
+      while!
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <!-- End Of Universal Error Alert -->
+
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
@@ -181,6 +200,7 @@
     <!-- Custom Scripts -->
     <script src="js/util/baseUrl.js"></script>
     <script src="js/util/displayBlogs.js"></script>
+    <script src="js/util/errorHandler.js"></script>
     <script src="js/blogByDate.js"></script>
   </body>
 </html>

@@ -32,7 +32,6 @@ document
           'block';
       }
     } catch (err) {
-      console.log(err);
       window.location.href = '/forgot-password.html';
     }
   });

@@ -20,7 +20,7 @@
       console.log(response);
     }
   } catch (err) {
-    alert('Something went wrong:/\nPlease try again in a short while!');
+    setTimeout(errorHandler(), 5000);
   }
 })();
 
@@ -34,6 +34,6 @@ document.getElementById('delete-blog').addEventListener('click', async () => {
       })
     ).json();
   } catch (err) {
-    alert('Something went wrong:/\nPlease try again in a short while!');
+    setTimeout(errorHandler(), 5000);
   }
 });

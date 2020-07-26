@@ -71,6 +71,25 @@
     </nav>
     <!-- End Of Navbar -->
 
+    <!-- Universal Error Alert -->
+    <div
+      class="alert alert-warning alert-dismissible fade show"
+      role="alert"
+      id="universal-error-alert"
+    >
+      <strong>Something went wrong :/</strong> Please try again in a short
+      while!
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <!-- End Of Universal Error Alert -->
+
     <!-- Jumbotron -->
     <div class="jumbotron" id="home-bg">
       <h1 class="display-3">Free Tech Courses</h1>
@@ -91,7 +110,6 @@
         </a>
       </p>
     </div>
-
     <!-- End Of Jumbotron -->
 
     <!-- Main Layout -->
@@ -233,6 +251,7 @@
     <script src="js/util/baseUrl.js"></script>
     <script src="js/util/displayCourses.js"></script>
     <script src="js/util/counter.js"></script>
+    <script src="js/util/errorHandler.js"></script>
     <script src="js/index.js"></script>
     <script src="js/search.js"></script>
   </body>

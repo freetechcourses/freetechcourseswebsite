@@ -290,6 +290,25 @@
           <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
             <div class="row justify-content-center">
               <div class="col-12" style="overflow-x: auto;">
+                <!-- Universal Error Alert -->
+                <div
+                  class="alert alert-warning alert-dismissible fade show"
+                  role="alert"
+                  id="universal-error-alert"
+                >
+                  <strong>Something went wrong :/</strong> Please try again in a
+                  short while!
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="alert"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <!-- End Of Universal Error Alert -->
+
                 <div class="row">
                   <h1 class="pr-5">Messages</h1>
                   <button
@@ -335,7 +354,9 @@
             <div class="col-lg-6 text-center">
               <ul class="list-inline">
                 <li class="list-inline-item">
-                  <a href="index.html" target="_blank" class="text-dark">FreeTechCourses</a>
+                  <a href="index.html" target="_blank" class="text-dark"
+                    >FreeTechCourses</a
+                  >
                 </li>
               </ul>
             </div>
@@ -375,6 +396,7 @@
     <script src="./js/util/logout.js"></script>
     <script src="./js/util/deleteModal.js"></script>
     <script src="./js/util/deleteRequest.js"></script>
+    <script src="./js/util/errorHandler.js"></script>
     <script src="./js/messages.js"></script>
   </body>
 </html>

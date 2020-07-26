@@ -20,7 +20,6 @@ document
         : (document.querySelector('.sent-message-error-alert').style.display =
             'block');
     } catch (err) {
-      console.log(err);
       document.querySelector('.sent-message-error-alert').style.display =
         'block';
     }

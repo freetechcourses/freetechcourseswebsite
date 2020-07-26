@@ -13,7 +13,7 @@
     // Displaying blogs
     displayBlogs(response.data);
   } catch (err) {
-    console.log(err);
+    setTimeout(errorHandler(), 5000);
   }
 })();
 

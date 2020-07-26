@@ -56,6 +56,6 @@ document
         });
       }
     } catch (err) {
-      alert('Something went wrong:/\nPlease try again in a short while!');
+      setTimeout(errorHandler(), 5000);
     }
   });

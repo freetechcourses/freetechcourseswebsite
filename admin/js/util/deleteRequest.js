@@ -20,7 +20,7 @@ const deleteRequest = (confirmId, requestUrl, redirectUrl) => {
 
       response.ok ? (window.location.href = redirectUrl) : null;
     } catch (err) {
-      console.log(err);
+      setTimeout(errorHandler(), 5000);
     }
   });
 };

@@ -398,6 +398,12 @@ input:-webkit-autofill {
 }
 /* End Of Footer */
 
+/* Error handler */
+#universal-error-alert {
+  display: none;
+}
+/* End Of Error handler */
+
 #dashboard-logo {
   width: 8.75em;
   height: 8.75em;

@@ -286,6 +286,25 @@
         <div class="row mt-5 pt-5">
           <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
             <div class="row justify-content-center">
+              <!-- Universal Error Alert -->
+              <div
+                class="alert alert-warning alert-dismissible fade show"
+                role="alert"
+                id="universal-error-alert"
+              >
+                <strong>Something went wrong :/</strong> Please try again in a
+                short while!
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="alert"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <!-- End Of Universal Error Alert -->
+
               <div class="col-8">
                 <select class="sel form-control" id="search-courses" multiple>
                   <option>Search for courses</option>
@@ -369,92 +388,6 @@
     </main>
     <!--End of Main Content-->
 
-    <!-- Update Course Modal -->
-    <div class="modal fade" id="update-course-modal">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">
-              Update this Course
-            </h5>
-            <button type="button" class="close" data-dismiss="modal">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="container">
-              <div class="row">
-                <div class="col-12">
-                  <form>
-                    <div class="form-group row">
-                      <label class="col-form-label" for="name">
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        value="Original text"
-                        id="name"
-                        name="name"
-                      />
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-form-label" for="description">
-                        Description
-                      </label>
-                      <textarea
-                        class="form-control"
-                        rows="3"
-                        id="description"
-                        name="description"
-                      >
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique totam ipsum voluptatibus error ab numquam ad exercitationem id, voluptas dicta?
-                      </textarea>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-form-label" for="name">
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        value="Original text"
-                        id="wksnxks"
-                        name="name"
-                      />
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-form-label" for="name">
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        value="Original text"
-                        id="sxjcsdc"
-                        name="name"
-                      />
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer justify-content-center">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Of Update Course Modal -->
-
     <!-- Footer -->
     <div class="container-fluid">
       <div class="row border-top pt-3 footer">
@@ -463,7 +396,9 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique totam ipsum 
             <div class="col-lg-6 text-center">
               <ul class="list-inline">
                 <li class="list-inline-item">
-                  <a href="index.html" target="_blank" class="text-dark">FreeTechCourses</a>
+                  <a href="index.html" target="_blank" class="text-dark"
+                    >FreeTechCourses</a
+                  >
                 </li>
               </ul>
             </div>
@@ -503,6 +438,7 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique totam ipsum 
     <script src="./js/util/logout.js"></script>
     <script src="./js/util/deleteModal.js"></script>
     <script src="./js/util/deleteRequest.js"></script>
+    <script src="./js/util/errorHandler.js"></script>
     <script src="./js/editCourses.js"></script>
   </body>
 </html>

@@ -24,7 +24,7 @@
       null;
     }
   } catch (err) {
-    console.log(err);
+    setTimeout(errorHandler(), 5000);
   }
 })();
 

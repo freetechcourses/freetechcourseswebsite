@@ -134,7 +134,7 @@ function showCalendar(month, year) {
         badge.setAttribute('onclick', `getBlogByDate('${blogDate}')`);
       });
     } catch (err) {
-      console.log(err);
+      setTimeout(errorHandler(), 5000);
     }
   })();
 }
