@@ -6,7 +6,6 @@
         method: 'GET',
       })
     ).json();
-    console.log(response);
 
     // Displaying blogs
     displayBlogs(response.data);

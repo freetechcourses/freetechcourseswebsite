@@ -101,16 +101,24 @@ function showCalendar(month, year) {
         await fetch(`${url}/blog/alldates`, { method: 'GET' })
       ).json();
 
-      console.log(response);
-
-      // Coverting blog dates to timestamps
+      // Coverting blog dates to concatenated numbers
       const blogDates = response.allDates.map((date) =>
-        new Date(date).getDate()
+        parseInt(
+          new Date(date).getFullYear().toString() +
+            new Date(date).getMonth().toString() +
+            new Date(date).getDate().toString()
+        )
       );
 
       // Adding different class to dates having blogs
       [...document.getElementsByTagName('a')].filter((link, index) => {
-        if (blogDates.includes(parseInt(link.innerText))) {
+        if (
+          blogDates.includes(
+            parseInt(
+              currentYear.toString() + currentMonth.toString() + link.innerText
+            )
+          )
+        ) {
           link.classList.add('badge', 'badge-secondary', 'text-light');
         }
       });
