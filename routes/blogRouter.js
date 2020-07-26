@@ -51,8 +51,7 @@ router.use(auth);
 
 router.post('/add', async (req, res, next) => {
 	try{
-		let input = cut(req.body, ['title','body','blogImage']);
-		input.date = Date.now();
+		let input = cut(req.body, ['title','body','blogImage','date']);
 		let newblog = new Blog(input);
 		await newblog.save();
 		res.status(200).json({ ok:1 });
