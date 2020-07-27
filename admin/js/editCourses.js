@@ -85,7 +85,8 @@ document.getElementById('search-button').addEventListener('click', async () => {
       document.querySelector('#no-courses').style.display = 'block';
     }
   } catch (err) {
-    setTimeout(errorHandler(), 5000);
+    errorHandler();
+    setTimeout(removeErrorHandler(), 5000);
   }
 });
 

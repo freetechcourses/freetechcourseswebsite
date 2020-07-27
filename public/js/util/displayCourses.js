@@ -61,7 +61,8 @@ const displayCourses = (data) => {
                                     `;
             $('#details-body').html(detailsInfo);
           } catch (err) {
-            alert('Something went wrong:/\nPlease try again in a short while!');
+            errorHandler();
+            setTimeout(removeErrorHandler(), 5000);
           }
         });
     }

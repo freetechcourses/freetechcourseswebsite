@@ -28,6 +28,7 @@ document
         document.querySelector('.change-password').style.display = 'none';
       }
     } catch (err) {
-      setTimeout(errorHandler(), 5000);
+      errorHandler();
+      setTimeout(removeErrorHandler(), 5000);
     }
   });

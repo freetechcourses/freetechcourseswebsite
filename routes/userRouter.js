@@ -51,7 +51,7 @@ router.post('/forgotpassword', async (req, res, next) => {
 			from: 'no-reply-server@freetechcourses.com',
 			to: email,
 			subject: 'Password reset request',
-			text: `Recently a password reset request was made for the account linked to this email.\nClick on the link provided below to reset your password:\n\${baseurl}/user/resetpassword?resetToken=${resetToken} \n\nThis link is valid only for 60 minutes.\nPlease ignore this email if you were not the one inititating the password reset request.`
+			text: `Recently a password reset request was made for the account linked to this email.\nClick on the link provided below to reset your password:\n${baseurl}/user/resetpassword?resetToken=${resetToken} \n\nThis link is valid only for 60 minutes.\nPlease ignore this email if you were not the one inititating the password reset request.`
 		});
 		console.log(sentMail);
 	} catch (err) { 

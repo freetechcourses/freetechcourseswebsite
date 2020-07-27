@@ -39,7 +39,8 @@
       document.getElementById('img-link').value = response.data.courseImage;
     }
   } catch (err) {
-    errorHandler()
+    errorHandler();
+    setTimeout(removeErrorHandler(), 5000);
   }
 })();
 
@@ -96,7 +97,8 @@ document
         })
       ).json();
     } catch (err) {
-      setTimeout(errorHandler(), 5000);
+      errorHandler();
+      setTimeout(removeErrorHandler(), 5000);
     }
   });
 

@@ -18,13 +18,14 @@
     // Updating breadcrumb
     if (localStorage.getItem('blogDate')) {
       document.getElementById('blog-by-date').innerText = `Blogs on ${new Date(
-        parseInt(localStorage.getItem('blogDate'))
+        parseInt(localStorage.getItem('blogDate')) - 86400000
       ).toDateString()}`;
     } else {
       null;
     }
   } catch (err) {
-    setTimeout(errorHandler(), 5000);
+    errorHandler();
+    setTimeout(removeErrorHandler(), 5000);
   }
 })();
 

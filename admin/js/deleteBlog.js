@@ -20,7 +20,8 @@
       console.log(response);
     }
   } catch (err) {
-    setTimeout(errorHandler(), 5000);
+    errorHandler();
+    setTimeout(removeErrorHandler(), 5000);
   }
 })();
 
@@ -34,6 +35,7 @@ document.getElementById('delete-blog').addEventListener('click', async () => {
       })
     ).json();
   } catch (err) {
-    setTimeout(errorHandler(), 5000);
+    errorHandler();
+    setTimeout(removeErrorHandler(), 5000);
   }
 });

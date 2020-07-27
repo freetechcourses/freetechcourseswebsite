@@ -44,6 +44,7 @@ document.getElementById('search-button').addEventListener('click', async () => {
     // Displaying searched courses
     displayCourses(response.data);
   } catch (err) {
-    setTimeout(errorHandler(), 5000);
+    errorHandler();
+    setTimeout(removeErrorHandler, 5000);
   }
 });

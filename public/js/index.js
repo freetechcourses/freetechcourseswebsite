@@ -9,7 +9,8 @@
     // Displaying latest courses
     displayCourses(response.data);
   } catch (err) {
-    alert('Something went wrong:/\nPlease try again in a short while!');
+    errorHandler();
+    setTimeout(removeErrorHandler(), 5000);
   }
 })();
 
@@ -29,6 +30,7 @@ document.getElementById('view-more').addEventListener('click', async () => {
       $('#view-more').remove();
     }
   } catch (err) {
-    setTimeout(errorHandler(), 5000);
+    errorHandler();
+    setTimeout(removeErrorHandler(), 5000);
   }
 });

@@ -35,7 +35,8 @@
       document.querySelector('#delete-messages').style.display = 'none';
     }
   } catch (err) {
-    setTimeout(errorHandler(), 5000);
+    errorHandler();
+    setTimeout(removeErrorHandler(), 5000);
   }
 })();
 

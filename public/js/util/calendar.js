@@ -128,13 +128,14 @@ function showCalendar(month, year) {
         const blogDate = new Date(
           new Date(Date.now()).getFullYear(),
           new Date(Date.now()).getMonth(),
-          parseInt(badge.innerText)
+          parseInt(badge.innerText) + 1
         ).getTime();
         badge.id = blogDate;
         badge.setAttribute('onclick', `getBlogByDate('${blogDate}')`);
       });
     } catch (err) {
-      setTimeout(errorHandler(), 5000);
+      errorHandler();
+      setTimeout(removeErrorHandler(), 5000);
     }
   })();
 }

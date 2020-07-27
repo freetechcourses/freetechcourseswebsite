@@ -56,6 +56,7 @@ document
         });
       }
     } catch (err) {
-      setTimeout(errorHandler(), 5000);
+      errorHandler();
+      setTimeout(removeErrorHandler(), 5000);
     }
   });

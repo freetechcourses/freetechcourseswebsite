@@ -35,7 +35,8 @@
       document.querySelector('#no-blogs').style.display = 'block';
     }
   } catch (err) {
-    setTimeout(errorHandler(), 5000);
+    errorHandler();
+    setTimeout(removeErrorHandler(), 5000);
   }
 })();
 
