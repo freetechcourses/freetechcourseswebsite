@@ -394,6 +394,9 @@ input:-webkit-autofill {
 
 /* Footer */
 .footer {
+  position: fixed;
+  background: #eee;
+  width: 100%;
   bottom: 0;
 }
 /* End Of Footer */

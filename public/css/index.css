@@ -22,22 +22,6 @@ html {
 }
 /* End Of Jumbotron */
 
-/* Search */
-.chosen-choices {
-  border-radius: 4px;
-}
-.chosen-search-input {
-  margin: 0.4rem !important;
-  font-size: 1rem !important;
-}
-.search-choice {
-  font-size: 18px;
-  background: white !important;
-  display: flex !important;
-  justify-content: space-around;
-}
-/* End Of Search */
-
 /* Card Text */
 .card-text {
   -webkit-box-orient: vertical;
@@ -136,6 +120,14 @@ input:-webkit-autofill {
   background-size: cover;
 }
 
+#home-bg1 {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  border-radius: 4px;
+  padding: 50px 10px;
+  box-shadow: 5px 10px 15px 20px rgba(0, 0, 0, 0.5);
+}
+
 #connect {
   text-align: center;
   color: white;
@@ -152,6 +144,26 @@ input:-webkit-autofill {
   display: none;
 }
 /* End Of Error handler */
+
+/* Calendar */
+#calendar {
+  font-size: 12px;
+}
+
+@media (max-width: 468px) {
+  #calendar {
+    font-size: 18px;
+  }
+  .display-3 {
+    font-size: 42px;
+    font-weight: 400;
+    margin-bottom: 3rem;
+  }
+  .lead {
+    font-size: 18px;
+  }
+}
+/* End Of Calendar */
 
 /* Footer */
 .footer {

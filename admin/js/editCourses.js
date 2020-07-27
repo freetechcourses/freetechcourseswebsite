@@ -9,19 +9,13 @@
   // Removing delete button from DOM
   document.querySelector('#delete-courses').style.display = 'none';
 
-  $(document).ready(function () {
-    $('.sel').chosen({ width: '100%' });
+  // Add keywords to multi-select option
+  keywords.forEach((keyword) => {
+    let option = `<option value="${keyword}" style="font-size: 13px;">${keyword}</option>`;
+    $('select').append(option);
   });
 
-  // Add keywords to multi-select option
-  let keywordSelector = document.querySelector('#search-courses');
-  for (let i = 0; i < keywords.length; i++) {
-    let option = document.createElement('option');
-    option.value = keywords[i];
-    option.innerHTML = keywords[i];
-    keywordSelector.appendChild(option);
-    keywordSelector.style = null;
-  }
+  $('select').selectpicker('refresh');
 })();
 
 // Search bar request for new/searched courses

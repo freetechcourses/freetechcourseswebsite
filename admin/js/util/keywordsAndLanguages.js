@@ -11,27 +11,19 @@
   const keywords = await keywordResponse.allKeywords.sort();
   const languages = await languageResponse.allLanguages.sort();
 
-  $(document).ready(function () {
-    $('.sel').chosen({ width: '100%' });
+  // Add keywords to multi-select option
+  keywords.forEach((keyword) => {
+    let option = `<option value="${keyword}" style="font-size: 13px;">${keyword}</option>`;
+    $('#keywords').append(option);
   });
 
-  // Add keywords to multi-select option
-  let keywordSelector = document.querySelector('#keywords');
-  for (let i = 0; i < keywords.length; i++) {
-    let option = document.createElement('option');
-    option.value = keywords[i];
-    option.innerHTML = keywords[i];
-    keywordSelector.appendChild(option);
-    keywordSelector.style = null;
-  }
+  $('#keywords').selectpicker('refresh');
 
   // Add languages to multi-select option
-  let languageSelector = document.querySelector('#languages');
-  for (let i = 0; i < languages.length; i++) {
-    let option = document.createElement('option');
-    option.value = languages[i];
-    option.innerHTML = languages[i];
-    languageSelector.appendChild(option);
-    languageSelector.style = null;
-  }
+  languages.forEach((language) => {
+    let option = `<option value="${language}" style="font-size: 13px;">${language}</option>`;
+    $('#languages').append(option);
+  });
+
+  $('#languages').selectpicker('refresh');
 })();

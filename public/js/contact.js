@@ -3,6 +3,7 @@ document
   .getElementById('submit-message')
   .addEventListener('click', async (e) => {
     try {
+      e.preventDefault();
       const name = document.querySelector('#name').value;
       const email = document.querySelector('#email').value;
       const message = document.querySelector('#message').value;

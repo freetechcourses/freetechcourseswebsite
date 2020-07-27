@@ -73,6 +73,7 @@ function showCalendar(month, year) {
       } else {
         let cell = document.createElement('td');
         let link = document.createElement('A');
+        cell.classList.add('text-center');
         link.setAttribute('type', 'button');
         link.setAttribute('href', 'blog-by-date.html');
         link.classList.add('card-link', 'text-secondary');
@@ -82,7 +83,7 @@ function showCalendar(month, year) {
           year === today.getFullYear() &&
           month === today.getMonth()
         ) {
-          link.classList.add('h4');
+          link.classList.add('h6');
         }
         link.appendChild(cellText);
         cell.appendChild(link);
@@ -119,7 +120,12 @@ function showCalendar(month, year) {
             )
           )
         ) {
-          link.classList.add('badge', 'badge-secondary', 'text-light');
+          link.classList.add(
+            'badge',
+            'badge-secondary',
+            'text-light',
+            'text-center'
+          );
         }
       });
 

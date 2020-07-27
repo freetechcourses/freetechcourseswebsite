@@ -26,16 +26,14 @@
       crossorigin="anonymous"
     />
 
-    <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="./css/dashboard.css" />
-
-    <!--Chosen Stylesheet-->
+    <!-- Latest compiled and minified CSS for Bootstrap-select -->
     <link
-      type="text/css"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css"
     />
 
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="./css/dashboard.css" />
     <title>Admin Panel</title>
   </head>
 
@@ -289,7 +287,7 @@
     <!--Main Content-->
     <main>
       <div class="container">
-        <div class="row mt-5 pt-5 mb-5">
+        <div class="row mt-5 pt-5 mb-5 pb-5">
           <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
             <div class="row justify-content-center">
               <div class="col-12">
@@ -333,9 +331,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="date" class="col-12"
-                      >Date on which Course is to be Added:</label
-                    >
+                    <label for="date" class="col-12">Date:</label>
                     <input
                       type="date"
                       name="date"
@@ -345,10 +341,16 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="keywords" class="col-12"
-                      >Select Keyword(s):</label
+                    <label for="keywords" class="col-12">
+                      Select Keyword(s):
+                    </label>
+                    <select
+                      class="form-control"
+                      id="keywords"
+                      multiple
+                      data-live-search="true"
                     >
-                    <select class="sel" id="keywords" multiple> </select>
+                    </select>
                   </div>
 
                   <div class="form-group">
@@ -364,10 +366,16 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="languages" class="col-12"
-                      >Select Language(s):</label
+                    <label for="languages" class="col-12">
+                      Select Language(s):
+                    </label>
+                    <select
+                      class="form-control"
+                      id="languages"
+                      multiple
+                      data-live-search="true"
                     >
-                    <select class="sel" id="languages" multiple> </select>
+                    </select>
                   </div>
 
                   <div class="form-group">
@@ -461,19 +469,14 @@
       <div class="row border-top pt-3 footer">
         <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
           <div class="row">
-            <div class="col-lg-6 text-center">
+            <div class="col-12 text-center">
               <ul class="list-inline">
                 <li class="list-inline-item">
-                  <a href="index.html" target="_blank" class="text-dark"
-                    >FreeTechCourses</a
-                  >
+                  <a href="index.html" target="_blank" class="text-dark">
+                    FreeTechCourses
+                  </a>
                 </li>
               </ul>
-            </div>
-            <div class="col-lg-6 text-center">
-              <p>
-                Footer tag, will decide what to write here
-              </p>
             </div>
           </div>
         </div>
@@ -497,7 +500,8 @@
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript for Bootstrap-select -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
     <!-- Custom Scripts -->
     <script src="./js/util/baseUrl.js"></script>
