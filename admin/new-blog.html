@@ -7,6 +7,37 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
 
+    <link rel="canonical" href="https://quilljs.com/standalone/full/" />
+    <link
+      type="application/atom+xml"
+      rel="alternate"
+      href="https://quilljs.com/feed.xml"
+      title="Quill - Your powerful rich text editor"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css"
+    />
+
+    <link rel="stylesheet" href="./quill.snow.css" />
+
+    <style>
+      #standalone-container {
+        background-color: white;
+      }
+
+      #editor-container {
+        height: 350px;
+        background-color: white;
+      }
+    </style>
+
     <!-- Fontawesome icons -->
     <script
       src="https://kit.fontawesome.com/74c1adc36b.js"
@@ -321,11 +352,56 @@
                   </div>
                   <div class="form-group">
                     <label for="body" class="col-12">Blog Content</label>
-                    <textarea
+                    <!-- <textarea
                       class="form-control"
                       id="body"
                       rows="20"
-                    ></textarea>
+                    ></textarea> -->
+                    <div id="standalone-container">
+                      <div id="toolbar-container">
+                        <span class="ql-formats">
+                          <select class="ql-header">
+                            <option value="1">Heading 1</option>
+                            <option value="2">Heading 2</option>
+                            <option value="3">Heading 3</option>
+                            <option value="4">Heading 4</option>
+                            <option value="5">Heading 5</option>
+                            <option value="6">Heading 6</option>
+                            <option value="">Normal</option>
+                          </select>
+                        </span>
+
+                        <span class="ql-formats">
+                          <button class="ql-bold"></button>
+                          <button class="ql-italic"></button>
+                          <button class="ql-underline"></button>
+                          <button class="ql-strike"></button>
+                        </span>
+                        <span class="ql-formats">
+                          <select class="ql-color"></select>
+                          <select class="ql-background"></select>
+                        </span>
+                        <span class="ql-formats">
+                          <select class="ql-align"></select>
+                        </span>
+                        <span class="ql-formats">
+                          <button class="ql-list" value="ordered"></button>
+                          <button class="ql-list" value="bullet"></button>
+                          <button class="ql-indent" value="-1"></button>
+                          <button class="ql-indent" value="+1"></button>
+                        </span>
+                        <span class="ql-formats">
+                          <button class="ql-script" value="sub"></button>
+                          <button class="ql-script" value="super"></button>
+                        </span>
+
+                        <span class="ql-formats">
+                          <button class="ql-link"></button>
+                          <button class="ql-formula"></button>
+                        </span>
+                      </div>
+                      <div id="editor-container"></div>
+                    </div>
                   </div>
                   <div class="wrap">
                     <button
@@ -417,5 +493,24 @@
     <script src="./js/util/logout.js"></script>
     <script src="./js/util/errorHandler.js"></script>
     <script src="./js/newBlog.js"></script>
+
+    <!-- quill scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+    <script src="../quill.min.js"></script>
+
+    <script>
+      var quill = new Quill("#editor-container", {
+        modules: {
+          formula: true,
+          syntax: true,
+          toolbar: "#toolbar-container",
+        },
+        placeholder: "Blog content goes here...",
+        theme: "snow",
+      });
+    </script>
   </body>
 </html>
