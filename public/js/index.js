@@ -7,7 +7,7 @@
     ).json();
 
     // Displaying latest courses
-    displayCourses(response.data);
+    displayCourses(response.data, 'latest');
   } catch (err) {
     errorHandler();
     setTimeout(removeErrorHandler(), 5000);
@@ -23,7 +23,7 @@ document.getElementById('view-more').addEventListener('click', async () => {
     ).json();
 
     // Displaying courses
-    displayCourses(response.data);
+    displayCourses(response.data, 'view-more');
 
     // Removing View More button if no nextPage === false
     if (!response.nextPage) {
