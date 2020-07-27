@@ -9,10 +9,10 @@
   // Add keywords to multi-select option
   keywords.forEach((keyword) => {
     let option = `<option value="${keyword}" style="font-size: 10px;">${keyword}</option>`;
-    $('select').append(option);
+    $('#search-courses').append(option);
   });
 
-  $('select').selectpicker('refresh');
+  $('#search-courses').selectpicker('refresh');
 })();
 
 // Search bar request for new/searched courses
@@ -36,7 +36,7 @@ document.getElementById('search-button').addEventListener('click', async () => {
     ).json();
 
     // Displaying searched courses
-    displayCourses(response.data);
+    displayCourses(response.data, 'search');
   } catch (err) {
     errorHandler();
     setTimeout(removeErrorHandler, 5000);
