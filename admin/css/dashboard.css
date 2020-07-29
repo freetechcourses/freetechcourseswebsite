@@ -8,6 +8,7 @@ body {
   font-family: OpenSans, sans-serif;
   background: #eee;
   overflow-x: hidden;
+  -webkit-appearance: none;
 }
 /* End Of Global styles */
 
