@@ -3,7 +3,6 @@ document
   .getElementById("add-blog-button")
   .addEventListener("click", async (e) => {
     try {
-      e.preventDefault();
       const title = document.getElementById("title").value;
       const blogImage = document.getElementById("img-link").value;
       const body = `<div>${quill.root.innerHTML}</div>`;
