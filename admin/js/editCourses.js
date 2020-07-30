@@ -65,7 +65,7 @@ document.getElementById('search-button').addEventListener('click', async () => {
         <td>
           <a 
             type="button" 
-            class="btn btn-success btn-sm" 
+            class="btn btn-success btn-sm edit-button" 
             href="update-course.html" 
             onclick="update('${response.data[i]._id}')"
           >

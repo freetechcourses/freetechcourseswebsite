@@ -130,6 +130,13 @@ a:hover {
 .error-message {
   margin: 0;
 }
+/* End Of Error Message */
+
+/* Go back webkit */
+.go-back-button {
+  -webkit-appearance: none;
+}
+/* End Of Go back webkit */
 
 @media (max-width: 1024px) {
   #login-form {

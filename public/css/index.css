@@ -10,6 +10,22 @@ html {
   font-size: 18px;
 }
 
+/* Navbar */
+.navbar-brand {
+  -webkit-appearance: none;
+}
+
+.nav-link {
+  -webkit-appearance: none;
+}
+/* End Of Navbar */
+
+/* Breadcrumb */
+.breadcrumb-link {
+  -webkit-appearance: none;
+}
+/* End Of Breadcrumb */
+
 /* Alert for contact form */
 .sent-message-successful-alert,
 .sent-message-error-alert {
@@ -71,30 +87,6 @@ html {
 input:-webkit-autofill {
   transition: background-color 5000s ease-in-out 0s;
 }
-
-#questions {
-  width: 300px;
-  height: 225px;
-}
-
-#img-container {
-  text-align: center;
-}
-
-.question-list {
-  padding: 2rem;
-  text-align: center;
-}
-
-.question,
-.text {
-  font-size: 1.35em;
-}
-
-.counselling {
-  background-image: url('../assets/img/bg.png');
-  background-size: cover;
-}
 /*End of Counselling Page*/
 
 /*Icons*/
@@ -149,6 +141,10 @@ input:-webkit-autofill {
 /* Calendar */
 #calendar {
   font-size: 12px;
+}
+
+.calendar-date {
+  -webkit-appearance: none;
 }
 
 @media (max-width: 468px) {

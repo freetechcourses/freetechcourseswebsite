@@ -100,6 +100,12 @@ body {
 }
 /* End Of No Courses */
 
+/* Edit Button */
+.edit-button {
+  -webkit-appearance: none;
+}
+/* End Of Edit Button */
+
 /* Delete Course */
 .delete-course-successful {
   display: none;
@@ -116,6 +122,9 @@ body {
   height: 40vh;
   background-color: rgb(179, 179, 179);
   border-radius: 5px;
+}
+.delete-button {
+  -webkit-appearance: none;
 }
 /* End Of Blogs */
 
