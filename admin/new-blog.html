@@ -7,6 +7,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
 
+    <!-- Quill -->
     <link rel="canonical" href="https://quilljs.com/standalone/full/" />
     <link
       type="application/atom+xml"
@@ -25,7 +26,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css"
     />
 
-    <link rel="stylesheet" href="./quill.snow.css" />
+    <link rel="stylesheet" href="./css/quill.snow.css" />
 
     <style>
       #standalone-container {
@@ -148,7 +149,7 @@
                         <button
                           type="button"
                           id="admin-dropdown"
-                          class="nav-link btn btn-dark text-white dropdown-toggle"
+                          class="nav-link btn btn-dark text-white"
                           data-toggle="dropdown"
                         >
                           <i class="fas fa-user text-light fa-lg"></i>
@@ -499,7 +500,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 
-    <script src="../quill.min.js"></script>
+    <script src="./js/util/quill.min.js"></script>
 
     <script>
       var quill = new Quill("#editor-container", {
