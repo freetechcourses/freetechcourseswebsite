@@ -3,6 +3,7 @@ document
   .getElementById('add-course-button')
   .addEventListener('click', async (e) => {
     try {
+      e.preventDefault();
       const name = document.querySelector('#name').value;
       const description = document.querySelector('#description').value;
       const date = new Date(document.querySelector('#date').value).getTime();

@@ -2,7 +2,6 @@
 *:before,
 *:after {
   box-sizing: border-box;
-  -webkit-appearance: none;
 }
 
 html {
@@ -10,21 +9,11 @@ html {
   font-size: 18px;
 }
 
-/* Navbar */
-.navbar-brand {
+/* Safari Bug */
+.safari-issue {
   -webkit-appearance: none;
 }
-
-.nav-link {
-  -webkit-appearance: none;
-}
-/* End Of Navbar */
-
-/* Breadcrumb */
-.breadcrumb-link {
-  -webkit-appearance: none;
-}
-/* End Of Breadcrumb */
+/* End Of Safari Bug */
 
 /* Alert for contact form */
 .sent-message-successful-alert,
@@ -141,10 +130,6 @@ input:-webkit-autofill {
 /* Calendar */
 #calendar {
   font-size: 12px;
-}
-
-.calendar-date {
-  -webkit-appearance: none;
 }
 
 @media (max-width: 468px) {

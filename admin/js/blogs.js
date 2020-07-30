@@ -21,7 +21,7 @@
         <td>
           <a 
             type="button" 
-            class="btn btn-danger btn-sm delete-button" 
+            class="btn btn-danger btn-sm safari-issue" 
             href="delete-blog.html" 
             onclick="deleteButton('${response.data[i]._id}')"
           >

@@ -76,7 +76,7 @@ function showCalendar(month, year) {
         cell.classList.add('text-center');
         link.setAttribute('type', 'button');
         link.setAttribute('href', 'blog-by-date.html');
-        link.classList.add('card-link', 'text-secondary', 'calendar-date');
+        link.classList.add('card-link', 'text-secondary', 'safari-issue');
         let cellText = document.createTextNode(date);
         if (
           date === today.getDate() &&

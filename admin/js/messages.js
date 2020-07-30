@@ -25,7 +25,7 @@
         <td>${response.feedbacks[i].name}</td>
         <td>${response.feedbacks[i].email}</td>
         <td>
-          ${response.feedbacks[i].message}
+          ${sanitize(response.feedbacks[i].message)}
         </td>
       </tr>`;
         $('#messages').append(messageDetails);

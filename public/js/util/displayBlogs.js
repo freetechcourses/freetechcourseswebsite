@@ -20,7 +20,7 @@ const displayBlogs = (data) => {
             ${data[i].body}
           </div>
           <a 
-            class="btn text-info mt-3"
+            class="btn text-info mt-3 safari-issue"
             href="single-blog.html"
             onclick="blogInfo('${data[i]._id}')"
           >

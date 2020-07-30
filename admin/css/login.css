@@ -1,7 +1,6 @@
 * {
   font-family: 'Montserrat', sans-serif;
   font-size: large;
-  -webkit-appearance: none;
 }
 
 body {
@@ -132,11 +131,11 @@ a:hover {
 }
 /* End Of Error Message */
 
-/* Go back webkit */
-.go-back-button {
+/* Safari Issue Fix */
+.safari-issue {
   -webkit-appearance: none;
 }
-/* End Of Go back webkit */
+/* End Of Safari Issue Fix */
 
 @media (max-width: 1024px) {
   #login-form {

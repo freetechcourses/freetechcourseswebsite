@@ -8,7 +8,6 @@ body {
   font-family: OpenSans, sans-serif;
   background: #eee;
   overflow-x: hidden;
-  -webkit-appearance: none;
 }
 /* End Of Global styles */
 
@@ -100,11 +99,11 @@ body {
 }
 /* End Of No Courses */
 
-/* Edit Button */
-.edit-button {
+/* Safari Issue Fix */
+.safari-issue {
   -webkit-appearance: none;
 }
-/* End Of Edit Button */
+/* End Of Safari Issue Fix */
 
 /* Delete Course */
 .delete-course-successful {
@@ -122,9 +121,6 @@ body {
   height: 40vh;
   background-color: rgb(179, 179, 179);
   border-radius: 5px;
-}
-.delete-button {
-  -webkit-appearance: none;
 }
 /* End Of Blogs */
 
