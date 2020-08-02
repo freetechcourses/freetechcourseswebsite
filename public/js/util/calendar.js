@@ -134,7 +134,7 @@ function showCalendar(month, year) {
         const blogDate = new Date(
           currentYear,
           currentMonth,
-          parseInt(badge.innerText)
+          parseInt(badge.innerText) + 1
         ).getTime();
         badge.id = blogDate;
         badge.setAttribute('onclick', `getBlogByDate('${blogDate}')`);
