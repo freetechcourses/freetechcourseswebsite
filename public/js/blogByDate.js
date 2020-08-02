@@ -18,7 +18,7 @@
     // Updating breadcrumb
     if (localStorage.getItem('blogDate')) {
       document.getElementById('blog-by-date').innerText = `Blogs on ${new Date(
-        parseInt(localStorage.getItem('blogDate')) - 86400000
+        parseInt(localStorage.getItem('blogDate'))
       ).toDateString()}`;
     } else {
       null;

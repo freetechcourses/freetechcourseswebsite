@@ -132,9 +132,9 @@ function showCalendar(month, year) {
       // Setting id and other attributes to dates having blogs
       [...document.querySelectorAll('.badge')].map((badge) => {
         const blogDate = new Date(
-          new Date(Date.now()).getFullYear(),
-          new Date(Date.now()).getMonth(),
-          parseInt(badge.innerText) + 1
+          currentYear,
+          currentMonth,
+          parseInt(badge.innerText)
         ).getTime();
         badge.id = blogDate;
         badge.setAttribute('onclick', `getBlogByDate('${blogDate}')`);
