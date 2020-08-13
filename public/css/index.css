@@ -176,7 +176,8 @@ input:-webkit-autofill {
   display: none;
 }
 /*word wrap to single blog*/
-#single-blog {
+#single-blog,
+#blogs {
   word-wrap: break-word;
 }
 /*emd of word wrap to single blog*/
