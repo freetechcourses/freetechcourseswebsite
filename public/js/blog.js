@@ -10,7 +10,7 @@
       return b.date - a.date;
     });
 
-    // Displaying blogs
+    // Displaying blogs and pinned blogs list
     displayBlogs(response.data);
   } catch (err) {
     errorHandler();

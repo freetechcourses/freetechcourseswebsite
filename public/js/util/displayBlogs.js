@@ -5,10 +5,15 @@ const displayBlogs = (data) => {
           ${data[i].title}
           </h2>
           <hr />
-          <p class="text-muted">
-            Posted on 
-            Date: ${new Date(data[i].date).toDateString()} 
-          </p>
+          <div class="pl-4 pr-4 row justify-content-between align-items-center">
+            <p class="text-muted">
+              Posted on 
+              Date: ${new Date(data[i].date).toDateString()} 
+            </p>
+            ${
+              data[i].pin ? '<p><i class="fas fa-thumbtack fa-sm"></i></p>' : ''
+            }
+          </div>
           <hr />
           <img
             alt=${data[i].title} 
@@ -28,6 +33,17 @@ const displayBlogs = (data) => {
           </a>
           <hr />`;
       $('#blogs').append(blog);
+
+      if (data[i].pin) {
+        const pinnedBlogs = `<a
+                            href="single-blog.html"
+                            class="list-group-item list-group-item-action"
+                            onclick="blogInfo('${data[i]._id}')"
+                          >
+                            ${data[i].title}
+                          </a>`;
+        $('#pinned-blogs').append(pinnedBlogs);
+      }
     }
   } else {
     document.getElementById('no-blogs').style.display = 'block';
