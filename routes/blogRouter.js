@@ -71,4 +71,22 @@ router.delete('/delete/:_id', async (req, res, next) => {
 	} catch(err){ next(err); }
 });
 
+router.put('/pin', async (req, res, next) => {
+	try{
+		let { list } = req.body;
+		if(!Array.isArray(list)){
+			let err = new Error('list of ids must be present');
+			err.status = 400;
+			next(err);
+			return;
+		}
+		let updates = [
+			Blog.updateMany({ _id: { $in: list }}, { pin: true }),
+			Blog.updateMany({ _id: { $nin: list }}, { pin: false })
+		];
+		await Promise.all(updates);
+		res.status(200).json({ ok:1 });
+	} catch(err){ next(err); }
+});
+
 module.exports = router;

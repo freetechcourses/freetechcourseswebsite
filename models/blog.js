@@ -15,6 +15,10 @@ const blogSchema = new mongoose.Schema({
 	date: {
 		type: Number,
 		required: true
+	},
+	pin: {
+		type: Boolean,
+		default: false
 	}
 });
 module.exports = mongoose.model('Blog', blogSchema);
