@@ -20,6 +20,8 @@ const displayCourses = (data, type) => {
       $('#display-courses').append(courseCard);
 
       // Getting more info about a individual course in a modal
+      console.log(data);
+
       document
         .getElementById(`${data[i]._id}`)
         .addEventListener('click', async () => {
@@ -44,6 +46,12 @@ const displayCourses = (data, type) => {
                                     </a>
                                     <p class="lead">
                                       ${response.data.description}
+                                    </p>
+                                    <p>
+                                      <strong>Languages Involved:</strong>
+                                      ${data[i].languages.map(
+                                        (language) => ` ${language}`
+                                      )}
                                     </p>
                                     <p>
                                       <strong>Date:</strong> 
