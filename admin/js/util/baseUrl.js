@@ -1,1 +1,1 @@
-const url = 'https://freetechcourses.herokuapp.com';
+const url = 'http://localhost:3000';

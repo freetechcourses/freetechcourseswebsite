@@ -13,16 +13,20 @@
 
   // Add keywords to multi-select option
   keywords.forEach((keyword) => {
-    let option = `<option value="${keyword}" style="font-size: 13px;">${keyword}</option>`;
-    $('#keywords').append(option);
+    if (keyword) {
+      let option = `<option value="${keyword}" style="font-size: 13px;">${keyword}</option>`;
+      $('#keywords').append(option);
+    }
   });
 
   $('#keywords').selectpicker('refresh');
 
   // Add languages to multi-select option
   languages.forEach((language) => {
-    let option = `<option value="${language}" style="font-size: 13px;">${language}</option>`;
-    $('#languages').append(option);
+    if (language) {
+      let option = `<option value="${language}" style="font-size: 13px;">${language}</option>`;
+      $('#languages').append(option);
+    }
   });
 
   $('#languages').selectpicker('refresh');

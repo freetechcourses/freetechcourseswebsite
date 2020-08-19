@@ -8,8 +8,10 @@
 
   // Add keywords to multi-select option
   keywords.forEach((keyword) => {
-    let option = `<option value="${keyword}" style="font-size: 12px;">${keyword}</option>`;
-    $('#search-courses').append(option);
+    if (keyword) {
+      let option = `<option value="${keyword}" style="font-size: 12px;">${keyword}</option>`;
+      $('#search-courses').append(option);
+    }
   });
 
   $('#search-courses').selectpicker('refresh');

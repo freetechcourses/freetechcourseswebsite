@@ -47,12 +47,16 @@ const displayCourses = (data, type) => {
                                     <p class="lead">
                                       ${response.data.description}
                                     </p>
-                                    <p>
-                                      <strong>Languages Involved:</strong>
-                                      ${data[i].languages.map(
-                                        (language) => ` ${language}`
+                                    ${
+                                      data[i].languages[0] !== null
+                                        ? `<p>
+                                      <strong>Language(s) Involved:</strong>
+                                      ${data[i].languages.map((language) =>
+                                        language !== null ? ` ${language}` : ''
                                       )}
-                                    </p>
+                                    </p>`
+                                        : ''
+                                    }
                                     <p>
                                       <strong>Date:</strong> 
                                       ${new Date(

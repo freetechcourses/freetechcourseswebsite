@@ -62,7 +62,7 @@ document
       const newKeywords = document.querySelector('#new-keywords').value;
       const newKeywordValues = newKeywords
         .split(',')
-        .map((keyword) => keyword.trim());
+        .map((keyword) => keyword !== '' && keyword.trim());
       const keywords = keywordValues.concat(newKeywordValues);
 
       const oldLanguages = document.querySelector('#languages');
@@ -72,7 +72,7 @@ document
       const newLanguages = document.querySelector('#new-languages').value;
       const newLanguageValues = newLanguages
         .split(',')
-        .map((language) => language.trim());
+        .map((language) => language !== '' && language.trim());
       const languages = languageValues.concat(newLanguageValues);
 
       const hyperlink = document.querySelector('#course-link').value;
