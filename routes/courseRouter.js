@@ -45,7 +45,11 @@ router.post('/search', async (req, res, next) => {
 		let data = await Course.find({
 			keywords: { $in: keywords }
 		});
-		res.status(200).json({ ok:1, data });
+		let langs = new Set();
+		data.forEach(doc => {
+			doc.languages.forEach(l => langs.add(l));
+		});
+		res.status(200).json({ ok:1, data, langs });
 	} catch(err){ next(err); }
 });
 
