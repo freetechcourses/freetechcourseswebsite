@@ -49,6 +49,7 @@ router.post('/search', async (req, res, next) => {
 		data.forEach(doc => {
 			doc.languages.forEach(l => langs.add(l));
 		});
+		langs = Array.from(langs);
 		res.status(200).json({ ok:1, data, langs });
 	} catch(err){ next(err); }
 });
