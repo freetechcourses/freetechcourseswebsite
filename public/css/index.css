@@ -28,6 +28,12 @@ html {
 }
 /* End Of Jumbotron */
 
+/* Languages Faucet */
+.languages {
+  position: sticky;
+}
+/* End Of Languages Faucet */
+
 /* Card Text */
 .card-text {
   -webkit-box-orient: vertical;
@@ -96,7 +102,7 @@ input:-webkit-autofill {
 /*End of Icons*/
 
 #home-bg {
-  background-image: url("../assets/img/bg-1.jpg");
+  background-image: url('../assets/img/bg-1.jpg');
   color: white;
   background-position: right;
   background-size: cover;

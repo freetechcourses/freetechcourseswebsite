@@ -20,7 +20,6 @@ const displayCourses = (data, type) => {
       $('#display-courses').append(courseCard);
 
       // Getting more info about a individual course in a modal
-      console.log(data);
 
       document
         .getElementById(`${data[i]._id}`)
@@ -47,16 +46,6 @@ const displayCourses = (data, type) => {
                                     <p class="lead">
                                       ${response.data.description}
                                     </p>
-                                    ${
-                                      data[i].languages[0] !== null
-                                        ? `<p>
-                                      <strong>Language(s) Involved:</strong>
-                                      ${data[i].languages.map((language) =>
-                                        language !== null ? ` ${language}` : ''
-                                      )}
-                                    </p>`
-                                        : ''
-                                    }
                                     <p>
                                       <strong>Date:</strong> 
                                       ${new Date(
