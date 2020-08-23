@@ -49,7 +49,7 @@ document.getElementById('search-button').addEventListener('click', async () => {
       const languageSection = `<div>
                                 <div class="row">
                                   <div class="card mt-4 ml-3 mr-3 languages">
-                                    <div class="card-header">Languages</div>
+                                    <div class="card-header">Languages/Technologies</div>
                                     <div class="card-body d-flex-column" id="language-faucet"></div>
                                   </div>
                                 </div>
@@ -101,8 +101,6 @@ const checkBoxAction = (data) => {
   let checked = [...document.querySelectorAll('input[type="checkbox"]')]
     .filter((elem) => elem.checked)
     .map((elem) => elem.value);
-
-  console.log(checked);
 
   $('#display-courses').empty();
 
