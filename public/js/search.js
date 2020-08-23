@@ -41,6 +41,10 @@ document.getElementById('search-button').addEventListener('click', async () => {
     // Displaying searched courses
     displayCourses(response.data, 'search');
 
+    // Getting Courses from DOM
+    const courses = [...document.querySelector('#display-courses').childNodes];
+
+    // Appending Language Card
     if (response.langs.length) {
       const languageSection = `<div>
                                 <div class="row">
@@ -53,6 +57,7 @@ document.getElementById('search-button').addEventListener('click', async () => {
 
       $('#language-section').prepend(languageSection);
 
+      // Appending Language checkbox
       for (let i = 0; i < response.langs.length; i++) {
         if (response.langs[i]) {
           const checkbox = `<div class="form-check">
@@ -68,35 +73,46 @@ document.getElementById('search-button').addEventListener('click', async () => {
                           </label>
                         </div>`;
           $('#language-faucet').append(checkbox);
+          document
+            .getElementById(response.langs[i])
+            .addEventListener('click', function () {
+              checkBoxAction(courses);
+            });
         }
       }
     }
-
-    [...document.querySelector('#display-courses').childNodes].map((course) => {
-      // Filtering course area according to selected language
-      [...document.querySelectorAll('input[type="checkbox"]')].map(
-        (language) => {
-          language.addEventListener('click', () => {
-            if (language.checked) {
-              if (course.dataset.languages.includes(language.value)) {
-                $('#display-courses').append(course);
-              } else {
-                $(course).detach();
-              }
-            }
-          });
-          if (language.checked) {
-            if (course.dataset.languages.includes(language.value)) {
-              $('#display-courses').append(course);
-            } else {
-              $(course).detach();
-            }
-          }
-        }
-      );
-    });
   } catch (err) {
     errorHandler();
     setTimeout(removeErrorHandler, 5000);
   }
 });
+
+const intersect = (arr1, arr2) => {
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr2.includes(arr1[i])) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+const checkBoxAction = (data) => {
+  let checked = [...document.querySelectorAll('input[type="checkbox"]')]
+    .filter((elem) => elem.checked)
+    .map((elem) => elem.value);
+
+  console.log(checked);
+
+  $('#display-courses').empty();
+
+  data.map((course) => {
+    if (!checked.length) {
+      $('#display-courses').append(course);
+    } else {
+      if (intersect(checked, course.dataset.languages)) {
+        $('#display-courses').append(course);
+      }
+    }
+  });
+};
