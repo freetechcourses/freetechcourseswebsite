@@ -30,7 +30,7 @@ html {
 
 /* Languages Faucet */
 .languages {
-  position: sticky;
+  position: relative;
 }
 /* End Of Languages Faucet */
 
