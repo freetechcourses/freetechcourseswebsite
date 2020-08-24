@@ -7,6 +7,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 18px;
+  overflow-x: hidden;
 }
 
 /* Safari Bug */
@@ -29,23 +30,36 @@ html {
 /* End Of Jumbotron */
 
 /* Languages Faucet */
+#language-section {
+  display: flex;
+  justify-content: center;
+}
+
 .languages {
-  position: relative;
   display: none;
 }
+
+#show {
+  margin-left: 10px;
+  display: none;
+}
+
 @media (max-width: 600px) {
   .languages {
-    display: none;
+    width: 100%;
   }
   #show {
     margin-top: 10px;
   }
 }
-#show {
-  margin-left: 10px;
-  display: none;
-}
+
 /* End Of Languages Faucet */
+
+/* Course Card */
+.course:hover {
+  cursor: pointer;
+}
+/* End Of Course Card */
 
 /* Card Text */
 .card-text {
@@ -115,7 +129,7 @@ input:-webkit-autofill {
 /*End of Icons*/
 
 #home-bg {
-  background-image: url("../assets/img/bg-1.jpg");
+  background-image: url('../assets/img/bg-1.jpg');
   color: white;
   background-position: right;
   background-size: cover;

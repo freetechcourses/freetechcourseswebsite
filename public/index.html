@@ -128,7 +128,7 @@
 
     <!-- Search Bar -->
     <div class="container pt-5" id="search-section">
-      <div class="row justify-content-center">
+      <div class="row justify-content-center align-items-center">
         <div class="input-group col-sm-8">
           <select
             class="form-control"
@@ -147,7 +147,7 @@
             </button>
           </div>
         </div>
-        <button id="show" class="btn btn-outline-info">
+        <button id="show" class="btn btn-sm btn-outline-info">
           Filters <i class="fas fa-caret-down"></i>
         </button>
         <div class="col-12 pt-3">
@@ -158,11 +158,7 @@
             </small>
           </p>
         </div>
-        <div class="col-12">
-          <p class="lead text-center disappear-on-no-search1">
-            Click on a card to view more details about a course
-          </p>
-        </div>
+        <div id="language-section" class="col-12"></div>
       </div>
     </div>
 
@@ -170,9 +166,8 @@
 
     <!-- Card Display -->
     <div class="container">
-      <div class="row justify-content-center pt-2">
-        <div id="language-section"></div>
-        <div class="col-10">
+      <div class="row justify-content-center p-lg-4 mr-lg-4 ml-lg-4">
+        <div class="col-12">
           <div class="row justify-content-center mb-4">
             <img
               src="./assets/img/no-results.png"

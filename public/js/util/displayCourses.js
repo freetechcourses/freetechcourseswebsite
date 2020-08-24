@@ -2,7 +2,7 @@ const displayCourses = (data, type) => {
   if (data.length) {
     for (let i = 0; i < data.length; i++) {
       const courseCard = `<div class="col-lg-4 col-sm-6 mb-4" data-languages=${data[i].languages}>
-                              <div class="card" id=${data[i]._id} data-target="#details" data-toggle="modal">
+                              <div class="card course" id=${data[i]._id} data-target="#details" data-toggle="modal">
                                 <img class="card-img-top" src=${data[i].courseImage} alt=${data[i].name} />
                                 <div class="card-body">
                                   <h5 class="card-title course-name">${data[i].name}</h5>
