@@ -31,6 +31,19 @@ html {
 /* Languages Faucet */
 .languages {
   position: relative;
+  display: none;
+}
+@media (max-width: 600px) {
+  .languages {
+    display: none;
+  }
+  #show {
+    margin-top: 10px;
+  }
+}
+#show {
+  margin-left: 10px;
+  display: none;
 }
 /* End Of Languages Faucet */
 
@@ -102,7 +115,7 @@ input:-webkit-autofill {
 /*End of Icons*/
 
 #home-bg {
-  background-image: url('../assets/img/bg-1.jpg');
+  background-image: url("../assets/img/bg-1.jpg");
   color: white;
   background-position: right;
   background-size: cover;
