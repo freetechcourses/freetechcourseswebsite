@@ -54,6 +54,7 @@ document
         $('#add-courses-form').on('submit', function (e) {
           $('#successModal').modal('show');
           e.preventDefault();
+          window.location.href = '/add-courses.html';
         });
       }
     } catch (err) {
