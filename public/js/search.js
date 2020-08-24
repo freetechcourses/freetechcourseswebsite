@@ -99,8 +99,6 @@ const checkBoxAction = (data) => {
     .filter((elem) => elem.checked)
     .map((elem) => elem.value);
 
-  console.log(checked);
-
   $('#display-courses').empty();
 
   data.map((course) => {
