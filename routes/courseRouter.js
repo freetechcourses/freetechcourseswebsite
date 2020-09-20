@@ -41,9 +41,9 @@ router.get('/languages', async (req, res, next) => {
 
 router.post('/search', async (req, res, next) => {
 	try{
-		let { keywords } = req.body;
+		let { query } = req.body;
 		let data = await Course.find({
-			keywords: { $in: keywords }
+			$or: [ { keywords: { $in: query } }, { languages: { $in: query } } ]
 		});
 		let langs = new Set();
 		data.forEach(doc => {

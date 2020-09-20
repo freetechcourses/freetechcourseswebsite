@@ -4,10 +4,19 @@
     await fetch(`${url}/course/keywords`, { method: 'GET' })
   ).json();
 
-  const keywords = await keywordResponse.allKeywords.sort();
+  // Getting languages
+  const languageResponse = await (
+    await fetch(`${url}/course/languages`, { method: 'GET' })
+  ).json();
 
-  // Add keywords to multi-select option
-  keywords.forEach((keyword) => {
+  const query = await keywordResponse.allKeywords;
+  const languages = await languageResponse.allLanguages;
+
+  // appending languages array to query array
+  Array.prototype.push.apply(query, languages);
+
+  // Add query to multi-select option
+  query.sort().forEach((keyword) => {
     if (keyword) {
       let option = `<option value="${keyword}" style="font-size: 12px;">${keyword}</option>`;
       $('#search-courses').append(option);
@@ -21,7 +30,7 @@
 document.getElementById('search-button').addEventListener('click', async () => {
   try {
     const oldKeywords = document.querySelector('#search-courses');
-    const keywords = [...oldKeywords.selectedOptions].map(
+    const query = [...oldKeywords.selectedOptions].map(
       (option) => option.value
     );
 
@@ -33,7 +42,7 @@ document.getElementById('search-button').addEventListener('click', async () => {
     const response = await (
       await fetch(`${url}/course/search`, {
         method: 'POST',
-        body: JSON.stringify({ keywords }),
+        body: JSON.stringify({ query }),
         headers: { 'Content-Type': 'application/json' },
       })
     ).json();
@@ -84,6 +93,7 @@ document.getElementById('search-button').addEventListener('click', async () => {
   }
 });
 
+// Helper functions
 const intersect = (arr1, arr2) => {
   for (let i = 0; i < arr1.length; i++) {
     if (arr2.includes(arr1[i])) {

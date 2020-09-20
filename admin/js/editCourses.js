@@ -4,13 +4,22 @@
     await fetch(`${url}/course/keywords`, { method: 'GET' })
   ).json();
 
-  const keywords = await keywordResponse.allKeywords.sort();
+  // Getting keywords
+  const languageResponse = await (
+    await fetch(`${url}/course/languages`, { method: 'GET' })
+  ).json();
+
+  const query = await keywordResponse.allKeywords;
+  const languages = await languageResponse.allLanguages;
+
+  // appending languages array to query array
+  Array.prototype.push.apply(query, languages);
 
   // Removing delete button from DOM
   document.querySelector('#delete-courses').style.display = 'none';
 
-  // Add keywords to multi-select option
-  keywords.forEach((keyword) => {
+  // Add query to multi-select option
+  query.sort().forEach((keyword) => {
     if (keyword) {
       let option = `<option value="${keyword}" style="font-size: 13px;">${keyword}</option>`;
       $('select').append(option);
@@ -24,7 +33,7 @@
 document.getElementById('search-button').addEventListener('click', async () => {
   try {
     const oldKeywords = document.querySelector('#search-courses');
-    const keywords = [...oldKeywords.selectedOptions].map(
+    const query = [...oldKeywords.selectedOptions].map(
       (option) => option.value
     );
 
@@ -38,7 +47,7 @@ document.getElementById('search-button').addEventListener('click', async () => {
     const response = await (
       await fetch(`${url}/course/search`, {
         method: 'POST',
-        body: JSON.stringify({ keywords }),
+        body: JSON.stringify({ query }),
         headers: { 'Content-Type': 'application/json' },
       })
     ).json();

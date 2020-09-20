@@ -1,6 +1,16 @@
 // Get details for a single course
 (async () => {
   try {
+    // Getting keywords and languages
+    const keywordResponse = await (
+      await fetch(`${url}/course/keywords`, { method: 'GET' })
+    ).json();
+
+    const languageResponse = await (
+      await fetch(`${url}/course/languages`, { method: 'GET' })
+    ).json();
+
+    // Getting single course details
     const response = await (
       await fetch(`${url}/course/single/${sessionStorage.getItem('id')}`, {
         method: 'GET',
@@ -9,33 +19,54 @@
 
     if (response.ok) {
       document.getElementById('name').value = response.data.name;
+
       document.getElementById('description').innerText =
         response.data.description;
+
       document.getElementById('date').value = new Date(response.data.date)
         .toISOString()
         .split('T')[0];
-      $(document).ready(function () {
-        $('.sel').chosen({ width: '100%' });
+
+      // Sorting keywords and languages array
+      const keywords = await keywordResponse.allKeywords.sort();
+      const languages = await languageResponse.allLanguages.sort();
+
+      // Add keywords to multi-select option
+      keywords.forEach((keyword) => {
+        if (response.data.keywords.includes(keyword)) {
+          if (keyword) {
+            let option = `<option value="${keyword}" style="font-size: 13px;" selected>${keyword}</option>`;
+            $('#keywords').append(option);
+          }
+        } else {
+          if (keyword) {
+            let option = `<option value="${keyword}" style="font-size: 13px;">${keyword}</option>`;
+            $('#keywords').append(option);
+          }
+        }
       });
-      let keywordSelector = document.querySelector('#keywords');
-      for (let i = 0; i < response.data.keywords.length; i++) {
-        let option = document.createElement('option');
-        option.value = response.data.keywords[i];
-        option.innerHTML = response.data.keywords[i];
-        option.selected = true;
-        keywordSelector.appendChild(option);
-        keywordSelector.style = null;
-      }
-      let languageSelector = document.querySelector('#languages');
-      for (let i = 0; i < response.data.languages.length; i++) {
-        let option = document.createElement('option');
-        option.value = response.data.languages[i];
-        option.innerHTML = response.data.languages[i];
-        option.selected = true;
-        languageSelector.appendChild(option);
-        languageSelector.style = null;
-      }
+
+      $('#keywords').selectpicker('refresh');
+
+      // Add languages to multi-select option
+      languages.forEach((language) => {
+        if (response.data.languages.includes(language)) {
+          if (language) {
+            let option = `<option value="${language}" style="font-size: 13px;" selected>${language}</option>`;
+            $('#languages').append(option);
+          }
+        } else {
+          if (language) {
+            let option = `<option value="${language}" style="font-size: 13px;">${language}</option>`;
+            $('#languages').append(option);
+          }
+        }
+      });
+
+      $('#languages').selectpicker('refresh');
+
       document.getElementById('course-link').value = response.data.hyperlink;
+
       document.getElementById('img-link').value = response.data.courseImage;
     }
   } catch (err) {
