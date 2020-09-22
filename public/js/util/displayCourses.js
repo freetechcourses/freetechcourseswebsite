@@ -1,5 +1,7 @@
 const displayCourses = (data, type) => {
   if (data.length) {
+    document.querySelector('#no-results').style.display = 'none';
+
     for (let i = 0; i < data.length; i++) {
       const courseCard = `<div class="col-lg-4 col-sm-6 mb-4" data-languages=${data[i].languages}>
                               <div class="card course" id=${data[i]._id} data-target="#details" data-toggle="modal">

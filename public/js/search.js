@@ -4,16 +4,16 @@
     await fetch(`${url}/course/keywords`, { method: 'GET' })
   ).json();
 
-  // Getting languages
-  const languageResponse = await (
-    await fetch(`${url}/course/languages`, { method: 'GET' })
-  ).json();
+  // // Getting languages
+  // const languageResponse = await (
+  //   await fetch(`${url}/course/languages`, { method: 'GET' })
+  // ).json();
 
   const query = await keywordResponse.allKeywords;
-  const languages = await languageResponse.allLanguages;
+  // const languages = await languageResponse.allLanguages;
 
   // appending languages array to query array
-  Array.prototype.push.apply(query, languages);
+  // Array.prototype.push.apply(query, languages);
 
   // Add query to multi-select option
   query.sort().forEach((keyword) => {
