@@ -37,10 +37,24 @@ const displayBlogs = (data) => {
       if (data[i].pin) {
         const pinnedBlogs = `<a
                             href="single-blog.html"
-                            class="list-group-item list-group-item-action"
+                            class="list-group-item list-group-item-action p-1 flex-column align-items-start"
                             onclick="blogInfo('${data[i]._id}')"
                           >
-                            ${data[i].title}
+                              <div class="d-flex w-100 justify-content-between">
+                                <small style="font-size: 14px;">${
+                                  data[i].title
+                                }</small>
+                                <div class="badge">
+                                  <small style="font-size: 10px;">
+                                    ${Math.round(
+                                      Math.abs(
+                                        (new Date() - new Date(data[i].date)) /
+                                          (24 * 60 * 60 * 1000)
+                                      )
+                                    )} days ago
+                                  </small>
+                                </div>
+                              </div>
                           </a>`;
         $('#pinned-blogs').append(pinnedBlogs);
       }
