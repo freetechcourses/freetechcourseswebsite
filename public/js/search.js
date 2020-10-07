@@ -71,10 +71,10 @@ document.getElementById('search-button').addEventListener('click', async () => {
                             class="form-check-input" 
                             type="checkbox" 
                             name="language"
-                            value=${response.langs[i]} 
-                            id=${response.langs[i]}
+                            value="${response.langs[i]}" 
+                            id="${response.langs[i]}"
                           >
-                          <label class="form-check-label" for=${response.langs[i]}>
+                          <label class="form-check-label" for="${response.langs[i]}">
                             ${response.langs[i]}
                           </label>
                         </div>`;
