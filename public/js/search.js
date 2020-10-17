@@ -54,6 +54,9 @@ document.getElementById('search-button').addEventListener('click', async () => {
     const courses = [...document.querySelector('#display-courses').childNodes];
 
     document.getElementById('show').style.display = 'block';
+
+    response.langs.sort();
+
     // Appending Language Card
     if (response.langs.length) {
       const languageSection = `<div class="card mt-4 languages">
@@ -115,7 +118,7 @@ const checkBoxAction = (data) => {
     if (!checked.length) {
       $('#display-courses').append(course);
     } else {
-      if (intersect(checked, course.dataset.languages)) {
+      if (intersect(checked, course.dataset.languages.split(','))) {
         $('#display-courses').append(course);
       }
     }
